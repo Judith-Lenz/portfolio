@@ -1,0 +1,25 @@
+<header>
+  <app-burger-menu></app-burger-menu>
+  <div class="name">Jud<span class="i">i</span>t<span class="h">h</span></div>
+  <div class="links-container">
+    <div class="links">
+      <a [routerLink]="'/'" fragment="about">About me</a>
+      <a [routerLink]="'/'" fragment="skills">Skills</a>
+      <a [routerLink]="'/'" fragment="portfolio">Portfolio</a>
+    </div>
+    <div class="language">
+      <div
+        [ngClass]="{ active: selectedLanguage === 'de' }"
+        (click)="setLanguage('de')"
+      >
+        DE
+      </div>
+      <div
+        [ngClass]="{ active: selectedLanguage === 'en' }"
+        (click)="setLanguage('en')"
+      >
+        EN
+      </div>
+    </div>
+  </div>
+</header>
