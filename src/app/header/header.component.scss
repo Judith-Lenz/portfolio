@@ -1,10 +1,16 @@
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 37px 100px;
+  width: 100%;
   max-width: 1920px;
-  height: 110px;
+
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 a {
@@ -60,6 +66,10 @@ a {
   }
 }
 
+.burger {
+  display: none;
+}
+
 .language {
   font-size: 18px;
   display: flex;
@@ -89,5 +99,39 @@ a {
         cursor: default;
       }
     }
+  }
+}
+
+@media (max-width: 940px) {
+  header {
+    padding: 37px 40px;
+  }
+  .links-container {
+    font-size: 16px;
+  }
+  .name {
+    font-size: 24px;
+  }
+  .name .i::after {
+    top: 5px;
+    width: 6px;
+    height: 6px;
+  }
+  .language {
+    font-size: 16px;
+    div {
+      width: 32px;
+      height: 28px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .links-container {
+    display: none;
+  }
+
+  .burger {
+    display: block;
   }
 }
