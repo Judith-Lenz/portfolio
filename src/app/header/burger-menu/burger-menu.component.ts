@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-burger-menu',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './burger-menu.component.html',
   styleUrl: './burger-menu.component.scss',
 })

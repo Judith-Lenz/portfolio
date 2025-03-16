@@ -2,8 +2,28 @@
   display: none;
 }
 
+ul {
+  color: white;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  justify-content: center;
+  gap: 29px;
+  width: fit-content;
+  margin: auto;
+}
+
+li {
+  color: white;
+  justify-self: start;
+  a {
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 700px) {
   .burger-icon {
+    align-items: center;
     display: flex;
     width: 30px;
     height: 27px;
@@ -17,39 +37,48 @@
       height: 2px;
       background-color: white;
       border-radius: 3px;
-      transition: all 0.3s;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+        width 0.15s ease-in-out;
     }
   }
 
-  .burger-icon.open {
-    .line:nth-child(1) {
-      transform: translateY(12px) rotate(45deg);
-    }
-    .line:nth-child(2) {
-      opacity: 0; /* Mittlere Linie ausblenden */
-    }
-    .line:nth-child(3) {
-      transform: translateY(-13px) rotate(-45deg);
-    }
+  .burger-icon.open .line:nth-child(2) {
+    width: 10px;
+    opacity: 1;
   }
 
+  .burger-icon.open .line:nth-child(2) {
+    opacity: 0;
+    transition-delay: 0.15s;
+  }
+
+  .burger-icon.open .line:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+  }
+
+  .burger-icon.open .line:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
+  }
   .menu {
+    display: flex;
+    justify-content: center; /* Horizontal zentrieren */
+    align-items: center; /* Vertikal zentrieren */
     position: fixed;
     top: 110px;
     right: 0;
     width: 100%;
-    height: 100vh;
-    background-color: #141d2f;
-    opacity: 0;
-    visibility: hidden; /* Versteckt das Menü ohne es aus dem Layout zu nehmen */
-    transform: translateX(100%); /* Startet außerhalb des Bildschirms */
+    height: calc(100vh - 110px);
+    background-color: rgb(20, 29, 47, 0.8);
+    // opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
       visibility 0.3s;
   }
 
   .menu.open {
-    transform: translateX(0); /* Menü fährt ins Bild */
-    opacity: 0.8;
-    visibility: visible; /* Menü wird sichtbar */
+    transform: translateX(0);
+    // opacity: 0.8;
+    visibility: visible;
   }
 }
