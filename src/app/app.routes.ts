@@ -6,13 +6,8 @@ import {
 } from '@angular/router';
 import { LegalNoticeComponent } from './pages/legal-notice/legal-notice.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
-import { AppComponent } from './app.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: AppComponent, // AppComponent wird geladen, wenn der Pfad leer ist
-  },
   {
     path: 'legal-notice',
     component: LegalNoticeComponent,
