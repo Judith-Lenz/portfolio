@@ -15,7 +15,22 @@ export class BurgerMenuComponent {
     this.menuOpen = !this.menuOpen;
   }
 
-  closeMenu() {
-    this.menuOpen = false;
+  closeMenuAndScroll(sectionId: string) {
+    this.menuOpen = false; // Menü schließen
+
+    // 100px als Offset für festen Header (falls nötig anpassen)
+    const headerOffset = 128;
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   }
 }

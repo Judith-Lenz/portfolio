@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
 
@@ -11,6 +11,24 @@ import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
+  constructor(private viewportScroller: ViewportScroller) {}
+
+  scrollToSection(sectionId: string) {
+    const headerOffset = 128; // Höhe Header!
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }
+
   /**
    * The currently selected language. Defaults to 'de' (German).
    */

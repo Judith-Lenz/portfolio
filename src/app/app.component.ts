@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
@@ -28,6 +28,25 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'meinPortfolio';
+
+  @ViewChild('about') aboutSection!: ElementRef;
+  @ViewChild('skills') skillsSection!: ElementRef;
+  @ViewChild('portfolio') portfolioSection!: ElementRef;
+  @ViewChild('contact') contactSection!: ElementRef;
+
+  ngAfterViewInit() {
+    // Sicherstellen, dass ViewChild funktioniert, falls Elemente asynchron geladen werden
+    setTimeout(() => {}, 0);
+  }
+
+  scrollTo(section: ElementRef) {
+    if (section) {
+      section.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
 }

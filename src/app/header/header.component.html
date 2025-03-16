@@ -3,9 +3,18 @@
     <div class="name">Jud<span class="i">i</span>t<span class="h">h</span></div>
     <div class="links-container">
       <div class="links">
-        <a [routerLink]="'/'" fragment="about">About me</a>
-        <a [routerLink]="'/'" fragment="skills">Skills</a>
-        <a [routerLink]="'/'" fragment="portfolio">Portfolio</a>
+        <a routerLink="" fragment="about" (click)="scrollToSection('about')"
+          >About me</a
+        >
+        <a routerLink="" fragment="skills" (click)="scrollToSection('skills')"
+          >Skills</a
+        >
+        <a
+          routerLink=""
+          fragment="portfolio"
+          (click)="scrollToSection('portfolio')"
+          >Portfolio</a
+        >
       </div>
       <div class="language">
         <div
