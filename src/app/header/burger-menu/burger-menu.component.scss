@@ -11,6 +11,14 @@ ul {
   gap: 29px;
   width: fit-content;
   margin: auto;
+  div {
+    display: flex;
+    gap: 10px;
+    &.active {
+      font-weight: bold;
+      color: #70e61c;
+    }
+  }
 }
 
 li {

@@ -11,8 +11,19 @@
       <li><a (click)="closeMenuAndScroll('portfolio')">Portfolio</a></li>
       <li><a (click)="closeMenuAndScroll('contact')">Contact</a></li>
       <div>
-        <div>DE</div>
-        <div>EN</div>
+        <div
+          [class.active]="selectedLanguage === 'en'"
+          (click)="changeLanguage('en')"
+        >
+          EN
+        </div>
+        <div>/</div>
+        <div
+          [class.active]="selectedLanguage === 'de'"
+          (click)="changeLanguage('de')"
+        >
+          DE
+        </div>
       </div>
     </ul>
   </nav>

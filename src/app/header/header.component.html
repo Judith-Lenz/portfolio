@@ -31,6 +31,10 @@
         </div>
       </div>
     </div>
-    <app-burger-menu class="burger"></app-burger-menu>
+    <app-burger-menu
+      class="burger"
+      [selectedLanguage]="selectedLanguage"
+      (languageChanged)="setLanguage($event)"
+    ></app-burger-menu>
   </header>
 </section>

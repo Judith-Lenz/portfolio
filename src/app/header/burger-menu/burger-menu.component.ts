@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,13 @@ import { Router } from '@angular/router';
   styleUrl: './burger-menu.component.scss',
 })
 export class BurgerMenuComponent {
+  @Input() selectedLanguage!: string;
+  @Output() languageChanged = new EventEmitter<string>();
+
+  changeLanguage(lang: string) {
+    this.languageChanged.emit(lang);
+  }
+
   menuOpen = false;
 
   constructor(
