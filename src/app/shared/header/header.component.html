@@ -3,18 +3,9 @@
     <app-title></app-title>
     <div class="links-container">
       <div class="links">
-        <a routerLink="" fragment="about" (click)="scrollToSection('about')"
-          >About me</a
-        >
-        <a routerLink="" fragment="skills" (click)="scrollToSection('skills')"
-          >Skills</a
-        >
-        <a
-          routerLink=""
-          fragment="portfolio"
-          (click)="scrollToSection('portfolio')"
-          >Portfolio</a
-        >
+        <a [routerLink]="['/']" fragment="about">About me</a>
+        <a [routerLink]="['/']" fragment="skills">Skills</a>
+        <a [routerLink]="['/']" fragment="portfolio">Portfolio</a>
       </div>
       <div class="language">
         <div

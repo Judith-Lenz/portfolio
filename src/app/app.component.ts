@@ -1,4 +1,5 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './shared/header/header.component';
 import { RouterOutlet } from '@angular/router';
@@ -11,24 +12,29 @@ import { FooterComponent } from './shared/footer/footer.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'meinPortfolio';
 
-  @ViewChild('about') aboutSection!: ElementRef;
-  @ViewChild('skills') skillsSection!: ElementRef;
-  @ViewChild('portfolio') portfolioSection!: ElementRef;
-  @ViewChild('contact') contactSection!: ElementRef;
-
-  ngAfterViewInit() {
-    // Sicherstellen, dass ViewChild funktioniert, falls Elemente asynchron geladen werden
-    setTimeout(() => {}, 0);
+  constructor(private route: ActivatedRoute) {
+    this.route.fragment.subscribe((fragment) => {
+      if (fragment) {
+        setTimeout(() => {
+          this.scrollToSection(fragment);
+        }, 100);
+      }
+    });
   }
 
-  scrollTo(section: ElementRef) {
-    if (section) {
-      section.nativeElement.scrollIntoView({
+  scrollToSection(sectionId: string) {
+    const element = document.querySelector(`[id='${sectionId}']`);
+    const headerOffset = 128; // Höhe Header
+
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - headerOffset,
         behavior: 'smooth',
-        block: 'start',
       });
     }
   }

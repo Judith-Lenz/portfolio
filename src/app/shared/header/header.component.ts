@@ -1,34 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
 import { TitleComponent } from '../title/title.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, BurgerMenuComponent, TitleComponent],
+  imports: [CommonModule, BurgerMenuComponent, TitleComponent, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  constructor(private viewportScroller: ViewportScroller) {}
-
-  scrollToSection(sectionId: string) {
-    const headerOffset = 128; // Höhe Header!
-    const element = document.getElementById(sectionId);
-
-    if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  }
-
   /**
    * The currently selected language. Defaults to 'de' (German).
    */
