@@ -1,0 +1,16 @@
+section {
+  border-top: solid;
+  border-top-color: #70e61c;
+  height: 290px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.socialButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
