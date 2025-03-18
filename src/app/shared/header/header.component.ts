@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
-import { TitleComponent } from '../shared/title/title.component';
+import { TitleComponent } from '../title/title.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, CommonModule, BurgerMenuComponent, TitleComponent],
+  imports: [CommonModule, BurgerMenuComponent, TitleComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

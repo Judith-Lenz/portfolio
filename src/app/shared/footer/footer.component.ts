@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from '../shared/title/title.component';
+import { TitleComponent } from '../title/title.component';
 
 @Component({
   selector: 'app-footer',
@@ -8,4 +8,6 @@ import { TitleComponent } from '../shared/title/title.component';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {}
+export class FooterComponent {
+  currentYear: number = new Date().getFullYear();
+}
