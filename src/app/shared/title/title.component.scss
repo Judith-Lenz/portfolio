@@ -1,0 +1,28 @@
+.name {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  .i {
+    position: relative;
+  }
+  .h {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to right, white 34%, #70e61c 35%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.name .i::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #7c28bd;
+  border-radius: 49%;
+}
