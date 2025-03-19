@@ -4,11 +4,18 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './shared/header/header.component';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/footer/footer.component';
+import { LegalNoticeComponent } from './pages/legal-notice/legal-notice.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, RouterOutlet, FooterComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    RouterOutlet,
+    FooterComponent,
+    LegalNoticeComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

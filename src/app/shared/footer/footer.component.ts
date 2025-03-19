@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TitleComponent } from '../title/title.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [TitleComponent],
+  imports: [TitleComponent, RouterModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
