@@ -6,7 +6,9 @@
 
 a {
   all: unset;
+  cursor: pointer;
 }
+
 ul {
   color: white;
   list-style: none;
@@ -36,14 +38,6 @@ ul {
     span {
       padding: 0px 10px 0px 10px;
     }
-  }
-}
-
-li {
-  color: white;
-  justify-self: start;
-  a {
-    cursor: pointer;
   }
 }
 
