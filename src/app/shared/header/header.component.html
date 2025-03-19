@@ -3,9 +3,42 @@
     <app-title></app-title>
     <div class="links-container">
       <div class="links">
-        <a [routerLink]="['/']" fragment="about">About me</a>
-        <a [routerLink]="['/']" fragment="skills">Skills</a>
-        <a [routerLink]="['/']" fragment="portfolio">Portfolio</a>
+        <a
+          [routerLink]="['/']"
+          fragment="about"
+          [routerLinkActive]="'activeLink'"
+          [routerLinkActiveOptions]="{
+            fragment: 'exact',
+            paths: 'subset',
+            matrixParams: 'ignored',
+            queryParams: 'ignored'
+          }"
+          >About me</a
+        >
+        <a
+          [routerLink]="['/']"
+          fragment="skills"
+          [routerLinkActive]="'activeLink'"
+          [routerLinkActiveOptions]="{
+            fragment: 'exact',
+            paths: 'subset',
+            matrixParams: 'ignored',
+            queryParams: 'ignored'
+          }"
+          >Skills</a
+        >
+        <a
+          [routerLink]="['/']"
+          fragment="portfolio"
+          [routerLinkActive]="'activeLink'"
+          [routerLinkActiveOptions]="{
+            fragment: 'exact',
+            paths: 'subset',
+            matrixParams: 'ignored',
+            queryParams: 'ignored'
+          }"
+          >Portfolio</a
+        >
       </div>
       <div class="language">
         <div

@@ -16,6 +16,24 @@ body {
   overflow-x: hidden;
 }
 
+.activeLink {
+  color: $green;
+  text-decoration: none;
+  text-decoration-thickness: 3px;
+  position: relative;
+  cursor: default;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 55px;
+    height: 2px;
+    background-color: $purple;
+  }
+}
+
 /* poppins-100 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
