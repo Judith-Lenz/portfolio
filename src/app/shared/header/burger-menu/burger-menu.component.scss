@@ -1,3 +1,5 @@
+@use "./../../../../styles.scss" as s;
+
 .burger-icon {
   display: none;
 }
@@ -22,7 +24,7 @@ ul {
       }
       &.active {
         font-weight: bold;
-        color: #70e61c;
+        color: s.$green;
         &:hover {
           cursor: default;
         }
@@ -82,8 +84,8 @@ li {
   }
   .menu {
     display: flex;
-    justify-content: center; /* Horizontal zentrieren */
-    align-items: center; /* Vertikal zentrieren */
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 110px;
     right: 0;

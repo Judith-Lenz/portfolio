@@ -1,6 +1,8 @@
+@use "./../../../styles.scss" as s;
+
 .full-width-border {
   border-top: solid;
-  border-top-color: #70e61c;
+  border-top-color: s.$green;
   width: 100vw;
   position: relative;
   left: 50%;

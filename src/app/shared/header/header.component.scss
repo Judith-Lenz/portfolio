@@ -1,3 +1,5 @@
+@use "./../../../styles.scss" as s;
+
 .fixed-header {
   position: fixed;
   top: 0;
@@ -28,7 +30,7 @@ a {
   text-align: center;
   transition: 0.3s;
   &:hover {
-    color: #70e61c;
+    color: s.$green;
   }
 }
 
@@ -57,22 +59,22 @@ a {
     border: 1px;
     width: 38px;
     height: 32px;
-    border-color: #70e61c;
+    border-color: s.$green;
     border-style: solid;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     &:not(.active):hover {
-      background-color: #7c28bd;
-      border-color: #7c28bd;
+      background-color: s.$purple;
+      border-color: s.$purple;
     }
     &.active {
       font-weight: bold;
-      background-color: #70e61c;
+      background-color: s.$green;
       &:hover {
-        background-color: #70e61c;
-        border-color: #70e61c;
+        background-color: s.$green;
+        border-color: s.$green;
         cursor: default;
       }
     }

@@ -1,3 +1,5 @@
+@use "./../../../styles.scss" as s;
+
 .name {
   font-size: 36px;
   font-weight: bold;
@@ -6,14 +8,14 @@
   .i {
     position: relative;
     display: inline-block;
-    background: linear-gradient(to bottom, #7c28bd 34%, white 11%);
+    background: linear-gradient(to bottom, s.$purple 34%, white 11%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .h {
     position: relative;
     display: inline-block;
-    background: linear-gradient(to right, white 34%, #70e61c 35%);
+    background: linear-gradient(to right, white 34%, s.$green 35%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
