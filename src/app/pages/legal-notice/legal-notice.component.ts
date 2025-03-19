@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,4 +9,8 @@ import { RouterModule } from '@angular/router';
   templateUrl: './legal-notice.component.html',
   styleUrl: './legal-notice.component.scss',
 })
-export class LegalNoticeComponent {}
+export class LegalNoticeComponent implements OnInit {
+  ngOnInit() {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scrollt immer nach oben
+  }
+}
