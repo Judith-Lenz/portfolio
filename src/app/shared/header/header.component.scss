@@ -86,11 +86,9 @@ a {
     padding: 37px 40px;
   }
   .links-container {
-    font-size: 16px;
+    font-size: 18px;
   }
-  .name {
-    font-size: 24px;
-  }
+
   .name .i::after {
     top: 5px;
     width: 6px;
@@ -112,5 +110,11 @@ a {
 
   .burger {
     display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 37px 30px 37px 30px;
   }
 }
