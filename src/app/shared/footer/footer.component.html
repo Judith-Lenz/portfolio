@@ -1,21 +1,25 @@
 <div class="full-width-border"></div>
 <section>
-  <div>
+  <div class="content">
     <div>
       <app-title></app-title>
     </div>
-    <div><a routerLink="/legal-notice">Legal-Notice</a></div>
-  </div>
-  <div>
-    &copy; Judith Lenz <span>{{ currentYear }}</span>
-  </div>
-  <div class="socialButtons">
     <div>
-      <img src="../../assets/image/github_default.svg" alt="githubIcon" />
+      &copy; Judith Lenz <span>{{ currentYear }}</span>
     </div>
-    <div><img src="../../assets/image/mail_default.svg" alt="mailIcon" /></div>
-    <div>
-      <img src="../../assets/image/linkedin_default.svg" alt="linkedinIcon" />
+    <div class="socialButtons">
+      <div>
+        <img src="../../assets/image/github_default.svg" alt="githubIcon" />
+      </div>
+      <div>
+        <img src="../../assets/image/mail_default.svg" alt="mailIcon" />
+      </div>
+      <div>
+        <img src="../../assets/image/linkedin_default.svg" alt="linkedinIcon" />
+      </div>
     </div>
+  </div>
+  <div class="legal-notice">
+    <a routerLink="/legal-notice">Legal-Notice</a>
   </div>
 </section>
