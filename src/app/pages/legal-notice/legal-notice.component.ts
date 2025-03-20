@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './legal-notice.component.scss',
 })
 export class LegalNoticeComponent implements OnInit {
+  email: string = 'judith.lenz@outlook.de';
+
   ngOnInit() {
     window.scrollTo({ top: 0, behavior: 'smooth' }); // Scrollt immer nach oben
   }
