@@ -2,8 +2,173 @@ section {
   padding-top: 128px;
   height: calc(100vh - 128px);
   img {
+    position: absolute;
+    bottom: 0;
     width: 100%;
     height: auto;
     object-fit: cover;
+  }
+}
+$primary-color: #0f172a;
+$secondary-color: #9a7aff;
+$btn-color: #32cd32;
+
+$cloud-opacity: 0.7;
+$cloud-size-desktop: 250px;
+$cloud-size-mobile: 150px;
+
+// 🔹 Mixins für wiederverwendbare Stile
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin absolute-position($top: auto, $left: auto, $right: auto, $bottom: auto) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+// 🔹 Hero-Container
+.hero {
+  position: relative;
+  height: 100vh;
+  @include flex-center;
+  padding: 20px;
+  overflow: hidden;
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+
+  // Wolken-Hintergrund
+  .bg-cloud {
+    position: absolute;
+    width: $cloud-size-desktop;
+    opacity: $cloud-opacity;
+    z-index: 0;
+
+    &.cloud-lila {
+      @include absolute-position(15%, 5%);
+    }
+
+    &.cloud-gruen {
+      @include absolute-position(auto, auto, 10%, 15%);
+    }
+  }
+
+  // Inhalt-Container
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    width: 90%;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  // Text-Bereich
+  .text-content {
+    flex: 1;
+    text-align: left;
+
+    h2 {
+      font-size: 3rem;
+      .thin {
+        font-weight: 300;
+      }
+    }
+
+    .subtitle {
+      color: $secondary-color;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: $btn-color;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+    }
+  }
+
+  // Bild-Container
+  .image-container {
+    flex: 1;
+    @include flex-center;
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      position: relative;
+      bottom: -20px; // Überlappung mit Bogen
+    }
+  }
+
+  // Scroll-Down Schriftzug
+  .scroll-down {
+    @include absolute-position(auto, auto, 20px, 10%);
+    transform: rotate(90deg);
+    font-size: 1rem;
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+// 🔹 Responsive Anpassungen
+@media (max-width: 1024px) {
+  .hero {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text-content {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: auto;
+    padding: 40px 20px;
+
+    .text-content {
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+    }
+
+    .bg-cloud {
+      width: $cloud-size-mobile;
+
+      &.cloud-lila {
+        @include absolute-position(10%, 2%);
+      }
+
+      &.cloud-gruen {
+        @include absolute-position(auto, auto, 2%, 5%);
+      }
+    }
   }
 }
