@@ -1,5 +1,6 @@
 import {
   Routes,
+  RouterModule,
   provideRouter,
   withInMemoryScrolling,
   withComponentInputBinding,
@@ -15,12 +16,12 @@ export const routes: Routes = [
   { path: '**', redirectTo: '' }, // Fallback zur Hauptseite
 ];
 
-export const appRoutingProviders = [
-  provideRouter(
-    routes,
-    withInMemoryScrolling({
-      scrollPositionRestoration: 'enabled',
-    }),
-    withComponentInputBinding()
-  ),
-];
+// export const appRoutingProviders = [
+//   provideRouter(
+//     routes,
+//     withInMemoryScrolling({
+//       scrollPositionRestoration: 'top',
+//     }),
+//     withComponentInputBinding()
+//   ),
+// ];
