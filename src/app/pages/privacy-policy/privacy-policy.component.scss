@@ -1,0 +1,25 @@
+@use "./../../../styles.scss" as s;
+
+section {
+  padding: 180px 80px;
+  text-align: start;
+  font-size: 14px;
+  a {
+    all: unset;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    color: s.$deep-purple;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 150px 30px;
+    font-size: 12px;
+  }
+}

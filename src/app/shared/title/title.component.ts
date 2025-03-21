@@ -11,11 +11,12 @@ import { RouterModule, Router } from '@angular/router';
 export class TitleComponent {
   constructor(private router: Router) {}
   navigateToHome() {
-    if (this.router.url === '/' || this.router.url === '') {
-      // Falls du schon auf der Hauptseite bist, nur nach oben scrollen
+    const path = this.router.url.split('#')[0];
+    if (path === '/' || path === '') {
+      // Schon auf der Hauptseite → smooth scroll nach oben
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Falls du auf einer anderen Seite bist, navigiere zur Hauptseite und scrolle nach oben
+      // Auf einer anderen Seite → navigieren und ohne smooth scrollen
       this.router.navigate(['/']).then(() => {
         window.scrollTo({ top: 0 });
       });

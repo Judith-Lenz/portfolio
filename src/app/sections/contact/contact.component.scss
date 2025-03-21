@@ -1,0 +1,14 @@
+@use "./../../../styles.scss" as s;
+
+a {
+  all: unset;
+  color: s.$deep-purple;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.pp_check {
+  font-size: 14px;
+}
