@@ -35,7 +35,8 @@ section {
     left: 0;
     width: 100%;
     height: auto;
-    z-index: -1;
+    height: auto;
+    z-index: 0;
   }
 }
 
@@ -57,39 +58,41 @@ section {
 //     z-index: 1;
 //   }
 
-//   // Text-Bereich
-//   .text-content {
-//     flex: 1;
-//     text-align: left;
+// Text-Bereich
+.text-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  text-align: left;
 
-//     h2 {
-//       font-size: 3rem;
-//       .thin {
-//         font-weight: 300;
-//       }
-//     }
+  h2 {
+    font-size: 3rem;
+    .thin {
+      font-weight: 300;
+    }
+  }
 
-//     .subtitle {
-//       color: $secondary-color;
-//       font-size: 1.5rem;
-//       margin-bottom: 20px;
-//     }
+  .subtitle {
+    color: $secondary-color;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
 
-//     .btn {
-//       display: inline-block;
-//       background-color: $btn-color;
-//       padding: 10px 20px;
-//       color: white;
-//       text-decoration: none;
-//       font-size: 1.2rem;
-//       border-radius: 5px;
-//     }
-//   }
+  .btn {
+    display: inline-block;
+    background-color: $btn-color;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+}
 
 // Bild-Container
 .image-container {
   position: relative;
-  height: 90%; /* nimmt fast die ganze Höhe ein */
+  height: 70%; /* nimmt fast die ganze Höhe ein */
   aspect-ratio: 1/1; /* bleibt quadratisch */
   width: auto;
   img {
@@ -99,19 +102,17 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    max-width: 400px;
   }
   .profile {
-    z-index: 3;
+    z-index: 1;
   }
   .shadow {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 250px;
-    height: 250px;
+    width: 100%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: -1;
   }
 }
 
