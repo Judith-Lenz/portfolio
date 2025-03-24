@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  email: string = 'judith.lenz@outlook.de';
+  email: string = 'kontakt.judithlenz@outlook.de';
 
   sendMail() {
     window.location.href = 'mailto:' + this.email;
