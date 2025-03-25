@@ -20,4 +20,6 @@ import { ContactComponent } from '../contact/contact.component';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })
-export class LandingPageComponent {}
+export class LandingPageComponent {
+  email: string = 'kontakt.judithlenz@outlook.de';
+}
