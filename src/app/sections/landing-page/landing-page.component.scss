@@ -1,9 +1,5 @@
 @use "./../../../styles.scss" as s;
 
-$cloud-opacity: 0.7;
-$cloud-size-desktop: 250px;
-$cloud-size-mobile: 150px;
-
 @mixin flex(
   $display: flex,
   $align-items: center,
@@ -78,7 +74,7 @@ section {
     line-height: 120%;
     letter-spacing: 0;
     color: s.$deep-purple;
-    font-size: 54px;
+    font-size: 50px;
   }
 }
 
@@ -126,15 +122,9 @@ section {
 }
 
 .contact {
-  position: absolute;
-  top: auto;
-  left: 0;
-  right: auto;
-  bottom: 5%;
+  @include absolute-position(auot, 0, auto, 5%);
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: start;
+  @include flex(flex, center, start);
   gap: 20px;
   a {
     all: unset;
@@ -161,25 +151,37 @@ section {
 .scroll-down {
   @include absolute-position(auto, auto, 16px, 10%);
   transform: rotate(90deg);
-  font-size: 1rem;
   z-index: 1;
   font-size: 23px;
 }
 
-// // 🔹 Responsive Anpassungen
-// @media (max-width: 1024px) {
-//   .hero {
-//     .container {
-//       flex-direction: column;
-//       text-align: center;
-//     }
+@media (max-width: 1024px) {
+  .text-content {
+    h2 {
+      font-size: 64px;
+    }
+    .vertical {
+      height: 99px;
+      font-size: 40px;
+    }
+    .subtitle {
+      width: 385px;
+      font-size: 35px;
+    }
+  }
 
-//     .text-content {
-//       text-align: center;
-//     }
-//   }
-// }
+  .contact {
+    a {
+      font-size: 18px;
+    }
+  }
 
+  .scroll-down {
+    right: 10px;
+    bottom: 13%;
+    font-size: 18px;
+  }
+}
 // @media (max-width: 600px) {
 //   .hero {
 //     height: auto;
