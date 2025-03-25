@@ -4,11 +4,14 @@ $cloud-opacity: 0.7;
 $cloud-size-desktop: 250px;
 $cloud-size-mobile: 150px;
 
-// 🔹 Mixins für wiederverwendbare Stile
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@mixin flex(
+  $display: flex,
+  $align-items: center,
+  $justify-content: space-between
+) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
 }
 
 @mixin absolute-position($top: auto, $left: auto, $right: auto, $bottom: auto) {
@@ -19,7 +22,6 @@ $cloud-size-mobile: 150px;
   bottom: $bottom;
 }
 
-// 🔹 Hero-Container
 section {
   padding: 128px 80px 0 80px;
   height: calc(100vh - 128px);
@@ -35,9 +37,7 @@ section {
 
 .container {
   height: calc(100vh - 128px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex(flex, center, space-between);
 }
 
 .text-container {
@@ -52,9 +52,7 @@ section {
 
 .text-content {
   padding-bottom: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex(flex, center, space-between);
   .vertical {
     height: 152px;
     writing-mode: vertical-rl;
@@ -112,8 +110,6 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
   }
   .profile {
@@ -143,9 +139,9 @@ section {
   a {
     all: unset;
     height: 30px;
-    width: 30px;
     font-size: 23px;
     font-weight: 400;
+    cursor: pointer;
   }
   .line {
     background-color: s.$deep-purple;
@@ -155,7 +151,6 @@ section {
   }
   img {
     transition: transform 0.15s ease-in-out;
-
     &:hover {
       transform: scale(1.2);
       cursor: pointer;
