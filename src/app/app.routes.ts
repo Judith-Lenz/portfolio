@@ -1,9 +1,8 @@
 import {
   Routes,
-  RouterModule,
   provideRouter,
-  withInMemoryScrolling,
-  withComponentInputBinding,
+  withRouterConfig,
+  ExtraOptions,
 } from '@angular/router';
 import { LandingPageComponent } from './sections/landing-page/landing-page.component';
 import { LegalNoticeComponent } from './pages/legal-notice/legal-notice.component';
@@ -16,12 +15,10 @@ export const routes: Routes = [
   { path: '**', redirectTo: '' }, // Fallback zur Hauptseite
 ];
 
-// export const appRoutingProviders = [
-//   provideRouter(
-//     routes,
-//     withInMemoryScrolling({
-//       scrollPositionRestoration: 'top',
-//     }),
-//     withComponentInputBinding()
-//   ),
-// ];
+const scrollOptions: ExtraOptions = {
+  anchorScrolling: 'enabled',
+  onSameUrlNavigation: 'reload',
+  scrollOffset: [0, 0],
+};
+
+export const appRouter = provideRouter(routes, withRouterConfig(scrollOptions));
