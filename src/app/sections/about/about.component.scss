@@ -1,3 +1,73 @@
-.test {
-  height: 800px;
+@use "./../../../styles.scss" as s;
+@mixin flex(
+  $display: flex,
+  $align-items: center,
+  $justify-content: space-between
+) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+section {
+  padding: 35px 0 0 80px;
+  font-size: 16px;
+  padding-bottom: 35px;
+  @include flex(flex, center, space-between);
+}
+
+.text {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  padding-bottom: 40px;
+}
+
+.about {
+  padding-bottom: 32px;
+}
+
+.portrait {
+  @include flex(flex, center, space-between);
+  img {
+    width: 453px;
+    height: 453px;
+    object-fit: cover; /* Bild füllt den Kreis schön aus */
+    border-radius: 50%;
+    border: 4px solid s.$green;
+    border-color: s.$green;
+  }
+  .line {
+    background-color: s.$green;
+    width: 267px;
+    height: 4px;
+    border-width: 2px;
+  }
+}
+
+.flex-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  .img-container {
+    padding: 20px;
+    width: 40px;
+    @include flex(flex, flex-start, center);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  p {
+    margin: 0;
+    flex: 1;
+    text-align: left;
+  }
 }

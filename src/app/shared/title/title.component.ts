@@ -50,27 +50,3 @@ export class TitleComponent {
     });
   }
 }
-
-//     const path = this.router.url.split('#')[0];
-//     if (path === '/' || path === '') {
-//       //das Fragment auf null setzen
-//       this.router
-//         .navigate([], {
-//           fragment: undefined,
-//           replaceUrl: true,
-//           queryParamsHandling: 'preserve',
-//         })
-//         .then(() => {
-//           window.scrollTo({ top: 0, behavior: 'smooth' });
-//         });
-//     } else {
-//       this.router.navigate(['/']).then(() => {
-//         this.router.navigate([], {
-//           fragment: undefined,
-//           replaceUrl: true,
-//         });
-//         window.scrollTo({ top: 0 });
-//       });
-//     }
-//   }
-// }
