@@ -25,10 +25,25 @@ section {
   position: relative; //wichtig für z-index!!
   overflow: hidden;
   .bogen {
+    height: auto;
+    display: block;
     position: absolute;
     bottom: -490px;
     left: 0;
-    z-index: 0;
+    z-index: -1;
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      //sichtbar
+      black 41%,
+      //sanft ausblendend
+      transparent 55%,
+      //voll transparent
+      black 55%,
+      //sanft wieder ein
+      black 100% //sichtbar
+    );
+    // mask-image: linear-gradient(to bottom, black 44%, transparent 50%);
   }
 }
 

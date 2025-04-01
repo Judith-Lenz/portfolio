@@ -10,6 +10,8 @@
 }
 
 section {
+  position: relative;
+  overflow: hidden;
   padding: 35px 0 0 80px;
   font-size: 16px;
   padding-bottom: 35px;
@@ -17,7 +19,7 @@ section {
 }
 
 .text {
-  width: 600px;
+  width: 580px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,4 +72,15 @@ section {
     flex: 1;
     text-align: left;
   }
+}
+
+.shadow {
+  position: absolute;
+  right: -575px;
+  top: 19%;
+  transform: translateY(-50%);
+  width: 1000px;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
 }

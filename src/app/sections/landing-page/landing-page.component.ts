@@ -5,6 +5,7 @@ import { SkillsComponent } from '../skills/skills.component';
 import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { TestimonialsComponent } from '../testimonials/testimonials.component';
 import { ContactComponent } from '../contact/contact.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -16,6 +17,7 @@ import { ContactComponent } from '../contact/contact.component';
     PortfolioComponent,
     TestimonialsComponent,
     ContactComponent,
+    RouterModule,
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
