@@ -1,9 +1,11 @@
 @use "./../../../styles.scss" as s;
 
 section {
-  padding: 180px 80px;
+  flex: 1;
+  height: 500px;
+  padding: 160px 80px;
   text-align: start;
-  font-size: 16px;
+  font-size: 24px;
   a {
     all: unset;
     color: s.$deep-purple;
@@ -11,6 +13,13 @@ section {
       cursor: pointer;
       text-decoration: underline;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 160px 80px;
+    font-size: 16px;
   }
 }
 
