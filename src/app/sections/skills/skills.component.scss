@@ -2,24 +2,20 @@
 
 section {
   padding: 80px 0 0 80px;
-  height: 404px;
+  height: 600px;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
 .skill_group {
-  gap: 88px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
   width: 664px;
-
+  height: 417px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
   div {
-    height: 120px;
-    width: 88px;
+    text-align: center;
     flex-direction: column;
     display: flex;
     align-items: center;
@@ -30,6 +26,9 @@ section {
 }
 
 .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
   width: 571px;
-  text-align: end;
 }
