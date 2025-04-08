@@ -25,19 +25,30 @@
     </div>
     <div>
       <img src="assets/icon/CL_purple.svg" alt="" />
-      <span
+      <span style="color: #9747ff"
         >Continually <br />
         learning</span
       >
     </div>
   </div>
-  <div class="text">
+
+  <div class="headline_container">
     <div class="headline">My skills</div>
-    <p>
-      Show that you have used a variety of front-end technologies in your
-      projects.
-    </p>
-    <p>Looking for another skill?</p>
-    <p>Reveal enthusiasm for learning new technologies and frameworks.</p>
+    <div class="line"></div>
   </div>
+
+  <p class="variety indented">
+    Show that you have used a variety of front-end <br />
+    technologies in your projects.
+  </p>
+  <p class="looking indented">
+    Looking for&nbsp;<span style="color: #9747ff">another skill</span>?
+  </p>
+  <p class="enthusiasm indented">
+    Reveal enthusiasm for learning new technologies <br />
+    and frameworks.
+  </p>
+  <a [routerLink]="['/']" fragment="contact" class="btn indented"
+    >Get in touch</a
+  >
 </section>

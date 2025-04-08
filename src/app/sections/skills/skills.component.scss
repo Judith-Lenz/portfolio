@@ -4,11 +4,20 @@ section {
   padding: 80px 0 0 80px;
   height: 600px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas:
+    "skill_group headline_container"
+    "skill_group variety"
+    "skill_group looking"
+    "skill_group enthusiasm"
+    "skill_group btn";
+
+  gap: 10px 70px;
 }
 
 .skill_group {
+  padding-top: 50px;
+  grid-area: skill_group;
   width: 664px;
   height: 417px;
   display: grid;
@@ -25,10 +34,75 @@ section {
   }
 }
 
-.text {
+.headline_container {
+  grid-area: headline_container;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  width: 571px;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+  .line {
+    background-color: s.$deep-purple;
+    width: 68px;
+    height: 4px;
+    border-width: 4px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+}
+
+.variety {
+  grid-area: variety;
+  text-align: end;
+  font-size: 16px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.looking {
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0;
+  grid-area: looking;
+  text-align: end;
+  font-size: 32px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.enthusiasm {
+  grid-area: enthusiasm;
+  text-align: end;
+  font-size: 16px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.btn {
+  grid-area: btn;
+  text-align: end;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.indented {
+  padding-right: 90px;
+}
+
+.btn {
+  text-align: center;
+  width: 120px;
+  background-color: s.$green;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 23px;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+  transform-origin: top;
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    background-color: s.$deep-purple;
+  }
 }

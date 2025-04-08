@@ -154,6 +154,8 @@ section {
     width: 100px;
     height: 4px;
     border-width: 4px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
   img {
     transition: transform 0.15s ease-in-out;

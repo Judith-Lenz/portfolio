@@ -31,9 +31,12 @@ body {
     position: absolute;
     left: 0;
     bottom: -2px;
-    width: 55px;
-    height: 2px;
-    background-color: $purple;
+    width: 58px;
+    height: 3px;
+    border-width: 3px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: $deep-purple;
   }
 }
 
