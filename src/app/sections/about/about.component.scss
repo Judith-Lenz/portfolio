@@ -11,10 +11,9 @@
 
 section {
   position: relative;
-  overflow: hidden;
-  padding: 35px 0 0 80px;
+  height: auto;
+  padding: 35px 0 35px 80px;
   font-size: 16px;
-  padding-bottom: 35px;
   @include flex(flex, center, space-between);
 }
 
@@ -35,6 +34,8 @@ section {
 
 .portrait {
   @include flex(flex, center, space-between);
+  position: relative;
+  margin-right: 150px;
   img {
     width: 453px;
     height: 453px;
@@ -43,12 +44,20 @@ section {
     border: 4px solid s.$green;
     border-color: s.$green;
   }
+
   .line {
+    position: absolute;
+    top: 50%;
+    left: 100%;
     background-color: s.$green;
-    width: 267px;
     height: 4px;
-    border-width: 2px;
+    // width: calc((100vw - 1px) / 2);
+    width: 100vw;
   }
+}
+
+.image-wrapper {
+  margin-right: 30px; // Abstand zur Linie
 }
 
 .flex-row {
@@ -83,4 +92,7 @@ section {
   height: auto;
   z-index: 5;
   pointer-events: none;
+}
+
+.line-right {
 }

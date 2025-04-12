@@ -18,24 +18,12 @@
   bottom: $bottom;
 }
 
-.line-outside {
-  position: absolute;
-  left: 0;
-  bottom: calc(5% + 13px);
-  background-color: #9747ff;
-  width: calc((100vw - 1440px) / 2);
-  height: 4px;
-  border-width: 4px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
 section {
   margin-bottom: 35px;
   padding: 128px 80px 0 80px;
   height: calc(100vh - 128px);
   position: relative; //wichtig für z-index!!
-  overflow: hidden;
+
   .bogen {
     height: auto;
     display: block;
@@ -150,7 +138,11 @@ section {
 }
 
 .contact {
-  @include absolute-position(auto, 0, auto, 5%);
+  position: relative;
+  top: auto;
+  left: 0;
+  right: auto;
+  bottom: 8%;
   z-index: 1;
   @include flex(flex, center, start);
   gap: 20px;
@@ -163,11 +155,15 @@ section {
   }
   .line {
     background-color: s.$deep-purple;
-    width: 100px;
     height: 4px;
     border-width: 4px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
+    position: absolute;
+    top: 50%;
+    right: 102%;
+    background-color: s.$deep-purple;
+    width: 100vw;
   }
   img {
     transition: transform 0.15s ease-in-out;
