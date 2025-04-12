@@ -1,3 +1,5 @@
+@use "../../styles.scss" as s;
+
 :host {
   position: absolute;
   top: 0;
@@ -22,4 +24,17 @@
 .shadow-right {
   top: 1600px;
   right: -300px;
+}
+
+.contact-line {
+  position: absolute;
+  top: calc(40vh + 30px); // Feinjustierbar
+  left: 0;
+  width: 250px;
+  height: 4px;
+  background-color: s.$deep-purple;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  z-index: 2;
+  pointer-events: none;
 }

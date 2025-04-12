@@ -54,11 +54,13 @@ section {
   gap: 20px;
   .line {
     background-color: s.$deep-purple;
-    width: 68px;
+    // width: 100vw;
     height: 4px;
     border-width: 4px;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
+    // transform: translateX(calc(-1 * (50vw - 720px)));
+    // flex-shrink: 0;
   }
 }
 

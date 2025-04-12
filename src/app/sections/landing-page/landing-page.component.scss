@@ -18,6 +18,18 @@
   bottom: $bottom;
 }
 
+.line-outside {
+  position: absolute;
+  left: 0;
+  bottom: calc(5% + 13px);
+  background-color: #9747ff;
+  width: calc((100vw - 1440px) / 2);
+  height: 4px;
+  border-width: 4px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
 section {
   margin-bottom: 35px;
   padding: 128px 80px 0 80px;
@@ -138,7 +150,7 @@ section {
 }
 
 .contact {
-  @include absolute-position(auot, 0, auto, 5%);
+  @include absolute-position(auto, 0, auto, 5%);
   z-index: 1;
   @include flex(flex, center, start);
   gap: 20px;
