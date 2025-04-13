@@ -39,7 +39,7 @@ section {
   img {
     width: 453px;
     height: 453px;
-    object-fit: cover; /* Bild füllt den Kreis schön aus */
+    object-fit: cover;
     border-radius: 50%;
     border: 4px solid s.$green;
     border-color: s.$green;
@@ -57,7 +57,7 @@ section {
 }
 
 .image-wrapper {
-  margin-right: 30px; // Abstand zur Linie
+  margin-right: 30px;
 }
 
 .flex-row {
@@ -92,7 +92,4 @@ section {
   height: auto;
   z-index: 5;
   pointer-events: none;
-}
-
-.line-right {
 }
