@@ -1,28 +1,11 @@
 @use "./../../../styles.scss" as s;
-
-@mixin flex(
-  $display: flex,
-  $align-items: center,
-  $justify-content: space-between
-) {
-  display: $display;
-  align-items: $align-items;
-  justify-content: $justify-content;
-}
-
-@mixin absolute-position($top: auto, $left: auto, $right: auto, $bottom: auto) {
-  position: absolute;
-  top: $top;
-  left: $left;
-  right: $right;
-  bottom: $bottom;
-}
+@use "./../../../mixins.scss" as mix;
 
 section {
+  @include mix.content-container;
   margin-bottom: 35px;
   padding: 128px 80px 0 80px;
   height: calc(100vh - 128px);
-  position: relative; //wichtig für z-index!!
 
   .bogen {
     height: auto;
@@ -49,7 +32,7 @@ section {
 
 .container {
   height: calc(100vh - 128px);
-  @include flex(flex, center, space-between);
+  @include mix.flex(flex, center, space-between);
 }
 
 .text-container {
@@ -64,7 +47,7 @@ section {
 
 .text-content {
   padding-bottom: 36px;
-  @include flex(flex, center, space-between);
+  @include mix.flex(flex, center, space-between);
   .vertical {
     height: 152px;
     writing-mode: vertical-rl;
@@ -144,7 +127,7 @@ section {
   right: auto;
   bottom: 8%;
   z-index: 1;
-  @include flex(flex, center, start);
+  @include mix.flex(flex, center, start);
   gap: 20px;
   a {
     all: unset;
@@ -175,13 +158,22 @@ section {
 }
 
 .scroll-down {
-  @include absolute-position(auto, auto, 16px, 10%);
+  @include mix.absolute-position(auto, auto, 16px, 10%);
   transform: rotate(90deg);
   z-index: 1;
   font-size: 23px;
 }
 
+@media (max-width: 1400px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
   .text-content {
     h2 {
       font-size: 64px;
@@ -208,36 +200,8 @@ section {
     font-size: 18px;
   }
 }
-// @media (max-width: 600px) {
-//   .hero {
-//     height: auto;
-//     padding: 40px 20px;
-
-//     .text-content {
-//       h2 {
-//         font-size: 2.5rem;
-//       }
-
-//       .subtitle {
-//         font-size: 1.2rem;
-//       }
-
-//       .btn {
-//         font-size: 1rem;
-//         padding: 8px 16px;
-//       }
-//     }
-
-//     .bg-cloud {
-//       width: $cloud-size-mobile;
-
-//       &.cloud-lila {
-//         @include absolute-position(10%, 2%);
-//       }
-
-//       &.cloud-gruen {
-//         @include absolute-position(auto, auto, 2%, 5%);
-//       }
-//     }
-//   }
-// }
+@media (max-width: 800px) {
+  .scroll-down {
+    display: none;
+  }
+}

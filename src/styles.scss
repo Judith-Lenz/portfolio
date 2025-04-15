@@ -9,10 +9,6 @@ $deep-purple: #9747ff;
 }
 
 body {
-  max-width: 1440px;
-  height: auto;
-  overflow-x: hidden;
-  margin: 0 auto;
   font-family: "Poppins", sans-serif;
   font-size: 24px;
   background-color: #141d2f;
@@ -46,6 +42,18 @@ body {
   font-size: 90px;
   line-height: 120%;
   letter-spacing: 0;
+}
+
+@media (max-width: 1355px) {
+  .headline {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .headline {
+    font-size: 45px;
+  }
 }
 
 /* poppins-100 - latin */

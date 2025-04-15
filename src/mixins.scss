@@ -1,0 +1,24 @@
+@mixin content-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@mixin flex(
+  $display: flex,
+  $align-items: center,
+  $justify-content: space-between
+) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin absolute-position($top: auto, $left: auto, $right: auto, $bottom: auto) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}

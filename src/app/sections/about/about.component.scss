@@ -1,20 +1,12 @@
 @use "./../../../styles.scss" as s;
-@mixin flex(
-  $display: flex,
-  $align-items: center,
-  $justify-content: space-between
-) {
-  display: $display;
-  align-items: $align-items;
-  justify-content: $justify-content;
-}
+@use "./../../../mixins.scss" as mix;
 
 section {
-  position: relative;
-  height: auto;
-  padding: 35px 0 35px 80px;
+  @include mix.content-container;
+  padding: 70px 185px 70px 80px;
   font-size: 16px;
-  @include flex(flex, center, space-between);
+  @include mix.flex(flex, center, space-between);
+  border: 1px solid s.$green;
 }
 
 .text {
@@ -33,16 +25,14 @@ section {
 }
 
 .portrait {
-  @include flex(flex, center, space-between);
+  @include mix.flex(flex, center, space-between);
   position: relative;
-  margin-right: 150px;
   img {
     width: 453px;
     height: 453px;
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid s.$green;
-    border-color: s.$green;
   }
 
   .line {
@@ -51,7 +41,6 @@ section {
     left: 100%;
     background-color: s.$green;
     height: 4px;
-    // width: calc((100vw - 1px) / 2);
     width: 100vw;
   }
 }
@@ -69,7 +58,7 @@ section {
   .img-container {
     padding: 20px;
     width: 40px;
-    @include flex(flex, flex-start, center);
+    @include mix.flex(flex, flex-start, center);
 
     img {
       width: 100%;
@@ -85,11 +74,58 @@ section {
 
 .shadow {
   position: absolute;
-  right: -575px;
-  top: 19%;
+  right: -520px;
+  top: 16%;
   transform: translateY(-50%);
-  width: 1000px;
+  width: 800px;
   height: auto;
-  z-index: 5;
+  z-index: -1;
   pointer-events: none;
+}
+
+@media (max-width: 1355px) {
+  .portrait {
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  .text {
+    width: 500px;
+  }
+  .flex-row {
+    .img-container {
+      padding: 9px;
+      width: 30px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  section {
+    padding: 70px 80px 70px 40px;
+  }
+}
+
+@media (max-width: 960px) {
+  .portrait {
+    display: none;
+  }
+  section {
+    justify-content: center;
+    padding: 70px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flex-row {
+    gap: 6px;
+    .img-container {
+      padding: 2x;
+      width: 20px;
+    }
+  }
+  section {
+    padding: 70px 20px;
+  }
 }
