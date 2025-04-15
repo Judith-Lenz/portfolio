@@ -1,6 +1,8 @@
 @use "./../../../styles.scss" as s;
+@use "./../../../mixins.scss" as mix;
 
 section {
+  @include mix.content-container;
   padding: 80px 0 0 80px;
   height: 530px;
   box-sizing: border-box;
@@ -47,21 +49,26 @@ section {
 }
 
 .headline_container {
+  position: relative;
   grid-area: headline_container;
   display: flex;
   align-items: center;
   justify-content: end;
   gap: 20px;
   .line {
+    position: absolute;
     background-color: s.$deep-purple;
-    // width: 100vw;
+    top: 50%;
+    left: 90%;
     height: 4px;
-    border-width: 4px;
+    width: 100vw;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
-    // transform: translateX(calc(-1 * (50vw - 720px)));
-    // flex-shrink: 0;
   }
+}
+
+.padding {
+  padding-right: 90px;
 }
 
 .variety {
