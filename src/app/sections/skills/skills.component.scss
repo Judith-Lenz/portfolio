@@ -2,10 +2,9 @@
 @use "./../../../mixins.scss" as mix;
 
 section {
+  border: 1px solid s.$green;
   @include mix.content-container;
-  padding: 80px 0 0 80px;
-  height: 530px;
-  box-sizing: border-box;
+  padding: 80px 0 80px 80px;
   display: grid;
   grid-template-areas:
     "skill_group headline_container"
@@ -14,14 +13,14 @@ section {
     "skill_group enthusiasm"
     "skill_group btn";
 
-  gap: 10px 70px;
+  gap: 16px 80px;
 }
 
 .skill_group {
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   grid-area: skill_group;
-  width: 664px;
-  height: 417px;
+  width: 620px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 50px;
@@ -104,6 +103,7 @@ section {
 }
 
 .btn_container {
+  padding-top: 20px;
   grid-area: btn;
   display: flex;
   justify-content: end;
@@ -112,14 +112,12 @@ section {
 }
 
 .btn {
-  grid-area: btn;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 58px;
   background-color: s.$green;
-  padding: 0;
   color: white;
   text-decoration: none;
   font-size: 23px;
@@ -131,5 +129,58 @@ section {
     transform: scale(1.1);
     cursor: pointer;
     background-color: s.$deep-purple;
+  }
+}
+
+@media (max-width: 1355px) {
+  section {
+    gap: 16px 60px;
+  }
+  .skill_group {
+    padding-top: 30px;
+    width: 490px;
+    gap: 20px;
+  }
+  .looking {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1100px) {
+  section {
+    padding: 80px 0 80px 40px;
+  }
+  .headline_container {
+    .line {
+      left: 85%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    grid-template-areas:
+      "headline_container"
+      "variety"
+      "skill_group"
+      "looking"
+      "enthusiasm"
+      "btn";
+    grid-template-columns: 1fr;
+  }
+
+  .headline_container {
+    .line {
+      left: 92%;
+    }
+  }
+
+  .skill_group {
+    grid-template-columns: repeat(3, 1fr);
+    justify-self: center;
+  }
+
+  .btn_container {
+    justify-self: center;
   }
 }
