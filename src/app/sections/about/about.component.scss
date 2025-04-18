@@ -115,14 +115,17 @@ section {
     justify-content: center;
     padding: 70px 40px;
   }
+  .text {
+    width: unset;
+  }
 }
 
 @media (max-width: 480px) {
   .flex-row {
-    gap: 6px;
+    gap: 20px;
     .img-container {
       padding: 2x;
-      width: 20px;
+      width: unset;
     }
   }
   section {

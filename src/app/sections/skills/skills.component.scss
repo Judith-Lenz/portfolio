@@ -20,11 +20,14 @@ section {
   padding-top: 30px;
   padding-bottom: 30px;
   grid-area: skill_group;
-  width: 620px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 550px;
+  height: 450px;
   gap: 50px;
   div {
+    width: 95px;
     text-align: center;
     flex-direction: column;
     display: flex;
@@ -132,33 +135,98 @@ section {
   }
 }
 
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-box {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 1em;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: max-content;
+  max-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  z-index: 999;
+}
+
+.tooltip-container:hover .tooltip-box {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-box::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.tooltip-content img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+.tooltip-content p {
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+
+.tooltip-labels {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.tooltip-labels span {
+  font-size: 0.9em;
+}
+
 @media (max-width: 1355px) {
-  section {
-    gap: 16px 60px;
-  }
-  .skill_group {
-    padding-top: 30px;
-    width: 490px;
-    gap: 20px;
-  }
   .looking {
     font-size: 24px;
+  }
+  .skill_group {
+    gap: 30px;
+    width: 500px;
   }
 }
 
 @media (max-width: 1100px) {
   section {
     padding: 80px 0 80px 40px;
+    gap: 16px 37px;
   }
   .headline_container {
     .line {
       left: 85%;
     }
   }
+
+  .skill_group {
+    gap: 20px;
+    width: 500px;
+  }
 }
 
 @media (max-width: 1024px) {
   section {
+    padding: 80px 40px;
     grid-template-areas:
       "headline_container"
       "variety"
@@ -166,7 +234,10 @@ section {
       "looking"
       "enthusiasm"
       "btn";
-    grid-template-columns: 1fr;
+  }
+
+  .btn_container {
+    padding-right: 0px;
   }
 
   .headline_container {
@@ -176,7 +247,11 @@ section {
   }
 
   .skill_group {
-    grid-template-columns: repeat(3, 1fr);
+    padding-right: 90px;
+    gap: 40px;
+    width: 539px;
+    grid-area: skill_group;
+    justify-content: center;
     justify-self: center;
   }
 
