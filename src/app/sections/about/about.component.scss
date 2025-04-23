@@ -6,7 +6,7 @@ section {
   padding: 70px 185px 70px 80px;
   font-size: 16px;
   @include mix.flex(flex, center, space-between);
-  border: 1px solid s.$green;
+  // border: 1px solid s.$green;
 }
 
 .text {
@@ -63,6 +63,11 @@ section {
     img {
       width: 100%;
       height: auto;
+      transition: transform 0.1s ease-in-out;
+
+      &:hover {
+        transform: scale(1.4);
+      }
     }
   }
   p {

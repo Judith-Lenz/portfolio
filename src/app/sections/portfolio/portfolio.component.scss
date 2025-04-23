@@ -1,3 +1,8 @@
+@use "./../../../styles.scss" as s;
+@use "./../../../mixins.scss" as mix;
+
 section {
-  padding: 128px 80px 0 80px;
+  @include mix.content-container;
+  border: 1px solid s.$green;
+  padding: 80px 0 80px 80px;
 }
