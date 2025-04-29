@@ -4,5 +4,32 @@
 section {
   @include mix.content-container;
   border: 1px solid s.$green;
-  padding: 80px 0 80px 80px;
+  padding: 80px;
+  .subtitle {
+    @include mix.flex(flex, center, center);
+    padding-top: 45px;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.headline_container {
+  position: relative;
+  @include mix.flex(flex, center, center);
+  .line {
+    position: absolute;
+    background-color: s.$deep-purple;
+    top: 50%;
+    left: 20%;
+    height: 4px;
+    width: 100vw;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    z-index: -1;
+  }
+}
+
+.background {
+  background-color: #141d2f;
+  padding: 0 35px;
 }

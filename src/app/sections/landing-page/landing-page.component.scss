@@ -3,29 +3,30 @@
 
 section {
   @include mix.content-container;
-  margin-bottom: 35px;
-  padding: 128px 80px 0 80px;
+  margin-top: 128px;
+  padding: 0 80px 0 80px;
   height: calc(100vh - 128px);
+  border: 1px solid s.$green;
 
   .bogen {
-    height: auto;
-    display: block;
+    transform: scale(1.2);
     position: absolute;
-    bottom: -490px;
-    left: 0;
+    width: calc(100vw + 260px);
+    top: 50px;
+    left: -260px;
     z-index: -1;
-    mask-image: linear-gradient(
-      to bottom,
-      black 0%,
-      //sichtbar
-      black 41%,
-      //sanft ausblendend
-      transparent 55%,
-      //voll transparent
-      black 55%,
-      //sanft wieder ein
-      black 100% //sichtbar
-    );
+    // mask-image: linear-gradient(
+    //   to bottom,
+    //   black 0%,
+    //   //sichtbar
+    //   black 41%,
+    //   //sanft ausblendend
+    //   transparent 55%,
+    //   //voll transparent
+    //   black 55%,
+    //   //sanft wieder ein
+    //   black 100% //sichtbar
+    // );
     // mask-image: linear-gradient(to bottom, black 44%, transparent 50%);
   }
 }
@@ -100,22 +101,23 @@ section {
   position: relative;
   height: 70%;
   aspect-ratio: 1/1; /* bleibt quadratisch */
-  width: auto;
   img {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -100px;
+    left: 36px;
     object-fit: cover;
   }
   .profile {
+    width: 595px;
     z-index: 1;
+    height: 709px;
   }
   .shadow {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
+    width: 150%;
+    transform: translate(-50%, -50%) rotate(199deg);
     z-index: -1;
   }
 }
@@ -128,13 +130,21 @@ section {
   bottom: 8%;
   z-index: 1;
   @include mix.flex(flex, center, start);
-  gap: 20px;
+  gap: 40px;
   a {
     all: unset;
+    display: inline-block;
     height: 30px;
     font-size: 23px;
     font-weight: 400;
     cursor: pointer;
+    img {
+      transition: transform 0.15s ease-in-out;
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
   }
   .line {
     background-color: s.$deep-purple;
@@ -145,15 +155,7 @@ section {
     position: absolute;
     top: 50%;
     right: 102%;
-    background-color: s.$deep-purple;
     width: 100vw;
-  }
-  img {
-    transition: transform 0.15s ease-in-out;
-    &:hover {
-      transform: scale(1.2);
-      cursor: pointer;
-    }
   }
 }
 
@@ -164,15 +166,145 @@ section {
   font-size: 23px;
 }
 
+@media (max-width: 1944px) {
+  section {
+    .bogen {
+      top: 130px;
+    }
+  }
+}
+
+@media (max-width: 1850px) {
+  section {
+    .bogen {
+      top: 165px;
+    }
+  }
+}
+
+@media (max-width: 1750px) {
+  section {
+    .bogen {
+      top: 195px;
+    }
+  }
+}
+
+@media (max-width: 1670px) {
+  section {
+    .bogen {
+      top: 222px;
+    }
+  }
+}
+
+@media (max-width: 1610px) {
+  section {
+    .bogen {
+      top: 239px;
+    }
+  }
+}
+
+@media (max-width: 1572px) {
+  section {
+    .bogen {
+      top: 250px;
+    }
+  }
+}
+
+@media (max-width: 1560px) {
+  section {
+    .bogen {
+      top: 296px;
+    }
+  }
+  .text-container {
+    padding-bottom: 350px;
+  }
+  .image-container {
+    height: 60%;
+    img {
+      left: 0;
+    }
+  }
+  .text-content {
+    .vertical {
+      height: 118px;
+      font-size: 51px;
+    }
+    h2 {
+      font-size: 74px;
+    }
+    .subtitle {
+      font-size: 40px;
+      width: 440px;
+    }
+  }
+}
+
 @media (max-width: 1400px) {
-  .container {
-    flex-direction: column;
+  // .container {
+  //   flex-direction: column;
+  // }
+  section {
+    .bogen {
+      top: 282px;
+    }
+  }
+  .image-container {
+    width: 50%;
+    height: 100%;
+    .shadow {
+      left: 50%;
+      top: 43%;
+    }
+    img {
+      top: 59px;
+      left: 39px;
+    }
+    .profile {
+      width: 560px;
+
+      height: 661px;
+    }
+  }
+}
+
+@media (max-width: 1220px) {
+  section {
+    .bogen {
+      top: 333px;
+    }
   }
 }
 
 @media (max-width: 1024px) {
+  section {
+    .bogen {
+      top: 292px;
+      transform: rotate(10deg);
+    }
+  }
   .container {
     flex-direction: column;
+  }
+  .image-container {
+    width: 60%;
+    img {
+      top: 15px;
+      left: -5px;
+    }
+    .shadow {
+      left: 48%;
+      top: 82%;
+      width: 216%;
+    }
+    .profile {
+      width: 505px;
+      height: 600px;
+    }
   }
   .text-content {
     h2 {
@@ -187,21 +319,145 @@ section {
       font-size: 35px;
     }
   }
-
+  .text-container {
+    padding-bottom: 102px;
+    z-index: 1;
+  }
   .contact {
     a {
       font-size: 18px;
     }
   }
 
+  .mail {
+    display: none !important;
+  }
+
   .scroll-down {
-    right: 10px;
-    bottom: 13%;
-    font-size: 18px;
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .image-container {
+      .shadow {
+        left: 54%;
+        top: 77%;
+        width: 246%;
+      }
+    }
   }
 }
 @media (max-width: 800px) {
+  .text-container {
+    padding-bottom: 124px;
+  }
+  .image-container {
+    img {
+      top: 13px;
+      left: -73px;
+    }
+  }
   .scroll-down {
     display: none;
+  }
+}
+
+@media (max-width: 690px) {
+  section {
+    .bogen {
+      top: 358px;
+    }
+  }
+  .image-container {
+    .shadow {
+      top: 72%;
+      width: 307%;
+    }
+  }
+}
+@media (max-width: 600px) {
+  section {
+    .bogen {
+      top: 256px;
+      transform: rotate(13deg);
+    }
+  }
+  .text-container {
+    padding-bottom: 168px;
+  }
+
+  .text-content {
+    .vertical {
+      font-size: 32px;
+      height: 79px;
+    }
+    h2 {
+      font-size: 48px;
+      width: 300px;
+    }
+    .subtitle {
+      font-size: 26px;
+      width: 300px;
+    }
+  }
+  .image-container {
+    .profile {
+      width: 386px;
+      height: 456px;
+    }
+    img {
+      left: -90px;
+    }
+    .shadow {
+      top: 55%;
+      width: 340%;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  section {
+    padding: 0 20px 0 20px;
+    .bogen {
+      top: 169px;
+      transform: rotate(7deg);
+    }
+  }
+  .image-container {
+    .profile {
+      width: 277px;
+      height: 327px;
+    }
+    img {
+      left: -55px;
+    }
+    .shadow {
+      top: 38%;
+      width: 259%;
+      left: 37%;
+    }
+  }
+  .text-container {
+    padding-bottom: 256px;
+  }
+  .text-content {
+    .vertical {
+      font-size: 24px;
+      height: 57px;
+    }
+    h2 {
+      font-size: 36px;
+      width: 229px;
+    }
+    .subtitle {
+      font-size: 20px;
+      width: 230px;
+    }
+  }
+  .contact {
+    left: 56px;
+    .line {
+      right: 105%;
+    }
   }
 }

@@ -2,7 +2,7 @@
 @use "./../../../mixins.scss" as mix;
 
 section {
-  // border: 1px solid s.$green;
+  border: 1px solid s.$green;
   @include mix.content-container;
   padding: 80px 0 80px 80px;
   display: grid;
