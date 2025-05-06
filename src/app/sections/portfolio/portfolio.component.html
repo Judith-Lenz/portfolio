@@ -7,4 +7,14 @@
     Explore a selection of my work here - Interact with projects to see my
     skills in action.
   </p>
+  <app-project-item
+    *ngFor="let project of projects"
+    [title]="project.title"
+    [description]="project.description"
+    [technologies]="project.technologies"
+    [imageUrl]="project.imageUrl"
+    [liveUrl]="project.liveUrl"
+    [githubUrl]="project.githubUrl"
+    [align]="project.align"
+  ></app-project-item>
 </section>
