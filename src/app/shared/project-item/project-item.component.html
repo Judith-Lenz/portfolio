@@ -7,20 +7,26 @@
     <h3 class="title">{{ title }}</h3>
 
     <ul class="technologies">
-      <li *ngFor="let tech of technologies">{{ tech }}</li>
+      <p class="technologies">
+        {{ technologies.join(" | ") }}
+      </p>
     </ul>
 
     <p class="description">{{ description }}</p>
 
     <div class="buttons">
-      <a [href]="liveUrl" target="_blank" rel="noopener noreferrer" class="btn"
-        >Live</a
+      <a
+        [href]="liveUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-live"
+        >Live test</a
       >
       <a
         [href]="githubUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn"
+        class="btn-github"
         >Github</a
       >
     </div>

@@ -1,43 +1,58 @@
+@use "./../../../styles.scss" as s;
+@use "./../../../mixins.scss" as mix;
+
 .project-item {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   align-items: center;
   justify-content: space-between;
   margin: 40px 0;
 
   &.right {
     flex-direction: row-reverse;
+    .text {
+      text-align: right;
+      align-items: flex-end;
+    }
+    .buttons {
+      justify-content: flex-end;
+    }
   }
 
   &.left {
     flex-direction: row;
+    .text {
+      text-align: left;
+      align-items: flex-start;
+    }
+    .buttons {
+      justify-content: flex-start;
+    }
   }
 
   .image img {
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
     height: auto;
-    border-radius: 12px;
   }
 
   .text {
     flex: 1;
 
     .title {
-      font-size: 1.5rem;
+      font-size: 32px;
       font-weight: bold;
       margin-bottom: 0.5rem;
+      color: s.$deep-purple;
     }
 
     .technologies {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      color: s.$green;
+      font-weight: 400;
+      font-size: 23px;
+      margin-bottom: 1rem;
 
       li {
-        background: #ffffff11;
         padding: 4px 10px;
         border-radius: 4px;
         font-size: 0.9rem;
@@ -46,38 +61,72 @@
 
     .description {
       margin-top: 1rem;
-      font-size: 1rem;
+      font-size: 16px;
     }
 
     .buttons {
       margin-top: 1rem;
+      display: flex;
+      gap: 60px;
+      margin-top: 1rem;
 
       a {
-        margin-right: 10px;
-        padding: 8px 16px;
-        background-color: #5e17eb;
+        padding: 14px 32px;
         color: white;
         text-decoration: none;
-        border-radius: 6px;
-        font-weight: bold;
-
+        border-radius: 10px;
+        font-size: 23px;
         &:hover {
-          background-color: #4c13c3;
+          background-color: s.$green;
+          cursor: pointer;
         }
       }
     }
   }
 
-  @media (max-width: 768px) {
+  .btn-live {
+    background-color: s.$deep-purple;
+  }
+
+  .btn-github {
+    border: 1px solid;
+    border-color: s.$green;
+  }
+
+  @media (max-width: 1100px) {
+    .image img {
+      max-width: 400px;
+    }
+  }
+
+  @media (max-width: 1000px) {
     flex-direction: column !important;
+    align-items: center;
     text-align: center;
+    gap: 0;
 
     .image {
       order: -1;
     }
+    .image img {
+      max-width: 500px;
+    }
 
-    .buttons {
-      justify-content: center;
+    .text {
+      width: 100%;
+
+      .technologies,
+      .title,
+      .description {
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: space-around;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
     }
   }
 }
