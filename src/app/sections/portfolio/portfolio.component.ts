@@ -30,17 +30,18 @@ export class PortfolioComponent {
       technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
       imageUrl: 'assets/image/Laptop_join2.png',
       liveUrl: 'https://judith-lenz.developerakademie.net/join/index.html',
-      githubUrl: 'https://github.com/your-repo',
+      githubUrl: 'https://github.com/Judith-Lenz/Judiths-Join',
       align: 'left',
     },
     {
-      title: 'Pokédex',
+      title: 'El Pollo Loco',
       description:
-        'Based on the PokéAPI a simple library that provides and catalogues pokemon information.',
-      technologies: ['JavaScript', 'HTML', 'CSS', 'Api'],
+        'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight against the Boss Chicken.',
+      technologies: ['JavaScript', 'HTML', 'CSS'],
       imageUrl: 'assets/image/Laptop_polloLoco.svg',
-      liveUrl: 'https://live-pokedex.com',
-      githubUrl: 'https://github.com/pokedex',
+      liveUrl:
+        'https://judith-lenz.developerakademie.net/el_pollo_loco/index.html',
+      githubUrl: 'https://github.com/Judith-Lenz/el-pollo-loco',
       align: 'right',
     },
   ];

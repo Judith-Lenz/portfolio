@@ -1,4 +1,9 @@
 @use "./../../../styles.scss" as s;
+@use "./../../../mixins.scss" as mix;
+
+section {
+  @include mix.content-container;
+}
 
 .full-width-border {
   border-top: solid;
