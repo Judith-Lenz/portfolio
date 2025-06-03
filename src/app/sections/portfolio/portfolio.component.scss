@@ -36,11 +36,42 @@ section {
 
 .shadow {
   position: absolute;
-  left: -290px;
-  top: 68%;
+  left: -230px;
+  top: 50%;
   transform: translateY(-50%);
-  width: 800px;
+  width: 700px;
   height: auto;
   z-index: -1;
   pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  .shadow {
+    left: -306px;
+    top: 62%;
+  }
+}
+
+@media (max-width: 768px) {
+  .background {
+    padding: 0 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .headline_container {
+    .line {
+      left: 0%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 60px 20px;
+  }
+  .shadow {
+    left: -335px;
+    top: 61%;
+  }
 }

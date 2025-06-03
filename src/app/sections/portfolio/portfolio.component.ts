@@ -38,7 +38,7 @@ export class PortfolioComponent {
       description:
         'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight against the Boss Chicken.',
       technologies: ['JavaScript', 'HTML', 'CSS'],
-      imageUrl: 'assets/image/Laptop_polloLoco.svg',
+      imageUrl: 'assets/image/Laptop_polloLoco.png',
       liveUrl:
         'https://judith-lenz.developerakademie.net/el_pollo_loco/index.html',
       githubUrl: 'https://github.com/Judith-Lenz/el-pollo-loco',
