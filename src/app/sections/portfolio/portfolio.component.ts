@@ -1,18 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectItemComponent } from '../../shared/project-item/project-item.component';
-
-type ProjectAlign = 'left' | 'right';
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  imageUrl: string;
-  liveUrl: string;
-  githubUrl: string;
-  align: ProjectAlign;
-}
+import { Project } from '../../shared/models/project.model';
 
 @Component({
   selector: 'app-portfolio',

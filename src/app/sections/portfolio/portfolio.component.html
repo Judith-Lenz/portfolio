@@ -9,13 +9,7 @@
   </p>
   <app-project-item
     *ngFor="let project of projects"
-    [title]="project.title"
-    [description]="project.description"
-    [technologies]="project.technologies"
-    [imageUrl]="project.imageUrl"
-    [liveUrl]="project.liveUrl"
-    [githubUrl]="project.githubUrl"
-    [align]="project.align"
+    [project]="project"
   ></app-project-item>
   <img
     class="shadow"

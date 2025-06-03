@@ -1,29 +1,29 @@
-<div class="project-item" [ngClass]="align">
+<div class="project-item" [ngClass]="project.align">
   <div class="image">
-    <img [src]="imageUrl" [alt]="title" />
+    <img [src]="project.imageUrl" [alt]="project.title" />
   </div>
 
   <div class="text">
-    <h3 class="title">{{ title }}</h3>
+    <h3 class="title">{{ project.title }}</h3>
 
     <ul class="technologies">
       <p class="technologies">
-        {{ technologies.join(" | ") }}
+        {{ project.technologies.join(" | ") }}
       </p>
     </ul>
 
-    <p class="description">{{ description }}</p>
+    <p class="description">{{ project.description }}</p>
 
     <div class="buttons">
       <a
-        [href]="liveUrl"
+        [href]="project.liveUrl"
         target="_blank"
         rel="noopener noreferrer"
         class="btn-live"
         >Live test</a
       >
       <a
-        [href]="githubUrl"
+        [href]="project.githubUrl"
         target="_blank"
         rel="noopener noreferrer"
         class="btn-github"

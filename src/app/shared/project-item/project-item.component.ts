@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Project } from '../models/project.model';
 
 @Component({
   selector: 'app-project-item',
@@ -9,11 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './project-item.component.scss',
 })
 export class ProjectItemComponent {
-  @Input() title!: string;
-  @Input() description!: string;
-  @Input() technologies!: string[];
-  @Input() imageUrl!: string;
-  @Input() liveUrl!: string;
-  @Input() githubUrl!: string;
-  @Input() align: 'left' | 'right' = 'left';
+  @Input() project!: Project;
 }
