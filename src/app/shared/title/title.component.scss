@@ -7,6 +7,7 @@
   color: white;
   cursor: pointer;
   .i {
+    cursor: pointer;
     position: relative;
     display: inline-block;
     background: linear-gradient(to bottom, s.$purple 28%, white 11%);
@@ -14,6 +15,7 @@
     -webkit-text-fill-color: transparent;
   }
   .h {
+    cursor: pointer;
     position: relative;
     display: inline-block;
     background: linear-gradient(to right, white 34%, s.$green 35%);

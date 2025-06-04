@@ -9,6 +9,7 @@ section {
   border: 1px solid s.$green;
 
   .bogen {
+    display: block;
     transform: scale(1.2);
     position: absolute;
     width: calc(100vw + 260px);

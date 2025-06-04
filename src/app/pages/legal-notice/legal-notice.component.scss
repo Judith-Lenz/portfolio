@@ -1,8 +1,10 @@
 @use "./../../../styles.scss" as s;
+@use "./../../../mixins.scss" as mix;
 
 section {
+  @include mix.content-container;
   flex: 1;
-  height: 500px;
+  min-height: calc(100vh - 370px);
   padding: 160px 80px;
   text-align: start;
   font-size: 24px;

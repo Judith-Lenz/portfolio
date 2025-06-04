@@ -6,12 +6,14 @@ import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { TestimonialsComponent } from '../testimonials/testimonials.component';
 import { ContactComponent } from '../contact/contact.component';
 import { RouterModule } from '@angular/router';
+import { LandingHeroComponent } from '../landing-hero/landing-hero.component';
 
 @Component({
-  selector: 'app-landing-page',
+  selector: 'app-main',
   standalone: true,
   imports: [
     CommonModule,
+    LandingHeroComponent,
     AboutComponent,
     SkillsComponent,
     PortfolioComponent,
@@ -19,9 +21,9 @@ import { RouterModule } from '@angular/router';
     ContactComponent,
     RouterModule,
   ],
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.scss',
+  templateUrl: './main.component.html',
+  styleUrl: './main.component.scss',
 })
-export class LandingPageComponent {
+export class MainComponent {
   email: string = 'kontakt.judithlenz@outlook.de';
 }
