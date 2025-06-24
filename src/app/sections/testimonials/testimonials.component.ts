@@ -13,17 +13,17 @@ export class TestimonialsComponent {
     {
       text: 'Judith und ich haben während unserer Weiterbildung zum Frontend Developer gemeinsam an einem Kanban-Board-Projekt gearbeitet. Sie ist eine verlässliche und motivierte Teamplayerin, die mit kreativen Lösungen, Ehrgeiz und Zuverlässigkeit überzeugt. Ihre schnelle Auffassungsgabe und ihr offener Austausch haben die Zusammenarbeit super  angenehm gemacht.',
       name: 'M. Marrocu – Team Partner',
-      image: 'assets/image/portrait3.jpg',
+      image: 'assets/image/User.png',
     },
     {
       text: 'Judith arbeitet sehr strukturiert, denkt mit und erledigt ihre Aufgaben effizient. Die Zusammenarbeit mit ihr war nicht nur fachlich sehr angenehm, sondern auch menschlich eine Bereicherung für das Team. Sie ist sehr zuverlässig und engagiert.',
       name: 'A. Argenziano – Project Partner',
-      image: 'assets/image/Screenshot Alessandro.jpg',
+      image: 'assets/image/Screenshot Alessandro2.jpg',
     },
     {
       text: 'Mit viel Geduld hat sie unser Team gestärkt – inhaltlich und menschlich.',
       name: 'Dr. M. Weiss – Fachbereichsleitung',
-      image: 'assets/image/portrait3.jpg',
+      image: 'assets/image/User.png',
     },
   ];
 
