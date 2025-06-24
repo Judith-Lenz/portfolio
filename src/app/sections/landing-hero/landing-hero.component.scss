@@ -4,36 +4,25 @@
 section {
   @include mix.content-container;
   margin-top: 128px;
-  padding: 0 80px 0 80px;
-  height: calc(100vh - 128px);
+  padding: 80px 80px;
   border: 1px solid s.$green;
+}
 
-  .bogen {
-    display: block;
-    transform: scale(1.2);
-    position: absolute;
-    width: calc(100vw + 260px);
-    top: 50px;
-    left: -260px;
-    z-index: -1;
-    // mask-image: linear-gradient(
-    //   to bottom,
-    //   black 0%,
-    //   //sichtbar
-    //   black 41%,
-    //   //sanft ausblendend
-    //   transparent 55%,
-    //   //voll transparent
-    //   black 55%,
-    //   //sanft wieder ein
-    //   black 100% //sichtbar
-    // );
-    // mask-image: linear-gradient(to bottom, black 44%, transparent 50%);
-  }
+.curve-background {
+  position: absolute;
+  top: 0; // passe das an deine Section an
+  left: 0;
+  width: 100vw;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  margin-left: calc(-50vw + 50%);
+  background-image: url("../../../assets/image/curve.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 
 .container {
-  height: calc(100vh - 128px);
   @include mix.flex(flex, center, space-between);
 }
 
@@ -100,10 +89,9 @@ section {
 .image-container {
   z-index: -2;
   position: relative;
-  height: 70%;
   aspect-ratio: 1/1;
   img {
-    position: absolute;
+    // position: absolute;
     top: -100px;
     left: 36px;
     object-fit: cover;
@@ -113,14 +101,15 @@ section {
     z-index: 1;
     height: 709px;
   }
-  .shadow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    transform: translate(-50%, -50%) rotate(199deg);
-    z-index: -1;
-  }
+}
+
+.shadow {
+  position: absolute;
+  top: 398px;
+  left: 346px;
+  width: 893px;
+  transform: translate(-50%, -50%) rotate(199deg);
+  z-index: -3;
 }
 
 .contact {
@@ -161,35 +150,35 @@ section {
 }
 
 .scroll-down {
-  @include mix.absolute-position(auto, auto, 16px, 10%);
+  @include mix.absolute-position(auto, auto, 15px, 20%);
   transform: rotate(90deg);
   z-index: 1;
   font-size: 23px;
 }
 
-$bogen-breakpoints: (
-  1944px: 130px,
-  1850px: 165px,
-  1750px: 195px,
-  1670px: 222px,
-  1610px: 239px,
-  1572px: 250px,
-  1560px: 296px,
-  1400px: 282px,
-  1220px: 333px,
-  1024px: 292px,
-  690px: 358px,
-  600px: 256px,
-  430px: 207px,
-);
+// $bogen-breakpoints: (
+//   1944px: 130px,
+//   1850px: 165px,
+//   1750px: 195px,
+//   1670px: 222px,
+//   1610px: 239px,
+//   1572px: 250px,
+//   1560px: 296px,
+//   1400px: 282px,
+//   1220px: 333px,
+//   1024px: 292px,
+//   690px: 358px,
+//   600px: 256px,
+//   430px: 207px,
+// );
 
-@each $breakpoint, $top in $bogen-breakpoints {
-  @media (max-width: $breakpoint) {
-    section .bogen {
-      top: $top;
-    }
-  }
-}
+// @each $breakpoint, $top in $bogen-breakpoints {
+//   @media (max-width: $breakpoint) {
+//     section .bogen {
+//       top: $top;
+//     }
+//   }
+// }
 
 @media (max-width: 1560px) {
   .text-container {
