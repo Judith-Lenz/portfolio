@@ -56,9 +56,12 @@ section {
   @include mix.flex(flex, center, space-between);
   text-align: justify;
   flex-direction: column;
-  width: 650px;
+  width: 80%;
+  max-width: 650px;
   height: 180px;
   font-family: "Montserrat", sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   border: 2px solid s.$green;
   border-radius: 1rem;
   padding: 40px 80px;
@@ -110,6 +113,11 @@ section {
   }
 }
 
+.dot {
+  font-size: 2rem;
+  margin: 0 6px; /* Abstand zwischen den Punkten */
+}
+
 .shadow {
   position: absolute;
   right: -64px;
@@ -119,4 +127,10 @@ section {
   z-index: -1;
   pointer-events: none;
   transform: scaleX(-1) translate(-50%, -50%) rotate(96deg);
+}
+
+@media (max-width: 1000px) {
+  .quotesection {
+    flex-direction: column;
+  }
 }
