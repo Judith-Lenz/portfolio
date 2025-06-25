@@ -20,11 +20,6 @@ export class TestimonialsComponent {
       name: 'A. Argenziano – Project Partner',
       image: 'assets/image/Screenshot Alessandro2.jpg',
     },
-    {
-      text: 'Mit viel Geduld hat sie unser Team gestärkt – inhaltlich und menschlich.',
-      name: 'Dr. M. Weiss – Fachbereichsleitung',
-      image: 'assets/image/User.png',
-    },
   ];
 
   currentIndex = 0;
