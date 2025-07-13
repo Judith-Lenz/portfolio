@@ -37,3 +37,6 @@ export class TestimonialsComponent {
       (this.currentIndex - 1 + this.references.length) % this.references.length;
   }
 }
+
+//Marcos Text: Judith and I worked together on a Kanban board project during our frontend development training. She is a reliable and motivated team player who impresses with creative solutions, ambition, and dependability. Her quick grasp of new concepts and open communication made working together a real pleasure.
+//Alessandros Text: Judith works in a very structured way, thinks ahead, and completes her tasks efficiently. Working with her was not only professionally pleasant but also a personal asset to the team. She is highly reliable and committed.
