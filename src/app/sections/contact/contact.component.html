@@ -5,9 +5,92 @@
   Show that you will add value to their projects through your work.
 </div>
 <div>Need a Frontend developer? Contact me!</div>
-<div class="pp_check">
-  <span
-    >I've read the&nbsp;<a routerLink="/privacy-policy">privacy policy</a
-    >&nbsp;and agree to the processing of my data as outlined.</span
-  >
-</div>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+  <!-- Name -->
+  <div class="input-wrapper">
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Your name"
+      id="name"
+      (focus)="markAsTouched('name')"
+      [ngClass]="{
+        valid:
+          contactForm.get('name')?.valid && contactForm.get('name')?.touched,
+        invalid:
+          contactForm.get('name')?.invalid && contactForm.get('name')?.touched
+      }"
+    />
+    <!-- ✅ Häkchen -->
+    <img
+      src="../../../assets/icon/check.svg"
+      alt="valid"
+      class="icon valid-icon"
+      *ngIf="contactForm.get('name')?.valid && contactForm.get('name')?.touched"
+    />
+
+    <!-- ❗ Ausrufezeichen -->
+    <img
+      src="../../../assets/icon/alert.svg"
+      alt="invalid"
+      class="icon invalid-icon"
+      *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.dirty"
+    />
+
+    <!-- Fehlermeldung -->
+    <small
+      class="error-msg"
+      *ngIf="
+        contactForm.get('name')?.hasError('required') &&
+        contactForm.get('name')?.dirty
+      "
+    >
+      Your name is required
+    </small>
+    <small
+      class="error-msg"
+      *ngIf="
+        contactForm.get('name')?.hasError('minlength') &&
+        contactForm.get('name')?.dirty
+      "
+    >
+      Your name must be at least 2 characters
+    </small>
+  </div>
+
+  <!-- Email -->
+  <div class="input-wrapper">
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="Your email"
+      id="email"
+    />
+  </div>
+
+  <!-- Message -->
+  <div class="input-wrapper">
+    <textarea
+      formControlName="message"
+      placeholder="Your message"
+      id="message"
+    ></textarea>
+  </div>
+
+  <!-- Checkbox Privacy -->
+  <div class="checkbox-wrapper">
+    <label>
+      <input type="checkbox" formControlName="privacy" />
+      <span>
+        I've read the <a routerLink="/privacy-policy">privacy policy</a> and
+        agree to the processing of my data as outlined.
+      </span>
+    </label>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="contactForm.invalid">
+    Send message :)
+  </button>
+</form>
