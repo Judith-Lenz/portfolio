@@ -1,96 +1,227 @@
-<div class="headline">Contact</div>
-<div>Got a problem to solve?</div>
-<div>
-  Encourage people to contact you and describe what role you are interested in.
-  Show that you will add value to their projects through your work.
-</div>
-<div>Need a Frontend developer? Contact me!</div>
+<section>
+  <div class="headline">Contact</div>
+  <div class="content">
+    <div class="info">
+      <div>Got a problem to solve?</div>
+      <div>
+        Encourage people to contact you and describe what role you are
+        interested in. Show that you will add value to their projects through
+        your work.
+      </div>
+      <div>Need a Frontend developer? Contact me!</div>
+    </div>
 
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-  <!-- Name -->
-  <div class="input-wrapper">
-    <input
-      type="text"
-      formControlName="name"
-      placeholder="Your name"
-      id="name"
-      (focus)="markAsTouched('name')"
-      [ngClass]="{
-        valid:
-          contactForm.get('name')?.valid && contactForm.get('name')?.touched,
-        invalid:
-          contactForm.get('name')?.invalid && contactForm.get('name')?.touched
-      }"
-    />
-    <!-- ✅ Häkchen -->
-    <img
-      src="../../../assets/icon/check.svg"
-      alt="valid"
-      class="icon valid-icon"
-      *ngIf="contactForm.get('name')?.valid && contactForm.get('name')?.touched"
-    />
-
-    <!-- ❗ Ausrufezeichen -->
-    <img
-      src="../../../assets/icon/alert.svg"
-      alt="invalid"
-      class="icon invalid-icon"
-      *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.dirty"
-    />
-
-    <!-- Fehlermeldung -->
-    <small
-      class="error-msg"
-      *ngIf="
-        contactForm.get('name')?.hasError('required') &&
-        contactForm.get('name')?.dirty
-      "
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="contact-form"
     >
-      Your name is required
-    </small>
-    <small
-      class="error-msg"
-      *ngIf="
-        contactForm.get('name')?.hasError('minlength') &&
-        contactForm.get('name')?.dirty
-      "
-    >
-      Your name must be at least 2 characters
-    </small>
-  </div>
+      <!-- Name -->
+      <div class="input-wrapper">
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Your name"
+          id="name"
+          (focus)="markAsTouched('name')"
+          [ngClass]="{
+            valid:
+              contactForm.get('name')?.valid &&
+              contactForm.get('name')?.touched,
+            invalid:
+              contactForm.get('name')?.invalid &&
+              contactForm.get('name')?.touched
+          }"
+        />
+        <!-- ✅ Häkchen -->
+        <img
+          src="assets/icon/check.svg"
+          alt="valid"
+          class="icon valid-icon"
+          *ngIf="
+            contactForm.get('name')?.valid && contactForm.get('name')?.touched
+          "
+        />
 
-  <!-- Email -->
-  <div class="input-wrapper">
-    <input
-      type="email"
-      formControlName="email"
-      placeholder="Your email"
-      id="email"
-    />
-  </div>
+        <!-- ❗ Ausrufezeichen -->
+        <img
+          src="assets/icon/alert.svg"
+          alt="invalid"
+          class="icon invalid-icon"
+          *ngIf="
+            contactForm.get('name')?.invalid && contactForm.get('name')?.dirty
+          "
+        />
 
-  <!-- Message -->
-  <div class="input-wrapper">
-    <textarea
-      formControlName="message"
-      placeholder="Your message"
-      id="message"
-    ></textarea>
-  </div>
+        <!-- Fehlermeldung -->
+        <small
+          class="error-msg"
+          *ngIf="
+            contactForm.get('name')?.hasError('required') &&
+            contactForm.get('name')?.dirty
+          "
+        >
+          Your name is required
+        </small>
+        <small
+          class="error-msg"
+          *ngIf="
+            contactForm.get('name')?.hasError('minlength') &&
+            contactForm.get('name')?.dirty
+          "
+        >
+          Your name must be at least 2 characters
+        </small>
+      </div>
 
-  <!-- Checkbox Privacy -->
-  <div class="checkbox-wrapper">
-    <label>
-      <input type="checkbox" formControlName="privacy" />
-      <span>
-        I've read the <a routerLink="/privacy-policy">privacy policy</a> and
-        agree to the processing of my data as outlined.
-      </span>
-    </label>
-  </div>
+      <!-- Email -->
+      <div class="input-wrapper">
+        <input
+          type="email"
+          formControlName="email"
+          id="email"
+          placeholder="Your email"
+          (focus)="markAsTouched('email')"
+          [ngClass]="{
+            valid:
+              contactForm.get('email')?.valid &&
+              contactForm.get('email')?.touched,
+            invalid:
+              contactForm.get('email')?.invalid &&
+              contactForm.get('email')?.touched
+          }"
+        />
 
-  <!-- Submit Button -->
-  <button type="submit" [disabled]="contactForm.invalid">
-    Send message :)
-  </button>
-</form>
+        <!-- ✅ Häkchen -->
+        <img
+          src="assets/icon/check.svg"
+          alt="valid"
+          class="icon valid-icon"
+          *ngIf="
+            contactForm.get('email')?.valid && contactForm.get('email')?.touched
+          "
+        />
+
+        <!-- ❗ Ausrufezeichen -->
+        <img
+          src="assets/icon/alert.svg"
+          alt="invalid"
+          class="icon invalid-icon"
+          *ngIf="
+            contactForm.get('email')?.invalid && contactForm.get('email')?.dirty
+          "
+        />
+
+        <!-- Fehlermeldungen -->
+        <small
+          class="error-msg"
+          *ngIf="
+            contactForm.get('email')?.hasError('required') &&
+            contactForm.get('email')?.dirty
+          "
+        >
+          Your email is required
+        </small>
+        <small
+          class="error-msg"
+          *ngIf="
+            contactForm.get('email')?.hasError('email') &&
+            contactForm.get('email')?.dirty
+          "
+        >
+          Please enter a valid email address
+        </small>
+      </div>
+
+      <!-- Message -->
+      <div class="input-wrapper">
+        <textarea
+          formControlName="message"
+          id="message"
+          placeholder="Your message"
+          (focus)="markAsTouched('message')"
+          [ngClass]="{
+            valid:
+              contactForm.get('message')?.valid &&
+              contactForm.get('message')?.touched,
+            invalid:
+              contactForm.get('message')?.invalid &&
+              contactForm.get('message')?.touched
+          }"
+        ></textarea>
+
+        <!-- ✅ Häkchen -->
+        <img
+          src="assets/icon/check.svg"
+          alt="valid"
+          class="icon valid-icon"
+          *ngIf="
+            contactForm.get('message')?.valid &&
+            contactForm.get('message')?.touched
+          "
+        />
+
+        <!-- ❗ Ausrufezeichen -->
+        <img
+          src="assets/icon/alert.svg"
+          alt="invalid"
+          class="icon invalid-icon"
+          *ngIf="
+            contactForm.get('message')?.invalid &&
+            contactForm.get('message')?.dirty
+          "
+        />
+
+        <!-- Fehlermeldung -->
+        <small
+          class="error-msg"
+          *ngIf="
+            contactForm.get('message')?.hasError('required') &&
+            contactForm.get('message')?.dirty
+          "
+        >
+          Your message is empty
+        </small>
+      </div>
+
+      <!-- Checkbox Privacy -->
+      <div class="checkbox-wrapper">
+        <label>
+          <input
+            type="checkbox"
+            formControlName="privacy"
+            id="privacy"
+            (blur)="markAsTouched('privacy')"
+          />
+          <span>
+            I've read the <a routerLink="/privacy-policy">privacy policy</a> and
+            agree to the processing of my data as outlined.
+          </span>
+        </label>
+
+        <!-- Fehlermeldung -->
+        <small
+          class="error-msg"
+          *ngIf="
+            contactForm.get('privacy')?.invalid &&
+            (contactForm.get('privacy')?.touched ||
+              contactForm.get('privacy')?.dirty)
+          "
+        >
+          Please accept the privacy policy.
+        </small>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        [ngClass]="{
+          'btn-valid': contactForm.valid,
+          'btn-disabled': !contactForm.valid
+        }"
+      >
+        Send message :)
+      </button>
+    </form>
+  </div>
+</section>

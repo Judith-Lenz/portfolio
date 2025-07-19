@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+
 import { RouterModule } from '@angular/router';
 import {
   FormBuilder,
@@ -18,7 +20,7 @@ import {
 export class ContactComponent {
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -29,12 +31,29 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log('✅ Formular gültig:', this.contactForm.value);
-      // Hier später: Mailversand an PHP-Endpoint
-      this.contactForm.reset(); // Formular leeren
+      const formData = this.contactForm.value;
+
+      this.http
+        .post('https://judithlenz.de/sendMail.php', formData, {
+          responseType: 'text',
+        })
+        .subscribe({
+          next: (response) => {
+            console.log('✅ Email sent!', response);
+            this.contactForm.reset();
+          },
+          error: (error) => {
+            console.error('❌ Sending failed', error);
+          },
+        });
     } else {
       console.log('❌ Formular ungültig');
-      this.contactForm.markAllAsTouched(); // alle Fehler zeigen
+
+      Object.keys(this.contactForm.controls).forEach((controlName) => {
+        const control = this.contactForm.get(controlName);
+        control?.markAsTouched();
+        control?.markAsDirty();
+      });
     }
   }
 

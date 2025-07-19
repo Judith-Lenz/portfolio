@@ -1,4 +1,21 @@
 @use "./../../../styles.scss" as s;
+@use "./../../../mixins.scss" as mix;
+
+section {
+  @include mix.content-container;
+  border: 1px solid s.$green;
+  padding: 80px;
+  .subtitle {
+    @include mix.flex(flex, center, center);
+    padding-top: 45px;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.content {
+  @include mix.flex(flex, center, center);
+}
 
 a {
   all: unset;
@@ -66,21 +83,29 @@ textarea.invalid {
     text-decoration: underline;
   }
 }
+
 button[type="submit"] {
-  background-color: grey;
-  color: white;
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border-radius: 0.6rem;
-  cursor: not-allowed;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  color: white;
 }
 
-button:enabled {
+.btn-disabled {
+  background-color: grey;
+  cursor: pointer; // 🧠 wichtig: KEIN not-allowed!
+}
+
+.btn-valid {
   background-color: limegreen;
   cursor: pointer;
 }
+// button:enabled {
+//   background-color: limegreen;
+//   cursor: pointer;
+// }
 
 .icon {
   position: absolute;
