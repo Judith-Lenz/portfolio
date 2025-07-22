@@ -236,6 +236,11 @@ section {
   pointer-events: none;
 }
 
+::ng-deep .highlight {
+  color: #9747ff;
+  font-weight: bold;
+}
+
 @media (max-width: 1355px) {
   .looking {
     font-size: 24px;

@@ -6,13 +6,15 @@
 
     <div class="text-container">
       <div class="text-content">
-        <span class="vertical">I am</span>
+        <span class="vertical">{{ "HERO.IAM" | translate }}</span>
         <div class="headline">
           <h2>Judith Lenz</h2>
-          <h3 class="subtitle">FRONTEND DEVELOPER</h3>
+          <h3 class="subtitle">{{ "HERO.ROLE" | translate }}</h3>
         </div>
       </div>
-      <a [routerLink]="['/']" fragment="contact" class="btn">Let’s talk!</a>
+      <a [routerLink]="['/']" fragment="contact" class="btn">{{
+        "HERO.CTA" | translate
+      }}</a>
     </div>
   </div>
 
@@ -31,5 +33,5 @@
   </div>
   <img class="shadow" src="assets/image/29. photo shadows.png" alt="shadow" />
   <div class="curve-background"></div>
-  <div class="scroll-down">Scroll down &#10140;</div>
+  <div class="scroll-down">{{ "HERO.SCROLL" | translate }} &#10140;</div>
 </section>

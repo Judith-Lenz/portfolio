@@ -1,0 +1,48 @@
+{
+  "HEADER": {
+    "ABOUT": "Über mich",
+    "SKILLS": "Fähigkeiten",
+    "PORTFOLIO": "Portfolio"
+  },
+
+  "NAV": {
+    "ABOUT": "Über mich",
+    "SKILLS": "Meine Fähigkeiten",
+    "PORTFOLIO": "Portfolio",
+    "CONTACT": "Kontakt"
+  },
+
+  "HERO": {
+    "IAM": "Ich bin",
+    "ROLE": "FRONTEND ENTWICKLERIN",
+    "CTA": "Lass uns reden!",
+    "SCROLL": "Runterscrollen"
+  },
+
+  "ABOUT": {
+    "HEADLINE": "Über mich",
+    "INTRO": "Ich liebe es, Probleme zu lösen – es fühlt sich an wie ein spannendes Puzzle. Wenn am Ende alles funktioniert, ist das ein großartiges Gefühl. Mein Ziel ist es, remote zu arbeiten und Psychologie mit IT zu verbinden. Zu sehen, wie andere Projekte von Grund auf aufbauen, motiviert mich, dranzubleiben und weiterzuwachsen.",
+    "PARAGRAPH1": "Ich lebe in Augsburg, bin aber sehr offen für neue Arbeitsweisen. Remote Work begeistert mich, weil es Freiheit und Flexibilität bietet. Langfristig möchte ich ortsunabhängig arbeiten – vielleicht sogar im Ausland.",
+    "PARAGRAPH2": "Ich entdecke gerne neue Technologien – Lernen fühlt sich für mich an wie eine Schatzsuche. Ich liebe es zu verstehen, wie Dinge funktionieren, und freue mich über jeden Aha-Moment. Je mehr ich lerne, desto neugieriger werde ich.",
+    "PARAGRAPH3": "Ich arbeite analytisch, strukturiert und kreativ. Ich denke gerne um die Ecke und bleibe dran, bis ich eine Lösung gefunden habe. Für mich geht es nicht nur um irgendeine Lösung – sie muss auch im Gesamtbild wirklich Sinn ergeben."
+  },
+
+  "skills": {
+    "icons": {
+      "learning": "Ständiges Lernen",
+      "learningTooltip": {
+        "intro": "Ich interessiere mich besonders für"
+      }
+    },
+    "title": "Meine Fähigkeiten",
+    "intro": "Ich habe diese Portfolio-Seite mit Angular erstellt und dabei TypeScript und SCSS verwendet – und es hat mir richtig Spaß gemacht. Davor habe ich vor allem Projekte mit HTML, CSS und JavaScript umgesetzt. Angular ist bisher meine Lieblingstechnologie, und ich freue mich darauf, weiterzulernen und mich zu verbessern.",
+    "highlight": "Du suchst &nbsp; <span class='highlight'> eine andere Fähigkeit</span>?",
+    "explanation": "Mein Hintergrund in Psychologie und Erwachsenenbildung hilft mir, benutzerzentrierte Anwendungen zu entwickeln und komplexe Ideen klar zu vermitteln – sowohl im Code als auch im UI. Aktuell vertiefe ich meine Angular-Kenntnisse und plane, auch ins Backend einzusteigen, um Fullstack-Entwicklerin zu werden.",
+    "button": "Kontaktiere mich"
+  },
+
+  "FOOTER": {
+    "LEGAL": "Impressum",
+    "PRIVACY": "Datenschutzerklärung"
+  }
+}

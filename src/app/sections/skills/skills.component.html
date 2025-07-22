@@ -61,35 +61,30 @@
           </div>
         </div>
       </div>
-      <span class="hover-highlight"
-        >Continually <br />
-        learning</span
+      <span class="hover-highlight">
+        {{ "skills.icons.learning" | translate }}</span
       >
     </div>
   </div>
 
   <div class="headline_container">
-    <div class="padding headline">My skills</div>
+    <div class="padding headline">
+      {{ "skills.title" | translate }}
+    </div>
     <div class="line"></div>
   </div>
 
   <p class="variety indented">
-    I built this portfolio page with Angular, using TypeScript and SCSS – and I
-    really enjoyed working with it. Before that, I mainly created other projects
-    with HTML, CSS and JavaScript. Angular is the technology I enjoy the most so
-    far, and I’m excited to keep learning and improving.
+    {{ "skills.intro" | translate }}
   </p>
-  <p class="looking indented">
-    Looking for&nbsp;<span style="color: #9747ff">another skill</span>?
-  </p>
+  <p [innerHTML]="'skills.highlight' | translate" class="looking indented"></p>
   <p class="enthusiasm indented">
-    My background in psychology and adult education helps me create
-    user-centered applications and explain complex ideas clearly – both in code
-    and UI. I'm currently deepening my Angular skills and plan to expand into
-    backend development to become a fullstack developer.
+    {{ "skills.explanation" | translate }}
   </p>
   <div class="btn_container">
-    <a [routerLink]="['/']" fragment="contact" class="btn">Get in touch</a>
+    <a [routerLink]="['/']" fragment="contact" class="btn">
+      {{ "skills.button" | translate }}</a
+    >
   </div>
   <img
     class="shadow"

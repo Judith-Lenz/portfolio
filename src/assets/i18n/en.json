@@ -1,0 +1,48 @@
+{
+  "HEADER": {
+    "ABOUT": "About me",
+    "SKILLS": "Skills",
+    "PORTFOLIO": "Portfolio"
+  },
+
+  "NAV": {
+    "ABOUT": "About me",
+    "SKILLS": "My skills",
+    "PORTFOLIO": "Portfolio",
+    "CONTACT": "Contact"
+  },
+
+  "HERO": {
+    "IAM": "I am",
+    "ROLE": "FRONTEND DEVELOPER",
+    "CTA": "Let's talk!",
+    "SCROLL": "Scroll down"
+  },
+
+  "ABOUT": {
+    "HEADLINE": "About me",
+    "INTRO": "I love problem-solving – it feels like solving an exciting puzzle. When everything finally works, it’s a great feeling. My goal is to work remotely and combine psychology with IT. Seeing others build projects from scratch inspires me to keep going and grow.",
+    "PARAGRAPH1": "I live in Augsburg but am very open to new ways of working. Remote work excites me because it offers freedom and flexibility. In the long term, I’d love to work location-independently – maybe even abroad.",
+    "PARAGRAPH2": "I enjoy exploring new technologies – learning feels like a treasure hunt. I love understanding how things work and cherish every “aha” moment. The more I learn, the more curious I become.",
+    "PARAGRAPH3": "I work in an analytical, structured, and creative way. I like thinking outside the box and staying persistent until I find a solution. For me, it’s not just about a solution – it has to truly make sense in the bigger picture."
+  },
+
+  "skills": {
+    "icons": {
+      "learning": "Continually learning",
+      "learningTooltip": {
+        "intro": "I have a special interest in learning"
+      }
+    },
+    "title": "My skills",
+    "intro": "I built this portfolio page with Angular, using TypeScript and SCSS – and I really enjoyed working with it. Before that, I mainly created other projects with HTML, CSS and JavaScript. Angular is the technology I enjoy the most so far, and I’m excited to keep learning and improving.",
+    "highlight": "Looking for&nbsp;<span class='highlight'>another skill</span>?",
+    "explanation": "My background in psychology and adult education helps me create user-centered applications and explain complex ideas clearly – both in code and UI. I'm currently deepening my Angular skills and plan to expand into backend development to become a fullstack developer.",
+    "button": "Get in touch"
+  },
+
+  "FOOTER": {
+    "LEGAL": "Legal Notice",
+    "PRIVACY": "Privacy Policy"
+  }
+}
