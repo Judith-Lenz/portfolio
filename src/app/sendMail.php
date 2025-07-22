@@ -19,8 +19,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $message = $params->message;
     
             $recipient = 'kontakt.judithlenz@outlook.de';  //hier muss meine eigene Mail rein!
-            $subject = "Contact From <$email>";
-            $message = "From:" . $name . "<br>" . $message ;
+            $subject = "Nachricht von deiner Website: $name <$email>";
+           $message = "<strong>From:</strong> $name ($email)<br><br>" . nl2br($message);
     
             $headers   = array();
             $headers[] = 'MIME-Version: 1.0';

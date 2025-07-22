@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from './shared/header/header.component';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -8,14 +10,28 @@ import { FooterComponent } from './shared/footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, RouterOutlet, FooterComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    HeaderComponent,
+    RouterOutlet,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'meinPortfolio';
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private translate: TranslateService
+  ) {
+    const savedLang = localStorage.getItem('appLanguage') || 'de';
+    translate.setDefaultLang('de');
+    translate.use(savedLang);
+
     this.route.fragment.subscribe((fragment) => {
       if (fragment) {
         setTimeout(() => {

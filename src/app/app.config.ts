@@ -1,7 +1,12 @@
 import { ApplicationConfig } from '@angular/core';
 import { appRouter } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
+import { provideTranslation } from './translate.config';
 
 export const appConfig: ApplicationConfig = {
-  providers: [appRouter, provideHttpClient()], //Nur das – kein zweites provideRouter!
+  providers: [
+    appRouter,
+    provideHttpClient(),
+    ...provideTranslation(), // ✅ jetzt als Spread-Funktion
+  ],
 };
