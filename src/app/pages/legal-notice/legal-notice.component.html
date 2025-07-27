@@ -1,17 +1,22 @@
 <section>
-  <h1>Impressum</h1>
+  <h1>{{ "legalNotice.headline" | translate }}</h1>
   <br />
-  <h3>Inhaltlich verantwortlich</h3>
+  <h3>{{ "legalNotice.responsible" | translate }}</h3>
   <br />
   <p>Judith Lenz</p>
   <p>Oskar-Schindler-Str. 82</p>
   <p>86157 Augsburg</p>
   <br />
-  <h3>Kontakt</h3>
+  <h3>{{ "legalNotice.contact" | translate }}</h3>
   <br />
-  <p>Telefon:&nbsp;<a href="tel:+4917630621679">0176 30621679</a></p>
+
   <p>
-    E-Mail:&nbsp;
+    {{ "legalNotice.phone" | translate }}&nbsp;<a href="tel:+4917630621679"
+      >0176 30621679</a
+    >
+  </p>
+  <p>
+    {{ "legalNotice.email" | translate }}&nbsp;
     <a [attr.href]="'mailto:' + email">{{ email }}</a>
   </p>
 </section>

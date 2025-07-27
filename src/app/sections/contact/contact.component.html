@@ -1,14 +1,12 @@
 <section>
-  <div class="headline">Contact</div>
+  <div class="headline">{{ "contact.headline" | translate }}</div>
   <div class="content">
     <div class="info">
-      <div>Got a problem to solve?</div>
+      <div>{{ "contact.intro.line1" | translate }}</div>
       <div>
-        Encourage people to contact you and describe what role you are
-        interested in. Show that you will add value to their projects through
-        your work.
+        {{ "contact.intro.line2" | translate }}
       </div>
-      <div>Need a Frontend developer? Contact me!</div>
+      <div>{{ "contact.intro.line3" | translate }}</div>
     </div>
 
     <form
@@ -21,7 +19,7 @@
         <input
           type="text"
           formControlName="name"
-          placeholder="Your name"
+          placeholder="{{ 'contact.form.name' | translate }}"
           id="name"
           (focus)="markAsTouched('name')"
           [ngClass]="{
@@ -61,7 +59,7 @@
             contactForm.get('name')?.dirty
           "
         >
-          Your name is required
+          {{ "contact.form.error.nameRequired" | translate }}
         </small>
         <small
           class="error-msg"
@@ -70,7 +68,7 @@
             contactForm.get('name')?.dirty
           "
         >
-          Your name must be at least 2 characters
+          {{ "contact.form.error.nameMinLength" | translate }}
         </small>
       </div>
 
@@ -80,7 +78,7 @@
           type="email"
           formControlName="email"
           id="email"
-          placeholder="Your email"
+          placeholder="{{ 'contact.form.email' | translate }}"
           (focus)="markAsTouched('email')"
           [ngClass]="{
             valid:
@@ -120,7 +118,7 @@
             contactForm.get('email')?.dirty
           "
         >
-          Your email is required
+          {{ "contact.form.error.emailRequired" | translate }}
         </small>
         <small
           class="error-msg"
@@ -129,7 +127,7 @@
             contactForm.get('email')?.dirty
           "
         >
-          Please enter a valid email address
+          {{ "contact.form.error.emailInvalid" | translate }}
         </small>
       </div>
 
@@ -138,7 +136,7 @@
         <textarea
           formControlName="message"
           id="message"
-          placeholder="Your message"
+          placeholder="{{ 'contact.form.message' | translate }}"
           (focus)="markAsTouched('message')"
           [ngClass]="{
             valid:
@@ -180,7 +178,7 @@
             contactForm.get('message')?.dirty
           "
         >
-          Your message is empty
+          {{ "contact.form.error.messageRequired" | translate }}
         </small>
       </div>
 
@@ -194,8 +192,11 @@
             (blur)="markAsTouched('privacy')"
           />
           <span>
-            I've read the <a routerLink="/privacy-policy">privacy policy</a> and
-            agree to the processing of my data as outlined.
+            {{ "contact.form.privacy" | translate }}
+            <a routerLink="/privacy-policy">{{
+              "contact.form.privacyLink" | translate
+            }}</a>
+            {{ "contact.form.privacySuffix" | translate }}
           </span>
         </label>
 
@@ -208,7 +209,7 @@
               contactForm.get('privacy')?.dirty)
           "
         >
-          Please accept the privacy policy.
+          {{ "contact.form.error.privacyRequired" | translate }}
         </small>
       </div>
 
@@ -220,7 +221,7 @@
           'btn-disabled': !contactForm.valid
         }"
       >
-        Send message :)
+        {{ "contact.form.send" | translate }}
       </button>
     </form>
   </div>

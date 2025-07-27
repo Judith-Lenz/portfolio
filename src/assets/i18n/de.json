@@ -65,8 +65,41 @@
     }
   },
 
+  "contact": {
+    "headline": "Kontakt",
+    "intro": {
+      "line1": "Du hast ein Problem zu lösen?",
+      "line2": "Ermutige Menschen, dich zu kontaktieren, und beschreibe, welche Rolle dich interessiert. Zeige, dass du durch deine Arbeit echten Mehrwert bietest.",
+      "line3": "Du suchst eine Frontend-Entwicklerin? Melde dich gerne!"
+    },
+    "form": {
+      "name": "Dein Name",
+      "email": "Deine E-Mail",
+      "message": "Deine Nachricht",
+      "send": "Nachricht senden :)",
+      "privacy": "Ich habe die",
+      "privacyLink": "Datenschutzerklärung",
+      "privacySuffix": "gelesen und stimme der Verarbeitung meiner Daten zu.",
+      "error": {
+        "nameRequired": "Dein Name wird benötigt",
+        "nameMinLength": "Der Name muss mindestens 2 Zeichen haben",
+        "emailRequired": "Deine E-Mail wird benötigt",
+        "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+        "messageRequired": "Deine Nachricht fehlt",
+        "privacyRequired": "Bitte akzeptiere die Datenschutzerklärung."
+      }
+    }
+  },
+
   "FOOTER": {
-    "LEGAL": "Impressum",
-    "PRIVACY": "Datenschutzerklärung"
+    "LEGAL": "Impressum"
+  },
+
+  "legalNotice": {
+    "headline": "Impressum",
+    "responsible": "Inhaltlich verantwortlich",
+    "contact": "Kontakt",
+    "phone": "Telefon:",
+    "email": "E-Mail:"
   }
 }

@@ -65,8 +65,41 @@
     }
   },
 
+  "contact": {
+    "headline": "Contact",
+    "intro": {
+      "line1": "Got a problem to solve?",
+      "line2": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.",
+      "line3": "Need a Frontend developer? Contact me!"
+    },
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message",
+      "send": "Send message :)",
+      "privacy": "I've read the",
+      "privacyLink": "privacy policy",
+      "privacySuffix": "and agree to the processing of my data as outlined.",
+      "error": {
+        "nameRequired": "Your name is required",
+        "nameMinLength": "Your name must be at least 2 characters",
+        "emailRequired": "Your email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Your message is empty",
+        "privacyRequired": "Please accept the privacy policy."
+      }
+    }
+  },
+
   "FOOTER": {
-    "LEGAL": "Legal Notice",
-    "PRIVACY": "Privacy Policy"
+    "LEGAL": "Legal Notice"
+  },
+
+  "legalNotice": {
+    "headline": "Legal Notice",
+    "responsible": "Responsible for content",
+    "contact": "Contact",
+    "phone": "Phone:",
+    "email": "Email:"
   }
 }
