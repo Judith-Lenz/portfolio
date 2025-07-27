@@ -41,6 +41,30 @@
     "button": "Get in touch"
   },
 
+  "portfolio": {
+    "intro": "Explore a selection of my work here – Interact with projects to see my skills in action.",
+    "join": {
+      "description": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories."
+    },
+    "elPollo": {
+      "description": "A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight against the Boss Chicken."
+    },
+    "button": {
+      "live": "Live test"
+    }
+  },
+
+  "testimonials": {
+    "marco": {
+      "text": "Judith and I worked together on a Kanban board project during our frontend development training. She is a reliable and motivated team player who impresses with creative solutions, ambition, and dependability. Her quick grasp of new concepts and open communication made working together a real pleasure.",
+      "name": "M. Marrocu – Team Partner"
+    },
+    "alessandro": {
+      "text": "Judith works in a very structured way, thinks ahead, and completes her tasks efficiently. Working with her was not only professionally pleasant but also a personal asset to the team. She is highly reliable and committed.",
+      "name": "A. Argenziano – Project Partner"
+    }
+  },
+
   "FOOTER": {
     "LEGAL": "Legal Notice",
     "PRIVACY": "Privacy Policy"

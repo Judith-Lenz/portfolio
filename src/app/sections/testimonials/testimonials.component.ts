@@ -1,28 +1,48 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Testimonial } from '../../shared/models/testimonial.model';
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.scss',
 })
 export class TestimonialsComponent {
-  references = [
-    {
-      text: 'Judith und ich haben während unserer Weiterbildung zum Frontend Developer gemeinsam an einem Kanban-Board-Projekt gearbeitet. Sie ist eine verlässliche und motivierte Teamplayerin, die mit kreativen Lösungen, Ehrgeiz und Zuverlässigkeit überzeugt. Ihre schnelle Auffassungsgabe und ihr offener Austausch haben die Zusammenarbeit super  angenehm gemacht.',
-      name: 'M. Marrocu – Team Partner',
-      image: 'assets/image/User.png',
-    },
-    {
-      text: 'Judith arbeitet sehr strukturiert, denkt mit und erledigt ihre Aufgaben effizient. Die Zusammenarbeit mit ihr war nicht nur fachlich sehr angenehm, sondern auch menschlich eine Bereicherung für das Team. Sie ist sehr zuverlässig und engagiert.',
-      name: 'A. Argenziano – Project Partner',
-      image: 'assets/image/Screenshot Alessandro2.jpg',
-    },
-  ];
+  references: Testimonial[] = [];
+  constructor(private translate: TranslateService) {
+    this.setReferences();
+    this.translate.onLangChange.subscribe(() => {
+      this.setReferences();
+    });
+  }
 
   currentIndex = 0;
+  setReferences() {
+    this.translate
+      .get([
+        'testimonials.marco.text',
+        'testimonials.marco.name',
+        'testimonials.alessandro.text',
+        'testimonials.alessandro.name',
+      ])
+      .subscribe((translations) => {
+        this.references = [
+          {
+            text: translations['testimonials.marco.text'],
+            name: translations['testimonials.marco.name'],
+            image: 'assets/image/User.png',
+          },
+          {
+            text: translations['testimonials.alessandro.text'],
+            name: translations['testimonials.alessandro.name'],
+            image: 'assets/image/Screenshot Alessandro2.jpg',
+          },
+        ];
+      });
+  }
 
   get currentReference() {
     return this.references[this.currentIndex];
@@ -37,6 +57,3 @@ export class TestimonialsComponent {
       (this.currentIndex - 1 + this.references.length) % this.references.length;
   }
 }
-
-//Marcos Text: Judith and I worked together on a Kanban board project during our frontend development training. She is a reliable and motivated team player who impresses with creative solutions, ambition, and dependability. Her quick grasp of new concepts and open communication made working together a real pleasure.
-//Alessandros Text: Judith works in a very structured way, thinks ahead, and completes her tasks efficiently. Working with her was not only professionally pleasant but also a personal asset to the team. She is highly reliable and committed.

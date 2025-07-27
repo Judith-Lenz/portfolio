@@ -41,6 +41,30 @@
     "button": "Kontaktiere mich"
   },
 
+  "portfolio": {
+    "intro": "Hier findest du eine Auswahl meiner Arbeiten – Probiere die Projekte aus und sieh dir meine Fähigkeiten in Aktion an.",
+    "join": {
+      "description": "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop, weise Nutzer und Kategorien zu."
+    },
+    "elPollo": {
+      "description": "Ein einfaches Jump-and-Run-Spiel auf objektorientierter Basis. Hilf Pepe, Münzen und Salsa-Flaschen zu sammeln, um gegen das Boss-Huhn zu kämpfen."
+    },
+    "button": {
+      "live": "Test starten"
+    }
+  },
+
+  "testimonials": {
+    "marco": {
+      "text": "Judith und ich haben während unserer Weiterbildung zum Frontend Developer gemeinsam an einem Kanban-Board-Projekt gearbeitet. Sie ist eine verlässliche und motivierte Teamplayerin, die mit kreativen Lösungen, Ehrgeiz und Zuverlässigkeit überzeugt. Ihre schnelle Auffassungsgabe und ihr offener Austausch haben die Zusammenarbeit super angenehm gemacht.",
+      "name": "M. Marrocu – Team Partner"
+    },
+    "alessandro": {
+      "text": "Judith arbeitet sehr strukturiert, denkt mit und erledigt ihre Aufgaben effizient. Die Zusammenarbeit mit ihr war nicht nur fachlich sehr angenehm, sondern auch menschlich eine Bereicherung für das Team. Sie ist sehr zuverlässig und engagiert.",
+      "name": "A. Argenziano – Project Partner"
+    }
+  },
+
   "FOOTER": {
     "LEGAL": "Impressum",
     "PRIVACY": "Datenschutzerklärung"
