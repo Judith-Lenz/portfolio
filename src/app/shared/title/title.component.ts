@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { NavigationService } from '../../shared/services/navigation.service';
 
 @Component({
   selector: 'app-title',
@@ -9,44 +10,9 @@ import { RouterModule, Router } from '@angular/router';
   styleUrl: './title.component.scss',
 })
 export class TitleComponent {
-  constructor(private router: Router) {}
+  constructor(private navigationService: NavigationService) {}
 
-  navigateToHome() {
-    const path = this.getCurrentBasePath();
-    if (this.isOnHomePage(path)) {
-      this.removeFragmentSmoothly();
-    } else {
-      this.goToHomeAndReset();
-    }
-  }
-
-  private getCurrentBasePath(): string {
-    return this.router.url.split('#')[0];
-  }
-
-  private isOnHomePage(path: string): boolean {
-    return path === '/' || path === '';
-  }
-
-  private removeFragmentSmoothly() {
-    this.router
-      .navigate([], {
-        fragment: undefined,
-        replaceUrl: true,
-        queryParamsHandling: 'preserve',
-      })
-      .then(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-  }
-
-  private goToHomeAndReset() {
-    this.router.navigate(['/']).then(() => {
-      this.router.navigate([], {
-        fragment: undefined,
-        replaceUrl: true,
-      });
-      window.scrollTo({ top: 0 });
-    });
+  navigateToHome(): void {
+    this.navigationService.navigateToHome();
   }
 }
