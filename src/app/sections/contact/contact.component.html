@@ -1,12 +1,18 @@
 <section>
-  <div class="headline">{{ "contact.headline" | translate }}</div>
+  <div class="headline-container">
+    <div class="line"></div>
+    <div class="headline">{{ "contact.headline" | translate }}</div>
+  </div>
   <div class="content">
     <div class="info">
-      <div>{{ "contact.intro.line1" | translate }}</div>
-      <div>
-        {{ "contact.intro.line2" | translate }}
+      <div class="question">{{ "contact.intro.question" | translate }}</div>
+      <div class="info-text">
+        {{ "contact.intro.infotext" | translate }}
       </div>
-      <div>{{ "contact.intro.line3" | translate }}</div>
+      <div
+        class="info-cta"
+        [innerHTML]="'contact.intro.infocta' | translate"
+      ></div>
     </div>
 
     <form

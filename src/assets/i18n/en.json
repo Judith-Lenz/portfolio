@@ -68,9 +68,9 @@
   "contact": {
     "headline": "Contact",
     "intro": {
-      "line1": "Got a problem to solve?",
-      "line2": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.",
-      "line3": "Need a Frontend developer? Contact me!"
+      "question": "Got a problem to solve?",
+      "infotext": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.",
+      "infocta": "Need a Frontend developer? <strong>Contact me!</strong>"
     },
     "form": {
       "name": "Your name",

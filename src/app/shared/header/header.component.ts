@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
     this.selectedLanguage = lang;
     localStorage.setItem('language', lang);
     this.translate.use(lang);
+    document.documentElement.lang = lang;
     console.log('Aktuelle Sprache:', lang);
   }
 }

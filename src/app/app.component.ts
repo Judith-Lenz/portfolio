@@ -28,10 +28,12 @@ export class AppComponent {
     private router: Router,
     private translate: TranslateService
   ) {
-    const savedLang = localStorage.getItem('appLanguage') || 'de';
+    const savedLang = localStorage.getItem('language') || 'de';
+
     translate.setDefaultLang('de');
     translate.use(savedLang);
 
+    document.documentElement.lang = savedLang;
     this.route.fragment.subscribe((fragment) => {
       if (fragment) {
         setTimeout(() => {

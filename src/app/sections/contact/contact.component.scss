@@ -14,7 +14,41 @@ section {
 }
 
 .content {
-  @include mix.flex(flex, center, center);
+  @include mix.flex(flex, start, center);
+}
+
+.headline-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  .line {
+    background-color: s.$deep-purple;
+    height: 4px;
+    border-width: 4px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    position: absolute;
+    top: 50%;
+    right: 70%;
+    width: 100vw;
+  }
+}
+
+.info {
+  width: 480px;
+  .question {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .info-text {
+    line-height: 120%;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .info-cta {
+    font-size: 16px;
+  }
 }
 
 a {
@@ -81,6 +115,12 @@ textarea.invalid {
   a {
     color: #b282ff;
     text-decoration: underline;
+  }
+}
+
+label {
+  span {
+    font-size: 14px;
   }
 }
 
