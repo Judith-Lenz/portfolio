@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../models/project.model';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-project-item',
@@ -13,5 +14,5 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class ProjectItemComponent {
   @Input() project!: Project;
-  constructor(private translate: TranslateService) {}
+  constructor(private translation: TranslationService) {}
 }

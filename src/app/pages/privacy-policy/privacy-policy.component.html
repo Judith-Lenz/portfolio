@@ -1,4 +1,4 @@
-<section *ngIf="translate.currentLang === 'de'">
+<section *ngIf="translation.getCurrentLanguage() === 'de'">
   <div id="generator_results">
     <div id="generator_results_content">
       <h1>Datenschutzhinweise</h1>
@@ -331,7 +331,7 @@
   </div>
 </section>
 
-<section *ngIf="translate.currentLang === 'en'">
+<section *ngIf="translation.getCurrentLanguage() === 'en'">
   <div id="generator_results">
     <div id="generator_results_content">
       <h1>Privacy Notice</h1>

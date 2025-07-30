@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { Testimonial } from '../../shared/models/testimonial.model';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-testimonials',
@@ -12,16 +13,16 @@ import { Testimonial } from '../../shared/models/testimonial.model';
 })
 export class TestimonialsComponent {
   references: Testimonial[] = [];
-  constructor(private translate: TranslateService) {
+  constructor(private translation: TranslationService) {
     this.setReferences();
-    this.translate.onLangChange.subscribe(() => {
+    this.translation.onLangChange.subscribe(() => {
       this.setReferences();
     });
   }
 
   currentIndex = 0;
   setReferences() {
-    this.translate
+    this.translation
       .get([
         'testimonials.marco.text',
         'testimonials.marco.name',

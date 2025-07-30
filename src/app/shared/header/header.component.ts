@@ -4,7 +4,7 @@ import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
 import { TitleComponent } from '../title/title.component';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-header',
@@ -23,28 +23,16 @@ export class HeaderComponent implements OnInit {
   /**
    * The currently selected language. Defaults to 'de' (German).
    */
-  selectedLanguage: string = 'de'; // Standard ist Deutsch
-  constructor(private translate: TranslateService) {}
+  selectedLanguage: string = 'en';
 
-  /**
-   * Lifecycle hook that runs after component initialization.
-   * Retrieves the previously selected language from localStorage.
-   */
+  constructor(private translationService: TranslationService) {}
+
   ngOnInit() {
-    const savedLang = localStorage.getItem('language') || 'de';
-    this.selectedLanguage = savedLang;
-    this.translate.use(savedLang);
+    this.selectedLanguage = this.translationService.getCurrentLanguage();
   }
 
-  /**
-   * Updates the selected language and logs the change.
-   * @param {string} lang - The language code to set ('de' or 'en').
-   */
   setLanguage(lang: string) {
     this.selectedLanguage = lang;
-    localStorage.setItem('language', lang);
-    this.translate.use(lang);
-    document.documentElement.lang = lang;
-    console.log('Aktuelle Sprache:', lang);
+    this.translationService.use(lang);
   }
 }

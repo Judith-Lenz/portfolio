@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { TitleComponent } from '../title/title.component';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,7 +12,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  constructor(private translate: TranslateService) {}
+  constructor(private translation: TranslationService) {}
   email: string = 'kontakt@judithlenz.de';
 
   sendMail() {

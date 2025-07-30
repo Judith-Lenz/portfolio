@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-about',
@@ -9,5 +10,5 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  constructor(private translate: TranslateService) {}
+  constructor(private translation: TranslationService) {}
 }

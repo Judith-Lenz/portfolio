@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from '../../shared/services/translation.service';
 import { RouterModule } from '@angular/router';
 import {
   FormBuilder,
@@ -22,7 +23,7 @@ export class ContactComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private translate: TranslateService
+    private translation: TranslationService
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -10,9 +11,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   templateUrl: './privacy-policy.component.html',
   styleUrl: './privacy-policy.component.scss',
 })
-export class PrivacyPolicyComponent implements OnInit {
-  constructor(public translate: TranslateService) {}
-  ngOnInit() {
+export class PrivacyPolicyComponent {
+  constructor(public translation: TranslationService) {
     window.scrollTo({ top: 0 });
   }
 }

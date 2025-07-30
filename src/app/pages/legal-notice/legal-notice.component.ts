@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-legal-notice',
@@ -11,7 +12,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   styleUrl: './legal-notice.component.scss',
 })
 export class LegalNoticeComponent implements OnInit {
-  constructor(private translate: TranslateService) {}
+  constructor(private translation: TranslationService) {}
   email: string = 'kontakt@judithlenz.de';
 
   ngOnInit() {

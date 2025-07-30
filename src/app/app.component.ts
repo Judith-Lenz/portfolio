@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslationService } from './shared/services/translation.service';
 import { HeaderComponent } from './shared/header/header.component';
-import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/footer/footer.component';
 
 @Component({
@@ -26,14 +25,8 @@ export class AppComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private translate: TranslateService
+    private translationService: TranslationService
   ) {
-    const savedLang = localStorage.getItem('language') || 'de';
-
-    translate.setDefaultLang('de');
-    translate.use(savedLang);
-
-    document.documentElement.lang = savedLang;
     this.route.fragment.subscribe((fragment) => {
       if (fragment) {
         setTimeout(() => {

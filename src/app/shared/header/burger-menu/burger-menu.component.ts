@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-burger-menu',
@@ -14,13 +15,9 @@ export class BurgerMenuComponent {
   @Input() selectedLanguage!: string;
   @Output() languageChanged = new EventEmitter<string>();
 
-  constructor(private translate: TranslateService) {}
-
-  changeLanguage(lang: string) {
-    this.languageChanged.emit(lang);
-  }
-
   menuOpen = false;
+
+  constructor(private translation: TranslationService) {}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -28,5 +25,9 @@ export class BurgerMenuComponent {
 
   closeMenu() {
     this.menuOpen = false;
+  }
+
+  changeLanguage(lang: string) {
+    this.languageChanged.emit(lang);
   }
 }
