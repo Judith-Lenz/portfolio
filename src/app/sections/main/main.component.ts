@@ -25,5 +25,5 @@ import { LandingHeroComponent } from '../landing-hero/landing-hero.component';
   styleUrl: './main.component.scss',
 })
 export class MainComponent {
-  email: string = 'kontakt.judithlenz@outlook.de';
+  email: string = 'kontakt@judithlenz.de';
 }

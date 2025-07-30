@@ -124,6 +124,10 @@ label {
   }
 }
 
+button {
+  all: unset;
+}
+
 button[type="submit"] {
   border: none;
   padding: 0.75rem 1.5rem;
@@ -135,7 +139,7 @@ button[type="submit"] {
 
 .btn-disabled {
   background-color: grey;
-  cursor: pointer; // 🧠 wichtig: KEIN not-allowed!
+  cursor: pointer;
 }
 
 .btn-valid {
@@ -146,7 +150,7 @@ button[type="submit"] {
 .icon {
   position: absolute;
   right: 0.8rem;
-  top: 0.75rem; //
+  top: 0.75rem;
   transform: translateY(-50%);
   font-size: 1.2rem;
   pointer-events: none;
@@ -167,4 +171,16 @@ button[type="submit"] {
   font-size: 0.8rem;
   margin-top: 0.3rem;
   display: block;
+}
+
+.back-to-top {
+  position: absolute;
+  background-color: #141d2f;
+  right: 80px;
+  bottom: 0;
+  :hover {
+    filter: invert(74%) sepia(40%) saturate(931%) hue-rotate(44deg)
+      brightness(101%) contrast(91%);
+    cursor: pointer;
+  }
 }

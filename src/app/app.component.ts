@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TranslationService } from './shared/services/translation.service';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { NavigationService } from './shared/services/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ export class AppComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private navigationService: NavigationService
   ) {
     this.route.fragment.subscribe((fragment) => {
       if (fragment) {

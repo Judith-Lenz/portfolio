@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../shared/services/translation.service';
+import { NavigationService } from '../../shared/services/navigation.service';
 import { RouterModule } from '@angular/router';
 import {
   FormBuilder,
@@ -23,7 +24,8 @@ export class ContactComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private translation: TranslationService
+    private translation: TranslationService,
+    private navService: NavigationService
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -65,7 +67,11 @@ export class ContactComponent {
     const control = this.contactForm.get(controlName);
     if (control && !control.touched) {
       control.markAsTouched();
-      control.markAsDirty(); // 👈 wichtig!
+      control.markAsDirty();
     }
+  }
+
+  onBackToTopClick() {
+    this.navService.navigateToHome();
   }
 }
