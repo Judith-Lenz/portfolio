@@ -231,7 +231,19 @@
       </button>
     </form>
   </div>
-  <button class="back-to-top" (click)="onBackToTopClick()">
-    <img src="../../../assets/icon/goupbuttonwhite.svg" alt="UpToTopArrow" />
+  <button
+    class="back-to-top"
+    (click)="onBackToTopClick()"
+    (mouseenter)="hover = true"
+    (mouseleave)="hover = false"
+  >
+    <img
+      [src]="
+        hover
+          ? 'assets/icon/goupbuttongreen.svg'
+          : 'assets/icon/goupbuttonwhite.svg'
+      "
+      alt="UpToTopArrow"
+    />
   </button>
 </section>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../shared/services/translation.service';
+import { NavigationService } from '../../shared/services/navigation.service';
 
 @Component({
   selector: 'app-landing-hero',
@@ -13,5 +14,12 @@ import { TranslationService } from '../../shared/services/translation.service';
 })
 export class LandingHeroComponent {
   email: string = 'kontakt@judithlenz.de';
-  constructor(private translation: TranslationService) {}
+  constructor(
+    private translation: TranslationService,
+    private navigationService: NavigationService
+  ) {}
+
+  forceScrollTo(fragment: string): void {
+    this.navigationService.scrollToFragment(fragment);
+  }
 }

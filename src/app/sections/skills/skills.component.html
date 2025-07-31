@@ -82,7 +82,12 @@
     {{ "skills.explanation" | translate }}
   </p>
   <div class="btn_container">
-    <a [routerLink]="['/']" fragment="contact" class="btn">
+    <a
+      [routerLink]="['/']"
+      fragment="contact"
+      (click)="forceScrollTo('contact')"
+      class="btn"
+    >
       {{ "skills.button" | translate }}</a
     >
   </div>

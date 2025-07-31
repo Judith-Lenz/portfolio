@@ -11,6 +11,7 @@
           (click)="closeMenu()"
           [routerLink]="['/']"
           fragment="about"
+          (click)="forceScrollTo('about')"
           [routerLinkActive]="'activeLink'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
@@ -26,6 +27,7 @@
           (click)="closeMenu()"
           [routerLink]="['/']"
           fragment="skills"
+          (click)="forceScrollTo('skills')"
           [routerLinkActive]="'activeLink'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
@@ -41,6 +43,7 @@
           (click)="closeMenu()"
           [routerLink]="['/']"
           fragment="portfolio"
+          (click)="forceScrollTo('portfolio')"
           [routerLinkActive]="'activeLink'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
@@ -56,6 +59,7 @@
           (click)="closeMenu()"
           [routerLink]="['/']"
           fragment="contact"
+          (click)="forceScrollTo('contact')"
           [routerLinkActive]="'activeLink'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',

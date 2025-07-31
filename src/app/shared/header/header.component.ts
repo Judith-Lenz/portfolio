@@ -5,6 +5,7 @@ import { TitleComponent } from '../title/title.component';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../shared/services/translation.service';
+import { NavigationService } from '../services/navigation.service';
 
 @Component({
   selector: 'app-header',
@@ -20,12 +21,12 @@ import { TranslationService } from '../../shared/services/translation.service';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  /**
-   * The currently selected language. Defaults to 'de' (German).
-   */
   selectedLanguage: string = 'en';
 
-  constructor(private translationService: TranslationService) {}
+  constructor(
+    private translationService: TranslationService,
+    private navigationService: NavigationService
+  ) {}
 
   ngOnInit() {
     this.selectedLanguage = this.translationService.getCurrentLanguage();
@@ -34,5 +35,9 @@ export class HeaderComponent implements OnInit {
   setLanguage(lang: string) {
     this.selectedLanguage = lang;
     this.translationService.use(lang);
+  }
+
+  forceScrollTo(fragment: string): void {
+    this.navigationService.scrollToFragment(fragment);
   }
 }

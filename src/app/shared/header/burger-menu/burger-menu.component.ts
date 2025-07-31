@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../../shared/services/translation.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-burger-menu',
@@ -17,7 +18,10 @@ export class BurgerMenuComponent {
 
   menuOpen = false;
 
-  constructor(private translation: TranslationService) {}
+  constructor(
+    private translation: TranslationService,
+    private navigationService: NavigationService
+  ) {}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -29,5 +33,9 @@ export class BurgerMenuComponent {
 
   changeLanguage(lang: string) {
     this.languageChanged.emit(lang);
+  }
+
+  forceScrollTo(fragment: string): void {
+    this.navigationService.scrollToFragment(fragment);
   }
 }

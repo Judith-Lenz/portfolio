@@ -12,9 +12,14 @@
           <h3 class="subtitle">{{ "HERO.ROLE" | translate }}</h3>
         </div>
       </div>
-      <a [routerLink]="['/']" fragment="contact" class="btn">{{
-        "HERO.CTA" | translate
-      }}</a>
+      <a
+        [routerLink]="['/']"
+        fragment="contact"
+        (click)="forceScrollTo('contact')"
+        class="btn"
+      >
+        {{ "HERO.CTA" | translate }}
+      </a>
     </div>
   </div>
 

@@ -12,7 +12,13 @@ import { NavigationService } from '../../shared/services/navigation.service';
 export class TitleComponent {
   constructor(private navigationService: NavigationService) {}
 
-  navigateToHome(): void {
-    this.navigationService.navigateToHome();
+  navigateToTop(): void {
+    const currentPath = window.location.pathname;
+
+    if (currentPath === '/privacy-policy') {
+      this.navigationService.navigateToFragmentWithoutScroll('contact');
+    } else {
+      this.navigationService.navigateToTop();
+    }
   }
 }

@@ -20,6 +20,7 @@ import {
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
+  hover = false;
   contactForm: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -72,6 +73,6 @@ export class ContactComponent {
   }
 
   onBackToTopClick() {
-    this.navService.navigateToHome();
+    this.navService.navigateToTop();
   }
 }
