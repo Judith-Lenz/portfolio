@@ -16,7 +16,11 @@ export class TitleComponent {
     const currentPath = window.location.pathname;
 
     if (currentPath === '/privacy-policy') {
-      this.navigationService.navigateToFragmentWithoutScroll('contact');
+      if (window.history.length > 1) {
+        history.back();
+      } else {
+        this.navigationService.scrollToFragment('contact');
+      }
     } else {
       this.navigationService.navigateToTop();
     }

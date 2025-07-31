@@ -11,14 +11,11 @@ export class NavigationService {
     const basePath = this.getBasePath();
 
     if (this.isOnHomePage(basePath)) {
-      // ❌ NICHT mehr: window.scrollTo({ top: 0 });
       this.scrollToElement(fragment);
       this.updateFragmentInUrl(fragment);
     } else {
       this.router.navigate(['/']).then(() => {
-        // ✅ NUR HIER: nach Routenwechsel auf top scrollen
-        window.scrollTo({ top: 0 });
-
+        // Nach Navigation zur Startseite: kurz warten, dann scrollen
         setTimeout(() => {
           this.scrollToElement(fragment);
           this.updateFragmentInUrl(fragment);
@@ -39,22 +36,6 @@ export class NavigationService {
     }
   }
 
-  navigateToFragmentWithoutScroll(fragment: string): void {
-    const basePath = this.getBasePath();
-
-    if (this.isOnHomePage(basePath)) {
-      this.scrollToElement(fragment, false); // false = kein smooth scroll
-      this.updateFragmentInUrl(fragment);
-    } else {
-      this.router.navigate(['/']).then(() => {
-        setTimeout(() => {
-          this.scrollToElement(fragment, false); // ❗ scrollen ohne Animation
-          this.updateFragmentInUrl(fragment);
-        }, 100);
-      });
-    }
-  }
-
   // ---------------------
   // Helferfunktionen
   // ---------------------
@@ -67,7 +48,7 @@ export class NavigationService {
     return path === '/' || path === '';
   }
 
-  private scrollToElement(fragment: string, smooth: boolean = true): void {
+  private scrollToElement(fragment: string): void {
     const el = document.getElementById(fragment);
     if (el) {
       const headerOffset = 128;
@@ -77,7 +58,7 @@ export class NavigationService {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: smooth ? 'smooth' : 'auto',
+        behavior: 'smooth',
       });
     }
   }
