@@ -9,17 +9,16 @@ import { LegalNoticeComponent } from './pages/legal-notice/legal-notice.componen
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 export const routes: Routes = [
-  { path: '', component: MainComponent, pathMatch: 'full' }, // Hauptseite mit allen Abschnitten
+  { path: '', component: MainComponent, pathMatch: 'full' },
   { path: 'legal-notice', component: LegalNoticeComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
-  { path: '**', redirectTo: '' }, // Fallback zur Hauptseite
+  { path: '**', redirectTo: '' },
 ];
 
 const scrollOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
-  scrollPositionRestoration: 'top',
+  scrollPositionRestoration: 'enabled',
   onSameUrlNavigation: 'reload',
-  scrollOffset: [0, 0],
 };
 
 export const appRouter = provideRouter(routes, withRouterConfig(scrollOptions));

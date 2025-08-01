@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavigationService {
   constructor(private router: Router) {}
+
+  // ---------------------
+  // Öffentliche Methoden
+  // ---------------------
 
   scrollToFragment(fragment: string): void {
     const basePath = this.getBasePath();
@@ -14,12 +19,13 @@ export class NavigationService {
       this.scrollToElement(fragment);
       this.updateFragmentInUrl(fragment);
     } else {
-      this.router.navigate(['/']).then(() => {
-        // Nach Navigation zur Startseite: kurz warten, dann scrollen
-        setTimeout(() => {
-          this.scrollToElement(fragment);
-          this.updateFragmentInUrl(fragment);
-        }, 100);
+      this.router.navigate(['/'], { fragment }).then(() => {
+        const sub = this.router.events
+          .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+          .subscribe(() => {
+            this.scrollToElement(fragment);
+            sub.unsubscribe();
+          });
       });
     }
   }
@@ -37,7 +43,7 @@ export class NavigationService {
   }
 
   // ---------------------
-  // Helferfunktionen
+  // Private Helferfunktionen
   // ---------------------
 
   private getBasePath(): string {
@@ -48,24 +54,9 @@ export class NavigationService {
     return path === '/' || path === '';
   }
 
-  private scrollToElement(fragment: string): void {
-    const el = document.getElementById(fragment);
-    if (el) {
-      const headerOffset = 128;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  }
-
   private updateFragmentInUrl(fragment: string): void {
     this.router.navigate([], {
-      fragment: fragment,
+      fragment,
       replaceUrl: true,
       queryParamsHandling: 'preserve',
     });
@@ -81,5 +72,23 @@ export class NavigationService {
       .then(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+  }
+
+  private scrollToElement(fragment: string): void {
+    const el = document.getElementById(fragment);
+    if (!el) {
+      console.warn('[DEBUG] Element mit ID', fragment, 'nicht gefunden!');
+      return;
+    }
+
+    const headerOffset = 128;
+    const offsetTop = el.offsetTop - headerOffset;
+
+    console.log('[DEBUG] Scroll to:', offsetTop);
+
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth',
+    });
   }
 }

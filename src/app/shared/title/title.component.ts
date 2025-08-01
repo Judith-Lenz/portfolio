@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { NavigationService } from '../../shared/services/navigation.service';
 
 @Component({
@@ -10,19 +10,25 @@ import { NavigationService } from '../../shared/services/navigation.service';
   styleUrl: './title.component.scss',
 })
 export class TitleComponent {
-  constructor(private navigationService: NavigationService) {}
+  constructor(
+    private navigationService: NavigationService,
+    private router: Router
+  ) {}
 
   navigateToTop(): void {
     const currentPath = window.location.pathname;
 
     if (currentPath === '/privacy-policy') {
-      if (window.history.length > 1) {
-        history.back();
-      } else {
-        this.navigationService.scrollToFragment('contact');
-      }
+      this.router.navigate(['/'], { fragment: 'contact' });
+      setTimeout(() => {
+        this.forceScrollTo('contact');
+      }, 50); // 1 Tick später
     } else {
       this.navigationService.navigateToTop();
     }
+  }
+
+  forceScrollTo(fragment: string): void {
+    this.navigationService.scrollToFragment(fragment);
   }
 }
