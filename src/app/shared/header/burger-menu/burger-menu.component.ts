@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../../shared/services/translation.service';
 import { NavigationService } from '../../services/navigation.service';
@@ -22,7 +22,8 @@ export class BurgerMenuComponent {
   constructor(
     private translation: TranslationService,
     private navigationService: NavigationService,
-    private scrollService: ScrollTrackingService
+    private scrollService: ScrollTrackingService,
+    private router: Router
   ) {
     this.scrollService.activeSection$.subscribe((section) => {
       this.activeSection = section;
@@ -43,7 +44,11 @@ export class BurgerMenuComponent {
     this.languageChanged.emit(lang);
   }
 
-  navigateTo(fragment: string): void {
-    this.navigationService.navigateToSection(fragment);
+  onMenuClick(fragment: string): void {
+    if (this.router.url === '/' || this.router.url.startsWith('/#')) {
+      this.navigationService.navigateToSection(fragment);
+    } else {
+      this.navigationService.navigateFreshToSection(fragment);
+    }
   }
 }

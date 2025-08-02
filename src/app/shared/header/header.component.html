@@ -6,7 +6,7 @@
         <a
           [routerLink]="['/']"
           fragment="about"
-          (click)="navigateTo('about')"
+          (click)="onMenuClick('about')"
           [routerLinkActive]="'activeLink'"
           [class.activeLink]="activeSection === 'about'"
           [routerLinkActiveOptions]="{
@@ -20,7 +20,7 @@
         <a
           [routerLink]="['/']"
           fragment="skills"
-          (click)="navigateTo('skills')"
+          (click)="onMenuClick('skills')"
           [routerLinkActive]="'activeLink'"
           [class.activeLink]="activeSection === 'skills'"
           [routerLinkActiveOptions]="{
@@ -34,7 +34,7 @@
         <a
           [routerLink]="['/']"
           fragment="portfolio"
-          (click)="navigateTo('portfolio')"
+          (click)="onMenuClick('portfolio')"
           [routerLinkActive]="'activeLink'"
           [class.activeLink]="activeSection === 'portfolio'"
           [routerLinkActiveOptions]="{

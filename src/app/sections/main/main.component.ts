@@ -38,6 +38,10 @@ export class MainComponent {
   }
 
   onScroll = (): void => {
+    if (this.scrollService.isTrackingPaused()) {
+      return;
+    }
+
     const sectionIds = ['about', 'skills', 'portfolio', 'contact'];
     let found = false;
 

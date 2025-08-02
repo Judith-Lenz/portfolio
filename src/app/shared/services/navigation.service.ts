@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ScrollTrackingService } from '../../shared/services/scroll-tracking.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavigationService {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private scrollTrackingService: ScrollTrackingService
+  ) {}
 
   // Hauptfunktion für Header + Burger-Menü + buttons, die zu contact sollen
   navigateToSection(fragment: string): void {
+    this.scrollTrackingService.pauseTracking();
     if (this.router.url.startsWith('/')) {
       setTimeout(() => {
         this.scrollToSection(fragment);
@@ -37,10 +42,8 @@ export class NavigationService {
     }
   }
 
-  //Navigiere zur Hauptseite und springe ganz nach oben
   goToHomeAndJumpToTop(): void {
     this.router.navigate(['/']).then(() => {
-      // Sobald Navigation abgeschlossen ist, sofort an den Seitenanfang springen
       this.jumpToTop();
     });
   }
@@ -55,14 +58,23 @@ export class NavigationService {
   }
 
   scrollToTop(): void {
+    this.scrollTrackingService.pauseTracking();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, '', '/');
+    this.scrollTrackingService.setActiveSection('');
+  }
+
+  navigateFreshToSection(fragment: string): void {
+    this.scrollTrackingService.pauseTracking();
+    this.router.navigate(['/'], { fragment }).then(() => {
+      this.jumpToTop();
+      setTimeout(() => {
+        this.navigateToSection(fragment);
+      }, 100);
+    });
   }
 
   jumpToTop(): void {
     window.scrollTo({ top: 0 });
-  }
-
-  goToHome(): void {
-    this.router.navigate(['/']);
   }
 }

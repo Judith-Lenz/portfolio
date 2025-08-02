@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
 import { TitleComponent } from '../title/title.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../shared/services/translation.service';
 import { NavigationService } from '../services/navigation.service';
@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private translationService: TranslationService,
     private navigationService: NavigationService,
+    private router: Router,
     private scrollService: ScrollTrackingService
   ) {}
   activeSection: string = '';
@@ -42,7 +43,15 @@ export class HeaderComponent implements OnInit {
     this.translationService.use(lang);
   }
 
-  navigateTo(fragment: string): void {
-    this.navigationService.navigateToSection(fragment);
+  onMenuClick(fragment: string): void {
+    if (this.router.url === '/' || this.router.url.startsWith('/#')) {
+      this.navigationService.navigateToSection(fragment);
+    } else {
+      this.navigationService.navigateFreshToSection(fragment);
+    }
   }
+
+  // navigateTo(fragment: string): void {
+  //   this.navigationService.navigateToSection(fragment);
+  // }
 }
