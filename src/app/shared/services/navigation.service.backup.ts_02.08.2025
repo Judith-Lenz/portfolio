@@ -1,0 +1,86 @@
+import { Injectable } from '@angular/core';
+import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class NavigationService {
+  constructor(private router: Router) {}
+
+  scrollToFragment(fragment: string): void {
+    const basePath = this.getBasePath();
+
+    if (this.isOnHomePage(basePath)) {
+      this.scrollToElement(fragment);
+      this.updateFragmentInUrl(fragment);
+    } else {
+      this.router.navigate(['/'], { fragment }).then(() => {
+        const sub = this.router.events
+          .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+          .subscribe(() => {
+            this.scrollToElement(fragment);
+            sub.unsubscribe();
+          });
+      });
+    }
+  }
+
+  navigateToTop(): void {
+    const basePath = this.getBasePath();
+
+    if (this.isOnHomePage(basePath)) {
+      this.clearFragmentAndScrollTop();
+    } else {
+      this.router.navigate(['/']).then(() => {
+        this.clearFragmentAndScrollTop();
+      });
+    }
+  }
+
+  private getBasePath(): string {
+    return this.router.url.split('#')[0];
+  }
+
+  private isOnHomePage(path: string): boolean {
+    return path === '/' || path === '';
+  }
+
+  private updateFragmentInUrl(fragment: string): void {
+    this.router.navigate([], {
+      fragment,
+      replaceUrl: true,
+      queryParamsHandling: 'preserve',
+    });
+  }
+
+  private clearFragmentAndScrollTop(): void {
+    this.router
+      .navigate([], {
+        fragment: undefined,
+        replaceUrl: true,
+        queryParamsHandling: 'preserve',
+      })
+      .then(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  }
+
+  private scrollToElement(fragment: string): void {
+    const el = document.getElementById(fragment);
+    if (!el) {
+      console.warn('[DEBUG] Element mit ID', fragment, 'nicht gefunden!');
+      return;
+    }
+
+    const headerOffset = 128;
+    const offsetTop = el.offsetTop - headerOffset;
+
+    console.log('[DEBUG] Scroll to:', offsetTop);
+
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth',
+    });
+  }
+}

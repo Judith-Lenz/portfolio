@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.translationService.use(lang);
   }
 
-  forceScrollTo(fragment: string): void {
-    this.navigationService.scrollToFragment(fragment);
+  navigateTo(fragment: string): void {
+    this.navigationService.navigateToSection(fragment);
   }
 }

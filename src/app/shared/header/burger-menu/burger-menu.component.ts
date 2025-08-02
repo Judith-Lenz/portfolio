@@ -35,7 +35,7 @@ export class BurgerMenuComponent {
     this.languageChanged.emit(lang);
   }
 
-  forceScrollTo(fragment: string): void {
-    this.navigationService.scrollToFragment(fragment);
+  navigateTo(fragment: string): void {
+    this.navigationService.navigateToSection(fragment);
   }
 }

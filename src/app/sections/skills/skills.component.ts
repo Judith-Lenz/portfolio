@@ -18,7 +18,7 @@ export class SkillsComponent {
     private navigationService: NavigationService
   ) {}
 
-  forceScrollTo(fragment: string): void {
-    this.navigationService.scrollToFragment(fragment);
+  navigateTo(fragment: string): void {
+    this.navigationService.navigateToSection(fragment);
   }
 }

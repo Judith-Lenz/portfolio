@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -8,87 +7,62 @@ import { filter } from 'rxjs/operators';
 export class NavigationService {
   constructor(private router: Router) {}
 
-  // ---------------------
-  // Öffentliche Methoden
-  // ---------------------
-
-  scrollToFragment(fragment: string): void {
-    const basePath = this.getBasePath();
-
-    if (this.isOnHomePage(basePath)) {
-      this.scrollToElement(fragment);
-      this.updateFragmentInUrl(fragment);
+  // Hauptfunktion für Header + Burger-Menü + buttons, die zu contact sollen
+  navigateToSection(fragment: string): void {
+    if (this.router.url.startsWith('/')) {
+      setTimeout(() => {
+        this.scrollToSection(fragment);
+      }, 100);
     } else {
       this.router.navigate(['/'], { fragment }).then(() => {
-        const sub = this.router.events
-          .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-          .subscribe(() => {
-            this.scrollToElement(fragment);
-            sub.unsubscribe();
-          });
+        setTimeout(() => {
+          this.scrollToSection(fragment);
+        }, 100);
       });
     }
   }
 
-  navigateToTop(): void {
-    const basePath = this.getBasePath();
-
-    if (this.isOnHomePage(basePath)) {
-      this.clearFragmentAndScrollTop();
-    } else {
-      this.router.navigate(['/']).then(() => {
-        this.clearFragmentAndScrollTop();
-      });
-    }
-  }
-
-  // ---------------------
-  // Private Helferfunktionen
-  // ---------------------
-
-  private getBasePath(): string {
-    return this.router.url.split('#')[0];
-  }
-
-  private isOnHomePage(path: string): boolean {
-    return path === '/' || path === '';
-  }
-
-  private updateFragmentInUrl(fragment: string): void {
-    this.router.navigate([], {
-      fragment,
-      replaceUrl: true,
-      queryParamsHandling: 'preserve',
-    });
-  }
-
-  private clearFragmentAndScrollTop(): void {
-    this.router
-      .navigate([], {
-        fragment: undefined,
-        replaceUrl: true,
-        queryParamsHandling: 'preserve',
-      })
-      .then(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-  }
-
-  private scrollToElement(fragment: string): void {
+  //Scrolle smooth zur section und berücksichtige die Höhe des headers
+  scrollToSection(fragment: string): void {
     const el = document.getElementById(fragment);
-    if (!el) {
-      console.warn('[DEBUG] Element mit ID', fragment, 'nicht gefunden!');
-      return;
+    if (el) {
+      const headerOffset = 128;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
+  }
 
-    const headerOffset = 128;
-    const offsetTop = el.offsetTop - headerOffset;
-
-    console.log('[DEBUG] Scroll to:', offsetTop);
-
-    window.scrollTo({
-      top: offsetTop,
-      behavior: 'smooth',
+  //Navigiere zur Hauptseite und springe ganz nach oben
+  goToHomeAndJumpToTop(): void {
+    this.router.navigate(['/']).then(() => {
+      // Sobald Navigation abgeschlossen ist, sofort an den Seitenanfang springen
+      this.jumpToTop();
     });
+  }
+
+  goToHomeAndScrollToContact(): void {
+    this.router.navigate(['/'], { fragment: 'contact' }).then(() => {
+      this.jumpToTop();
+      setTimeout(() => {
+        this.navigateToSection('contact');
+      }, 100);
+    });
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  jumpToTop(): void {
+    window.scrollTo({ top: 0 });
+  }
+
+  goToHome(): void {
+    this.router.navigate(['/']);
   }
 }

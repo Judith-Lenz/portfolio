@@ -26,7 +26,7 @@ export class ContactComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private translation: TranslationService,
-    private navService: NavigationService
+    private navigation: NavigationService
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -72,7 +72,7 @@ export class ContactComponent {
     }
   }
 
-  onBackToTopClick() {
-    this.navService.navigateToTop();
+  goToTop(): void {
+    this.navigation.scrollToTop();
   }
 }

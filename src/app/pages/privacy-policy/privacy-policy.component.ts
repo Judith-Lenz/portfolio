@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,8 +11,10 @@ import { TranslationService } from '../../shared/services/translation.service';
   templateUrl: './privacy-policy.component.html',
   styleUrl: './privacy-policy.component.scss',
 })
-export class PrivacyPolicyComponent {
-  constructor(public translation: TranslationService) {
+export class PrivacyPolicyComponent implements OnInit {
+  constructor(public translation: TranslationService) {}
+
+  ngOnInit() {
     window.scrollTo({ top: 0 });
   }
 }

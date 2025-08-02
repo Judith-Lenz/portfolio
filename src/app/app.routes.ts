@@ -15,10 +15,12 @@ export const routes: Routes = [
   { path: '**', redirectTo: '' },
 ];
 
-const scrollOptions: ExtraOptions = {
-  anchorScrolling: 'enabled',
-  scrollPositionRestoration: 'enabled',
-  onSameUrlNavigation: 'reload',
-};
+export const appRouter = provideRouter(routes);
 
-export const appRouter = provideRouter(routes, withRouterConfig(scrollOptions));
+// const scrollOptions: ExtraOptions = {
+//   anchorScrolling: 'enabled',  angular scrollt automatisch zu fragment
+//   scrollPositionRestoration: 'enabled', Scrollt nach Navigation an den Anfang (oder zurück zum alten Punkt)
+//   onSameUrlNavigation: 'reload', Auch bei Klick auf denselben Link wird Navigation/Scrollen ausgelöst
+// };
+
+// export const appRouter = provideRouter(routes, withRouterConfig(scrollOptions));

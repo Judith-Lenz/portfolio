@@ -10,25 +10,15 @@ import { NavigationService } from '../../shared/services/navigation.service';
   styleUrl: './title.component.scss',
 })
 export class TitleComponent {
-  constructor(
-    private navigationService: NavigationService,
-    private router: Router
-  ) {}
+  constructor(private navigation: NavigationService, private router: Router) {}
 
-  navigateToTop(): void {
-    const currentPath = window.location.pathname;
-
-    if (currentPath === '/privacy-policy') {
-      this.router.navigate(['/'], { fragment: 'contact' });
-      setTimeout(() => {
-        this.forceScrollTo('contact');
-      }, 50); // 1 Tick später
-    } else {
-      this.navigationService.navigateToTop();
+  onTitleClick(): void {
+    if (this.router.url === '/' || this.router.url.startsWith('/#')) {
+      this.navigation.scrollToTop();
+    } else if (this.router.url === '/legal-notice') {
+      this.navigation.goToHomeAndJumpToTop();
+    } else if (this.router.url === '/privacy-policy') {
+      this.navigation.goToHomeAndScrollToContact();
     }
-  }
-
-  forceScrollTo(fragment: string): void {
-    this.navigationService.scrollToFragment(fragment);
   }
 }

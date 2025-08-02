@@ -6,7 +6,7 @@
         <a
           [routerLink]="['/']"
           fragment="about"
-          (click)="forceScrollTo('about')"
+          (click)="navigateTo('about')"
           [routerLinkActive]="'activeLink'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
@@ -19,7 +19,7 @@
         <a
           [routerLink]="['/']"
           fragment="skills"
-          (click)="forceScrollTo('skills')"
+          (click)="navigateTo('skills')"
           [routerLinkActive]="'activeLink'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
@@ -32,7 +32,7 @@
         <a
           [routerLink]="['/']"
           fragment="portfolio"
-          (click)="forceScrollTo('portfolio')"
+          (click)="navigateTo('portfolio')"
           [routerLinkActive]="'activeLink'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
