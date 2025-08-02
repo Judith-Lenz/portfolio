@@ -8,11 +8,11 @@
     <ul>
       <li>
         <a
-          (click)="closeMenu()"
+          (click)="navigateTo('about'); closeMenu()"
           [routerLink]="['/']"
           fragment="about"
-          (click)="navigateTo('about')"
           [routerLinkActive]="'activeLink'"
+          [class.activeLink]="activeSection === 'about'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
             paths: 'subset',
@@ -24,11 +24,11 @@
       </li>
       <li>
         <a
-          (click)="closeMenu()"
+          (click)="navigateTo('skills'); closeMenu()"
           [routerLink]="['/']"
           fragment="skills"
-          (click)="navigateTo('skills')"
           [routerLinkActive]="'activeLink'"
+          [class.activeLink]="activeSection === 'skills'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
             paths: 'subset',
@@ -40,11 +40,11 @@
       </li>
       <li>
         <a
-          (click)="closeMenu()"
+          (click)="navigateTo('portfolio'); closeMenu()"
           [routerLink]="['/']"
           fragment="portfolio"
-          (click)="navigateTo('portfolio')"
           [routerLinkActive]="'activeLink'"
+          [class.activeLink]="activeSection === 'portfolio'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
             paths: 'subset',
@@ -56,11 +56,11 @@
       </li>
       <li>
         <a
-          (click)="closeMenu()"
+          (click)="navigateTo('contact'); closeMenu()"
           [routerLink]="['/']"
           fragment="contact"
-          (click)="navigateTo('contact')"
           [routerLinkActive]="'activeLink'"
+          [class.activeLink]="activeSection === 'contact'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
             paths: 'subset',

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../../shared/services/translation.service';
 import { NavigationService } from '../../services/navigation.service';
+import { ScrollTrackingService } from '../../services/scroll-tracking.service';
 
 @Component({
   selector: 'app-burger-menu',
@@ -20,8 +21,15 @@ export class BurgerMenuComponent {
 
   constructor(
     private translation: TranslationService,
-    private navigationService: NavigationService
-  ) {}
+    private navigationService: NavigationService,
+    private scrollService: ScrollTrackingService
+  ) {
+    this.scrollService.activeSection$.subscribe((section) => {
+      this.activeSection = section;
+    });
+  }
+
+  activeSection: string = '';
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;

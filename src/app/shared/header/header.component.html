@@ -8,6 +8,7 @@
           fragment="about"
           (click)="navigateTo('about')"
           [routerLinkActive]="'activeLink'"
+          [class.activeLink]="activeSection === 'about'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
             paths: 'subset',
@@ -21,6 +22,7 @@
           fragment="skills"
           (click)="navigateTo('skills')"
           [routerLinkActive]="'activeLink'"
+          [class.activeLink]="activeSection === 'skills'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
             paths: 'subset',
@@ -34,6 +36,7 @@
           fragment="portfolio"
           (click)="navigateTo('portfolio')"
           [routerLinkActive]="'activeLink'"
+          [class.activeLink]="activeSection === 'portfolio'"
           [routerLinkActiveOptions]="{
             fragment: 'exact',
             paths: 'subset',

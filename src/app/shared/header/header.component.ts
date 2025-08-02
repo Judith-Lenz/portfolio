@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../shared/services/translation.service';
 import { NavigationService } from '../services/navigation.service';
+import { ScrollTrackingService } from '../../shared/services/scroll-tracking.service';
 
 @Component({
   selector: 'app-header',
@@ -25,11 +26,15 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private translationService: TranslationService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private scrollService: ScrollTrackingService
   ) {}
-
+  activeSection: string = '';
   ngOnInit() {
     this.selectedLanguage = this.translationService.getCurrentLanguage();
+    this.scrollService.activeSection$.subscribe((section) => {
+      this.activeSection = section;
+    });
   }
 
   setLanguage(lang: string) {
