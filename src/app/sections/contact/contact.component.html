@@ -199,9 +199,11 @@
           />
           <span>
             {{ "contact.form.privacy" | translate }}
-            <a routerLink="/privacy-policy">{{
-              "contact.form.privacyLink" | translate
-            }}</a>
+            <a
+              routerLink="/privacy-policy"
+              (click)="formCache.setForm(contactForm.value)"
+              >{{ "contact.form.privacyLink" | translate }}</a
+            >
             {{ "contact.form.privacySuffix" | translate }}
           </span>
         </label>
@@ -222,6 +224,7 @@
       <!-- Submit Button -->
       <button
         type="submit"
+        [disabled]="isSubmitting"
         [ngClass]="{
           'btn-valid': contactForm.valid,
           'btn-disabled': !contactForm.valid

@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationService } from '../../shared/services/translation.service';
 
+/**
+ * Component displaying the portfolio section with project entries.
+ */
 @Component({
   selector: 'app-portfolio',
   standalone: true,
@@ -14,9 +17,20 @@ import { TranslationService } from '../../shared/services/translation.service';
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent implements OnInit {
+  /**
+   * List of displayed projects.
+   */
   public projects: Project[] = [];
+
+  /**
+   * Injects the translation service.
+   * @param translation The translation service.
+   */
   constructor(private translation: TranslationService) {}
 
+  /**
+   * Loads projects on init and reloads them when the language changes.
+   */
   ngOnInit(): void {
     this.loadProjects();
 
@@ -25,6 +39,9 @@ export class PortfolioComponent implements OnInit {
     });
   }
 
+  /**
+   * Loads and translates project descriptions based on the current language.
+   */
   loadProjects(): void {
     this.translation
       .get(['portfolio.join.description', 'portfolio.elPollo.description'])
