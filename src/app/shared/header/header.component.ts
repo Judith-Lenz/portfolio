@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
 import { TitleComponent } from '../title/title.component';
@@ -25,6 +25,11 @@ import { ScrollTrackingService } from '../../shared/services/scroll-tracking.ser
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
+  /**
+   * Reference to the BurgerMenuComponent for controlling its state (e.g. closing the menu).
+   */
+  @ViewChild(BurgerMenuComponent) burgerMenuComponent!: BurgerMenuComponent;
+
   /**
    * Currently selected language.
    */
@@ -57,6 +62,14 @@ export class HeaderComponent implements OnInit {
     this.scrollService.activeSection$.subscribe((section) => {
       this.activeSection = section;
     });
+  }
+
+  /**
+   * Handles the title click event emitted by TitleComponent.
+   * Closes the burger menu if it is open.
+   */
+  onTitleClicked() {
+    this.burgerMenuComponent?.closeMenu();
   }
 
   /**
