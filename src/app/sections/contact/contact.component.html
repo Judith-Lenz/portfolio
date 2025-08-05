@@ -129,7 +129,7 @@
         <small
           class="error-msg"
           *ngIf="
-            contactForm.get('email')?.hasError('email') &&
+            contactForm.get('email')?.hasError('pattern') &&
             contactForm.get('email')?.dirty
           "
         >
@@ -188,22 +188,23 @@
         </small>
       </div>
 
-      <!-- Checkbox Privacy -->
       <div class="checkbox-wrapper">
-        <label>
+        <label class="custom-checkbox">
           <input
             type="checkbox"
             formControlName="privacy"
             id="privacy"
             (blur)="markAsTouched('privacy')"
           />
-          <span>
+          <span class="checkmark"></span>
+          <span class="checkbox-text">
             {{ "contact.form.privacy" | translate }}
             <a
               routerLink="/privacy-policy"
               (click)="formCache.setForm(contactForm.value)"
-              >{{ "contact.form.privacyLink" | translate }}</a
             >
+              {{ "contact.form.privacyLink" | translate }}
+            </a>
             {{ "contact.form.privacySuffix" | translate }}
           </span>
         </label>
