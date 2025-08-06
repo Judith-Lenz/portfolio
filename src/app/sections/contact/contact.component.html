@@ -197,14 +197,13 @@
             (blur)="markAsTouched('privacy')"
           />
           <span class="checkmark"></span>
-          <span class="checkbox-text">
-            {{ "contact.form.privacy" | translate }}
+          <span class="checkbox-text"
+            >{{ "contact.form.privacy" | translate }}
             <a
               routerLink="/privacy-policy"
               (click)="formCache.setForm(contactForm.value)"
+              >{{ "contact.form.privacyLink" | translate }}</a
             >
-              {{ "contact.form.privacyLink" | translate }}
-            </a>
             {{ "contact.form.privacySuffix" | translate }}
           </span>
         </label>

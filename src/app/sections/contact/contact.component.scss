@@ -14,7 +14,7 @@ section {
 }
 
 .content {
-  @include mix.flex(flex, start, center);
+  @include mix.flex(flex, start, space-between);
 }
 
 .headline-container {
@@ -35,7 +35,7 @@ section {
 }
 
 .info {
-  width: 480px;
+  width: 478px;
   .question {
     font-size: 32px;
     font-weight: 700;
@@ -152,8 +152,7 @@ textarea.invalid {
   }
 
   a {
-    color: #b282ff;
-    text-decoration: underline;
+    color: s.$deep-purple;
   }
 }
 
@@ -212,8 +211,7 @@ textarea.invalid {
     line-height: 1.4;
 
     a {
-      color: #b282ff;
-      text-decoration: underline;
+      color: s.$deep-purple;
     }
   }
 }
@@ -241,12 +239,19 @@ button[type="submit"] {
 .btn-valid {
   background-color: s.$green;
   cursor: pointer;
+  position: relative;
+  transform-origin: top center;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+    background-color: #9747ff;
+  }
 }
 
-// button[type="submit"].btn-valid,
-// button[type="submit"].btn-valid span {
-//   cursor: pointer;
-// }
+button[type="submit"].btn-valid,
+button[type="submit"].btn-valid span {
+  cursor: pointer;
+}
 
 @keyframes blink {
   0%,
