@@ -240,6 +240,30 @@ button[type="submit"] {
   cursor: pointer;
 }
 
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.btn-sending {
+  animation: blink 1s infinite;
+}
+
+.btn-success {
+  background-color: s.$green !important;
+  color: white !important;
+}
+
+.btn-error {
+  background-color: #e61c40 !important;
+  color: white !important;
+}
+
 .icon {
   position: absolute;
   top: 0.75rem;

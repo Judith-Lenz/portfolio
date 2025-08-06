@@ -228,10 +228,26 @@
         [disabled]="isSubmitting"
         [ngClass]="{
           'btn-valid': contactForm.valid,
-          'btn-disabled': !contactForm.valid
+          'btn-disabled': !contactForm.valid,
+          'btn-sending': submissionStatus === 'sending',
+          'btn-success': submissionStatus === 'success',
+          'btn-error': submissionStatus === 'error'
         }"
       >
-        {{ "contact.form.send" | translate }}
+        <ng-container [ngSwitch]="submissionStatus">
+          <span *ngSwitchCase="'sending'">
+            {{ "contact.form.submitSending" | translate }}
+          </span>
+          <span *ngSwitchCase="'success'">
+            {{ "contact.form.submitSuccess" | translate }}
+          </span>
+          <span *ngSwitchCase="'error'">
+            {{ "contact.form.submitError" | translate }}
+          </span>
+          <span *ngSwitchDefault>
+            {{ "contact.form.send" | translate }}
+          </span>
+        </ng-container>
       </button>
     </form>
   </div>

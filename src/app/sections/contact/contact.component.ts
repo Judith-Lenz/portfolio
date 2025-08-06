@@ -42,7 +42,12 @@ export class ContactComponent {
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: [
         '',
-        [Validators.required, Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)],
+        [
+          Validators.required,
+          Validators.pattern(
+            /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/
+          ),
+        ],
       ],
       message: ['', Validators.required],
       privacy: [false, Validators.requiredTrue],
@@ -55,6 +60,11 @@ export class ContactComponent {
   }
 
   isSubmitting = false;
+  /**
+   * Status for submission button display
+   * ('idle' | 'sending' | 'success' | 'error')
+   */
+  submissionStatus: 'idle' | 'sending' | 'success' | 'error' = 'idle';
 
   /**
    * Handles form submission; validates form and triggers sending.
@@ -72,6 +82,7 @@ export class ContactComponent {
    */
   private startSubmission(): void {
     this.isSubmitting = true;
+    this.submissionStatus = 'sending';
     const formData = this.contactForm.value;
 
     this.sendForm(formData);
@@ -98,9 +109,13 @@ export class ContactComponent {
    */
   private handleSuccess(response: any): void {
     console.log('✅ Email sent!', response);
+    this.submissionStatus = 'success';
     this.contactForm.reset();
     this.formCache.clearForm();
     this.isSubmitting = false;
+    setTimeout(() => {
+      this.submissionStatus = 'idle';
+    }, 3000);
   }
 
   /**
@@ -109,7 +124,11 @@ export class ContactComponent {
    */
   private handleError(error: any): void {
     console.error('❌ Sending failed', error);
+    this.submissionStatus = 'error';
     this.isSubmitting = false;
+    setTimeout(() => {
+      this.submissionStatus = 'idle';
+    }, 3000);
   }
 
   /**
