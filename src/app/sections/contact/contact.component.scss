@@ -63,6 +63,7 @@ a {
 .contact-form {
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 1.5rem;
   max-width: 500px;
   margin-top: 2rem;
@@ -222,23 +223,30 @@ button {
 }
 
 button[type="submit"] {
+  width: 270px;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 15px 30px;
+  font-size: 23px;
   border-radius: 0.6rem;
   transition: background-color 0.3s ease, transform 0.1s ease;
   color: white;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .btn-disabled {
-  background-color: grey;
-  cursor: pointer;
+  background-color: #b6b6b6;
 }
 
 .btn-valid {
   background-color: s.$green;
   cursor: pointer;
 }
+
+// button[type="submit"].btn-valid,
+// button[type="submit"].btn-valid span {
+//   cursor: pointer;
+// }
 
 @keyframes blink {
   0%,
