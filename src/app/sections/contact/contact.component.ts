@@ -115,7 +115,7 @@ export class ContactComponent {
     this.isSubmitting = false;
     setTimeout(() => {
       this.submissionStatus = 'idle';
-    }, 2000);
+    }, 1500);
   }
 
   /**

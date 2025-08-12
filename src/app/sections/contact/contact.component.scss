@@ -1,100 +1,23 @@
 @use "./../../../styles.scss" as s;
 @use "./../../../mixins.scss" as mix;
 
-section {
-  @include mix.content-container;
-  border: 1px solid s.$green;
-  padding: 80px;
-  .subtitle {
-    @include mix.flex(flex, center, center);
-    padding-top: 45px;
-    font-size: 16px;
-    text-align: center;
-  }
-}
-
-.content {
-  @include mix.flex(flex, start, space-between);
-  margin-top: 45px;
-}
-
-textarea {
-  all: unset;
-  vertical-align: top;
-}
-
-.headline-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  .line {
-    background-color: s.$deep-purple;
-    height: 4px;
-    border-width: 4px;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    position: absolute;
-    top: 50%;
-    right: 70%;
-    width: 100vw;
-  }
-}
-
-.info {
-  width: 478px;
-  .question {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .info-text {
-    line-height: 120%;
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  .info-cta {
-    font-size: 16px;
-  }
-}
-
-a {
-  all: unset;
-  color: s.$deep-purple;
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 1.5rem;
-  max-width: 500px;
-}
-
-.input-wrapper {
-  position: relative;
-}
-
-input,
-textarea {
-  resize: none;
+/* ---------- Platzhalter & Hilfen ---------- */
+%input-base {
   width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: #141d2f;
-  color: white;
+  resize: none;
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  padding-right: 2.5rem; /* Platz für Icons */
+  background: #141d2f;
+  color: #fff;
   border: 1.5px solid s.$deep-purple;
   border-radius: 0.6rem;
   font-size: 1rem;
   transition: border 0.3s ease;
-  padding-right: 2.5rem;
 
   &::placeholder {
-    color: white;
+    color: #fff;
     opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
   }
   &:focus::placeholder {
     opacity: 0;
@@ -104,7 +27,6 @@ textarea {
     border-color: s.$green;
     cursor: pointer;
   }
-
   &:focus {
     border-color: #e61c40;
     outline: none;
@@ -113,201 +35,362 @@ textarea {
 
   &:-webkit-autofill {
     box-shadow: 0 0 0 1000px #141d2f inset !important;
-    -webkit-text-fill-color: white !important;
+    -webkit-text-fill-color: #fff !important;
     transition: background-color 5000s ease-in-out 0s;
   }
-
   &:-webkit-autofill::first-line {
     font-family: inherit;
     font-size: 1rem;
   }
 }
 
-textarea {
-  min-height: 120px;
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+/* ---------- Section/Layout ---------- */
+section {
+  @include mix.content-container;
+  border: 1px solid s.$green;
+  padding: 80px;
+  z-index: 0;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-input.valid,
-textarea.valid {
-  border-color: s.$green;
-}
-
-input.invalid,
-textarea.invalid {
-  border-color: #e61c40;
-}
-
-.checkbox-wrapper {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-
-  a {
-    color: s.$deep-purple;
-  }
-}
-
-.custom-checkbox {
-  display: flex;
-  align-items: center;
-  position: relative;
-  user-select: none;
-  gap: 0.5rem;
-
-  input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    width: 22px;
-    height: 22px;
-    border: 2px solid s.$green;
-    border-radius: 4px;
-    margin: 0;
-    z-index: 2;
-    cursor: pointer;
+  .subtitle {
+    @include mix.flex(flex, center, center);
+    padding-top: 45px;
+    font-size: 16px;
+    text-align: center;
   }
 
-  .checkmark {
-    width: 18px;
-    height: 18px;
-    border: 2px solid s.$green;
-    border-radius: 4px;
-    background-color: transparent;
+  .content {
+    @include mix.flex(flex, start, space-between);
+    margin-top: 45px;
+    gap: 30px;
+  }
+
+  .headline-container {
     position: relative;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-  }
+    display: flex;
+    justify-content: center;
 
-  &:hover .checkmark {
-    box-shadow: 0 0 18px 3px rgba(0, 255, 0, 0.4);
-  }
-
-  .checkmark::after {
-    content: "";
-    position: absolute;
-    display: none;
-    top: 39%;
-    left: 51%;
-    width: 5px;
-    height: 10px;
-    border: solid #70e61c;
-    border-width: 0 2px 2px 0;
-    border-radius: 1px;
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  input:checked ~ .checkmark::after {
-    display: block;
-  }
-
-  .checkbox-text {
-    font-size: 14px;
-    line-height: 120%;
-
-    a {
-      color: s.$deep-purple;
+    .line {
+      position: absolute;
+      top: 50%;
+      right: 70%;
+      width: 100vw;
+      height: 4px;
+      background: s.$deep-purple;
+      border-width: 4px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
     }
   }
-}
 
-button {
-  all: unset;
-}
+  .info {
+    max-width: 475px;
 
-button[type="submit"] {
-  width: 270px;
-  border: none;
-  padding: 15px 30px;
-  font-size: 23px;
-  border-radius: 0.6rem;
-  transition: background-color 0.3s ease, transform 0.1s ease;
-  color: white;
-  text-align: center;
-  margin: 0 auto;
-}
+    .question {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .info-text,
+    .info-cta {
+      font-size: 16px;
+      line-height: 120%;
+    }
+    .info-text {
+      margin-bottom: 15px;
+    }
+  }
 
-.btn-disabled {
-  background-color: #b6b6b6;
-}
+  /* Links einheitlich */
+  a {
+    all: unset;
+    color: s.$deep-purple;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
 
-.btn-valid {
-  background-color: s.$green;
-  cursor: pointer;
-  position: relative;
-  transform-origin: top center;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-  &:hover {
+  /* ---------- Formular ---------- */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    max-width: 600px;
+    margin: 0 80px 40px 0;
+  }
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  input,
+  textarea {
+    @extend %input-base;
+  }
+
+  textarea {
+    min-height: 120px;
+    vertical-align: top;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* Valid/Invalid Zustand (gemeinsam für input/textarea) */
+  .valid {
+    border-color: s.$green !important;
+  }
+  .invalid {
+    border-color: #e61c40 !important;
+  }
+
+  /* Icons & Fehlermeldungen */
+  .icon {
+    position: absolute;
+    top: 0.75rem;
+    right: -2.75rem;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+  .valid-icon {
+    color: s.$green;
+  }
+  .invalid-icon {
+    color: #e61c40;
+  }
+
+  .error-msg {
+    display: block;
+    margin-top: 0.3rem;
+    color: #e61c40;
+    font-size: 0.8rem;
+  }
+
+  /* ---------- Checkbox ---------- */
+  .checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    user-select: none;
+
+    input[type="checkbox"] {
+      position: absolute;
+      inset: 0 0 0 0; /* flacher Klickbereich über der Box/Text, wenn gewünscht anpassen */
+      opacity: 0;
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .checkmark {
+      width: 18px;
+      height: 18px;
+      border: 2px solid s.$green;
+      border-radius: 4px;
+      background: transparent;
+      position: relative;
+      flex-shrink: 0;
+      transition: box-shadow 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: none;
+        top: 39%;
+        left: 51%;
+        width: 5px;
+        height: 10px;
+        border: solid #70e61c;
+        border-width: 0 2px 2px 0;
+        border-radius: 1px;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    &:hover .checkmark {
+      box-shadow: 0 0 18px 3px rgba(0, 255, 0, 0.4);
+    }
+    input:checked ~ .checkmark::after {
+      display: block;
+    }
+
+    .checkbox-text {
+      font-size: 14px;
+      line-height: 120%;
+    }
+  }
+
+  /* ---------- Submit Button (final) ---------- */
+
+  /* Reset nur falls gewünscht – bei dir schon vorhanden */
+  button {
+    all: unset;
+  }
+
+  button[type="submit"] {
+    width: 225px;
+    height: 70px;
+    margin: 20px auto 60px;
+    padding: 0 30px; /* Höhe übernimmt vertikales Spacing */
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 23px; /* Basisgröße für kurze Labels */
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform-origin: top center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    /* Falls irgendwo span die Größe überschreibt */
+    span {
+      font-size: inherit;
+    }
+  }
+
+  /* ---- States ---- */
+
+  /* Längere Meldungen kleiner */
+  button[type="submit"].btn-sending,
+  button[type="submit"].btn-success,
+  button[type="submit"].btn-error {
+    font-size: 16px;
+  }
+
+  /* Ready to send */
+  button[type="submit"].btn-valid {
+    background: s.$green;
+  }
+
+  /* Ungültig / deaktiviert (per Klasse) */
+  button[type="submit"].btn-disabled {
+    background: #b6b6b6;
+  }
+
+  /* Erfolg */
+  button[type="submit"].btn-success {
+    background: s.$green !important;
+    color: #fff !important;
+  }
+
+  /* Fehler */
+  button[type="submit"].btn-error {
+    background: #e61c40 !important;
+    color: #fff !important;
+  }
+
+  /* Senden: Blinken */
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  button[type="submit"].btn-sending {
+    animation: blink 1s infinite;
+  }
+
+  /* ---- Hover-Logik ---- */
+
+  /* Hover NUR wenn valid, NICHT sending, NICHT error, NICHT disabled */
+  button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
+      :disabled
+    ):hover {
     transform: scale(1.1);
-    background-color: #9747ff;
-  }
-}
-
-button[type="submit"].btn-valid,
-button[type="submit"].btn-valid span {
-  cursor: pointer;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-.btn-sending {
-  animation: blink 1s infinite;
-}
-
-.btn-success {
-  background-color: s.$green !important;
-  color: white !important;
-}
-
-.btn-error {
-  background-color: #e61c40 !important;
-  color: white !important;
-}
-
-.icon {
-  position: absolute;
-  top: 0.75rem;
-  right: -2.75rem;
-
-  pointer-events: none;
-  width: 20px;
-  height: 20px;
-}
-
-.valid-icon {
-  color: s.$green;
-}
-
-.invalid-icon {
-  color: #e61c40;
-}
-
-.error-msg {
-  color: #e61c40;
-  font-size: 0.8rem;
-  margin-top: 0.3rem;
-  display: block;
-}
-
-.back-to-top {
-  position: absolute;
-  background-color: #141d2f;
-  right: 80px;
-  bottom: 0;
-  :hover {
+    background: #9747ff;
     cursor: pointer;
+  }
+
+  /* Disabled & Sending: kein Hover/Scale */
+  button[type="submit"]:disabled,
+  button[type="submit"]:disabled:hover,
+  button[type="submit"].btn-sending,
+  button[type="submit"].btn-sending:hover {
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+  }
+
+  /* Success/Error: ebenfalls kein Scale bei Hover */
+  button[type="submit"].btn-success,
+  button[type="submit"].btn-success:hover,
+  button[type="submit"].btn-error,
+  button[type="submit"].btn-error:hover {
+    transform: none !important;
+  }
+
+  /* Cursor auch auf dem Text, aber nur wenn klickbar */
+  button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
+      :disabled
+    ),
+  button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
+      :disabled
+    )
+    span {
+    cursor: pointer;
+  }
+
+  /* ---------- Back-to-top & Shadow ---------- */
+  .back-to-top {
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
+    background: #141d2f;
+    display: inline-flex; /* echte Box */
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px; /* Hit-Area */
+    border-radius: 8px;
+    img {
+      cursor: pointer;
+      display: block;
+    }
+  }
+
+  .shadow {
+    position: absolute;
+    left: -245px;
+    top: 95%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section {
+    .info {
+      .question {
+        font-size: 23px;
+      }
+    }
   }
 }

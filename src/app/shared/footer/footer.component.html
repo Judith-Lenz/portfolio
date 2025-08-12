@@ -1,26 +1,28 @@
 <div class="full-width-border"></div>
 <section>
-  <div class="content">
-    <div>
-      <app-title class="footer-title"></app-title>
-    </div>
-    <div>
-      &copy; Judith Lenz <span>{{ currentYear }}</span>
-    </div>
-    <div class="socialButtons">
-      <a href="https://github.com/Judith-Lenz" target="_blank">
-        <img src="assets/image/github_default.svg" alt="githubIcon"
-      /></a>
+  <footer>
+    <div class="content">
+      <div>
+        <app-title class="footer-title"></app-title>
+      </div>
+      <div>
+        &copy; Judith Lenz <span>{{ currentYear }}</span>
+      </div>
+      <div class="socialButtons">
+        <a href="https://github.com/Judith-Lenz" target="_blank">
+          <img src="assets/image/github_default.svg" alt="githubIcon"
+        /></a>
 
-      <a (click)="sendMail()">
-        <img src="assets/image/mail_default.svg" alt="mailIcon" />
-      </a>
-      <a href="https://www.linkedin.com/in/judith-lenz" target="_blank">
-        <img src="assets/image/linkedin_default.svg" alt="linkedinIcon"
-      /></a>
+        <a (click)="sendMail()">
+          <img src="assets/image/mail_default.svg" alt="mailIcon" />
+        </a>
+        <a href="https://www.linkedin.com/in/judith-lenz" target="_blank">
+          <img src="assets/image/linkedin_default.svg" alt="linkedinIcon"
+        /></a>
+      </div>
     </div>
-  </div>
-  <div class="legal-notice">
-    <a routerLink="/legal-notice">{{ "FOOTER.LEGAL" | translate }}</a>
-  </div>
+    <div class="legal-notice">
+      <a routerLink="/legal-notice">{{ "FOOTER.LEGAL" | translate }}</a>
+    </div>
+  </footer>
 </section>
