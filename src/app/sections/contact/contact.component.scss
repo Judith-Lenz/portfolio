@@ -245,6 +245,7 @@ section {
     width: 225px;
     height: 70px;
     margin: 20px auto 60px;
+    transform: translateX(20px);
     padding: 0 30px; /* Höhe übernimmt vertikales Spacing */
     border: none;
     border-radius: 0.6rem;
@@ -252,12 +253,11 @@ section {
     line-height: 1;
     color: #fff;
     text-align: center;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    transform-origin: top center;
+    transform: translateX(20px) scale(1); /* <— Übersetzung & Skalierung zusammen */
+    transform-origin: top center; /* wächst nur nach unten/seitlich */
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     /* Falls irgendwo span die Größe überschreibt */
@@ -317,7 +317,7 @@ section {
   button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
       :disabled
     ):hover {
-    transform: scale(1.1);
+    transform: translateX(20px) scale(1.1);
     background: #9747ff;
     cursor: pointer;
   }
@@ -329,7 +329,7 @@ section {
   button[type="submit"].btn-sending:hover {
     cursor: not-allowed;
     pointer-events: none;
-    transform: none !important;
+    transform: translateX(20px) scale(1) !important;
   }
 
   /* Success/Error: ebenfalls kein Scale bei Hover */
@@ -337,7 +337,7 @@ section {
   button[type="submit"].btn-success:hover,
   button[type="submit"].btn-error,
   button[type="submit"].btn-error:hover {
-    transform: none !important;
+    transform: translateX(20px) scale(1) !important;
   }
 
   /* Cursor auch auf dem Text, aber nur wenn klickbar */
@@ -387,9 +387,64 @@ section {
   }
 
   section {
+    .contact-form {
+      max-width: 671px;
+    }
     .info {
       .question {
         font-size: 23px;
+      }
+    }
+  }
+}
+@media (max-width: 680px) {
+  section {
+    .shadow {
+      left: -117px;
+      top: 97%;
+      width: 384px;
+    }
+    .headline-container {
+      justify-content: start;
+      .line {
+        right: 102%;
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  section {
+    padding: 40px;
+    .back-to-top {
+      right: 24px;
+      bottom: 23px;
+    }
+    button[type="submit"] {
+      font-size: 16px;
+      width: 190px;
+      height: 56px;
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  section {
+    .contact-form {
+      max-width: 170px;
+    }
+    button[type="submit"] {
+      font-size: 14px;
+      width: 158px;
+      height: 58px;
+      padding: 0 20px;
+    }
+    .checkbox-wrapper {
+      width: 245px;
+    }
+    .custom-checkbox {
+      .checkbox-text {
+        font-size: 12px;
       }
     }
   }

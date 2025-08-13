@@ -94,7 +94,7 @@ export class ContactComponent {
    */
   private sendForm(formData: any): void {
     this.http
-      .post('https://judithlenz.de/sendMail.php', formData, {
+      .post('https://judithlenz.de/FAKEsendMail.php', formData, {
         responseType: 'text',
       })
       .subscribe({
