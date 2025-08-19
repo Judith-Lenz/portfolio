@@ -268,7 +268,7 @@ section {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1030px) {
   section {
     padding: 80px 40px;
     grid-template-areas:
@@ -409,5 +409,31 @@ section {
   }
   .padding {
     padding-right: 0px;
+  }
+}
+
+:host-context([lang="de"]) {
+  .headline-de {
+    font-size: 59px;
+  }
+  @media (max-width: 1440px) {
+    .headline-de {
+      font-size: 35px;
+    }
+    .variety {
+      font-size: 14px;
+    }
+    .looking {
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 1135px) {
+    section {
+      gap: 16px 16px;
+    }
+    .skill_group {
+      gap: 20px;
+      width: 500px;
+    }
   }
 }

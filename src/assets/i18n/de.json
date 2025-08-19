@@ -1,13 +1,13 @@
 {
   "HEADER": {
     "ABOUT": "Über mich",
-    "SKILLS": "Fähigkeiten",
+    "SKILLS": "Kompetenzen",
     "PORTFOLIO": "Portfolio"
   },
 
   "NAV": {
     "ABOUT": "Über mich",
-    "SKILLS": "Meine Fähigkeiten",
+    "SKILLS": "Kompetenzen",
     "PORTFOLIO": "Portfolio",
     "CONTACT": "Kontakt"
   },
@@ -34,7 +34,7 @@
         "intro": "Ich interessiere mich besonders für"
       }
     },
-    "title": "Meine Fähigkeiten",
+    "title": "Meine Kompetenzen",
     "intro": "Ich habe diese Portfolio-Seite mit Angular erstellt und dabei TypeScript und SCSS verwendet – und es hat mir richtig Spaß gemacht. Davor habe ich vor allem Projekte mit HTML, CSS und JavaScript umgesetzt. Angular ist bisher meine Lieblingstechnologie, und ich freue mich darauf, weiterzulernen und mich zu verbessern.",
     "highlight": "Du suchst &nbsp; <span class='highlight'> eine andere Fähigkeit</span>?",
     "explanation": "Mein Hintergrund in Psychologie und Erwachsenenbildung hilft mir, benutzerzentrierte Anwendungen zu entwickeln und komplexe Ideen klar zu vermitteln – sowohl im Code als auch im UI. Aktuell vertiefe ich meine Angular-Kenntnisse und plane, auch ins Backend einzusteigen, um Fullstack-Entwicklerin zu werden.",
