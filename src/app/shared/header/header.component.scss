@@ -118,3 +118,11 @@ a {
     padding: 37px 30px 37px 30px;
   }
 }
+
+:host-context([lang="de"]) {
+  @media (max-width: 830px) {
+    .links-container {
+      gap: 20px;
+    }
+  }
+}

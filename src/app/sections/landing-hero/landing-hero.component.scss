@@ -154,6 +154,12 @@ section {
   font-size: 23px;
 }
 
+@media (min-width: 1945px) {
+  .curve-background {
+    top: 140px;
+  }
+}
+
 @media (max-width: 1944px) {
   .curve-background {
     top: 200px;
@@ -373,12 +379,92 @@ section {
 
 @media (max-width: 380px) {
   .image-container {
-    width: 156%;
+    width: 296px;
   }
   .curve-background {
     top: 284px;
   }
   .contact {
     left: 28px;
+  }
+}
+
+:host-context([lang="de"]) {
+  .text-content {
+    .vertical {
+      height: 130px;
+      font-size: 36px;
+    }
+    .subtitle {
+      width: 500px;
+    }
+    h2 {
+      font-size: 83px;
+    }
+    h3 {
+      font-size: 40px;
+    }
+  }
+  .btn {
+    width: 180px;
+    font-size: 29px;
+  }
+
+  @media (max-width: 1200px) {
+    .text-content {
+      .vertical {
+        height: 105px;
+        font-size: 28px;
+      }
+      .subtitle {
+        width: 365px;
+      }
+      h2 {
+        font-size: 63px;
+      }
+      h3 {
+        font-size: 29px;
+      }
+    }
+    .btn {
+      width: 128px;
+      font-size: 21px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .text-content {
+      .vertical {
+        height: 74px;
+        font-size: 22px;
+      }
+      .subtitle {
+        width: 305px;
+      }
+      h2 {
+        font-size: 45px;
+      }
+      h3 {
+        font-size: 23px;
+      }
+    }
+  }
+
+  @media (max-width: 470px) {
+    .text-content {
+      .vertical {
+        height: 60px;
+        font-size: 18px;
+      }
+      .subtitle {
+        width: 233px;
+      }
+      h2 {
+        font-size: 38px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+    }
   }
 }
