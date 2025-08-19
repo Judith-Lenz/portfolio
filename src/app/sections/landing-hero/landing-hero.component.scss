@@ -10,7 +10,7 @@ section {
 
 .curve-background {
   position: absolute;
-  top: 0; // passe das an deine Section an
+  top: 225px; // passe das an deine Section an
   left: 0;
   width: 100vw;
   height: auto;
@@ -91,7 +91,6 @@ section {
   position: relative;
   aspect-ratio: 1/1;
   img {
-    // position: absolute;
     top: -100px;
     left: 36px;
     object-fit: cover;
@@ -117,7 +116,6 @@ section {
   top: auto;
   left: 0;
   right: auto;
-  bottom: 8%;
   z-index: 1;
   @include mix.flex(flex, center, start);
   gap: 40px;
@@ -156,80 +154,61 @@ section {
   font-size: 23px;
 }
 
-// $bogen-breakpoints: (
-//   1944px: 130px,
-//   1850px: 165px,
-//   1750px: 195px,
-//   1670px: 222px,
-//   1610px: 239px,
-//   1572px: 250px,
-//   1560px: 296px,
-//   1400px: 282px,
-//   1220px: 333px,
-//   1024px: 292px,
-//   690px: 358px,
-//   600px: 256px,
-//   430px: 207px,
-// );
-
-// @each $breakpoint, $top in $bogen-breakpoints {
-//   @media (max-width: $breakpoint) {
-//     section .bogen {
-//       top: $top;
-//     }
-//   }
-// }
-
-@media (max-width: 1560px) {
-  .text-container {
-    padding-bottom: 350px;
+@media (max-width: 1944px) {
+  .curve-background {
+    top: 200px;
   }
-  .image-container {
-    height: 60%;
-    img {
-      left: 0;
-    }
+}
+
+@media (max-width: 1604px) {
+  .curve-background {
+    top: 310px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .curve-background {
+    top: 199px;
   }
   .text-content {
-    .vertical {
-      height: 118px;
-      font-size: 51px;
-    }
     h2 {
-      font-size: 74px;
+      font-size: 60px;
     }
     .subtitle {
+      font-size: 32px;
+      width: 357px;
+    }
+    .vertical {
       font-size: 40px;
-      width: 440px;
+      height: 99px;
     }
   }
-}
-
-@media (max-width: 1400px) {
   .image-container {
-    width: 50%;
-    height: 100%;
-    .shadow {
-      left: 50%;
-      top: 43%;
-    }
-    img {
-      top: 59px;
-      left: 39px;
-    }
     .profile {
-      width: 560px;
-      height: 661px;
+      width: 445px;
+      height: 525px;
     }
+  }
+  .text-container {
+    padding-bottom: 205px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   section {
-    .bogen {
-      transform: rotate(10deg);
-    }
+    padding: 20px 65px;
   }
+  .curve-background {
+    transform: rotate(6deg);
+    top: 341px;
+  }
+  .shadow {
+    left: 440px;
+  }
+  .text-container {
+    padding-bottom: 40px;
+  }
+
   .container {
     flex-direction: column;
   }
@@ -263,10 +242,10 @@ section {
     }
   }
   .text-container {
-    padding-bottom: 102px;
     z-index: 1;
   }
   .contact {
+    left: 60px;
     a {
       font-size: 18px;
     }
@@ -285,42 +264,34 @@ section {
       .shadow {
         left: 54%;
         top: 77%;
-        width: 246%;
       }
     }
   }
 }
 @media (max-width: 800px) {
-  .text-container {
-    padding-bottom: 124px;
-  }
-  .image-container {
-    img {
-      top: 13px;
-      left: -73px;
-    }
-  }
   .scroll-down {
     display: none;
   }
+  .curve-background {
+    transform: rotate(6deg);
+    top: 406px;
+  }
+  .shadow {
+    left: 348px;
+    width: 820px;
+  }
+  .image-container {
+    width: 83%;
+  }
 }
 
-@media (max-width: 690px) {
-  .image-container {
-    .shadow {
-      top: 72%;
-      width: 307%;
-    }
-  }
-}
 @media (max-width: 600px) {
-  section {
-    .bogen {
-      transform: rotate(13deg);
-    }
+  .curve-background {
+    transform: rotate(7deg);
+    top: 318px;
   }
   .text-container {
-    padding-bottom: 168px;
+    padding-bottom: 50px;
   }
 
   .text-content {
@@ -338,6 +309,7 @@ section {
     }
   }
   .image-container {
+    width: 100%;
     .profile {
       width: 386px;
       height: 456px;
@@ -345,19 +317,20 @@ section {
     img {
       left: -90px;
     }
-    .shadow {
-      top: 55%;
-      width: 340%;
-    }
+  }
+  .shadow {
+    left: 255px;
+    width: 662px;
+    top: 249px;
   }
 }
 
-@media (max-width: 430px) {
-  section {
-    padding: 0 20px 0 20px;
-    .bogen {
-      transform: rotate(12deg);
-    }
+@media (max-width: 470px) {
+  .curve-background {
+    top: 258px;
+  }
+  .btn {
+    font-size: 18px;
   }
   .image-container {
     .profile {
@@ -367,14 +340,9 @@ section {
     img {
       left: -67px;
     }
-    .shadow {
-      top: 38%;
-      width: 259%;
-      left: 37%;
-    }
   }
   .text-container {
-    padding-bottom: 256px;
+    padding-bottom: 56px;
   }
   .text-content {
     .vertical {
@@ -395,5 +363,22 @@ section {
     .line {
       right: 105%;
     }
+  }
+  .shadow {
+    left: 183px;
+    width: 565px;
+    top: 202px;
+  }
+}
+
+@media (max-width: 380px) {
+  .image-container {
+    width: 156%;
+  }
+  .curve-background {
+    top: 284px;
+  }
+  .contact {
+    left: 28px;
   }
 }
