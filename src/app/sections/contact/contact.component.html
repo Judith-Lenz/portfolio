@@ -20,7 +20,6 @@
       (ngSubmit)="onSubmit()"
       class="contact-form"
     >
-      <!-- Name -->
       <div class="input-wrapper">
         <input
           type="text"
@@ -37,7 +36,6 @@
               contactForm.get('name')?.touched
           }"
         />
-        <!-- ✅ Häkchen -->
         <img
           src="assets/icon/check.svg"
           alt="valid"
@@ -46,8 +44,6 @@
             contactForm.get('name')?.valid && contactForm.get('name')?.touched
           "
         />
-
-        <!-- ❗ Ausrufezeichen -->
         <img
           src="assets/icon/alert.svg"
           alt="invalid"
@@ -56,8 +52,6 @@
             contactForm.get('name')?.invalid && contactForm.get('name')?.dirty
           "
         />
-
-        <!-- Fehlermeldung -->
         <small
           class="error-msg"
           *ngIf="
@@ -77,8 +71,6 @@
           {{ "contact.form.error.nameMinLength" | translate }}
         </small>
       </div>
-
-      <!-- Email -->
       <div class="input-wrapper">
         <input
           type="email"
@@ -95,8 +87,6 @@
               contactForm.get('email')?.touched
           }"
         />
-
-        <!-- ✅ Häkchen -->
         <img
           src="assets/icon/check.svg"
           alt="valid"
@@ -105,8 +95,6 @@
             contactForm.get('email')?.valid && contactForm.get('email')?.touched
           "
         />
-
-        <!-- ❗ Ausrufezeichen -->
         <img
           src="assets/icon/alert.svg"
           alt="invalid"
@@ -115,8 +103,6 @@
             contactForm.get('email')?.invalid && contactForm.get('email')?.dirty
           "
         />
-
-        <!-- Fehlermeldungen -->
         <small
           class="error-msg"
           *ngIf="
@@ -136,8 +122,6 @@
           {{ "contact.form.error.emailInvalid" | translate }}
         </small>
       </div>
-
-      <!-- Message -->
       <div class="input-wrapper">
         <textarea
           formControlName="message"
@@ -153,8 +137,6 @@
               contactForm.get('message')?.touched
           }"
         ></textarea>
-
-        <!-- ✅ Häkchen -->
         <img
           src="assets/icon/check.svg"
           alt="valid"
@@ -164,8 +146,6 @@
             contactForm.get('message')?.touched
           "
         />
-
-        <!-- ❗ Ausrufezeichen -->
         <img
           src="assets/icon/alert.svg"
           alt="invalid"
@@ -175,8 +155,6 @@
             contactForm.get('message')?.dirty
           "
         />
-
-        <!-- Fehlermeldung -->
         <small
           class="error-msg"
           *ngIf="
@@ -207,8 +185,6 @@
             {{ "contact.form.privacySuffix" | translate }}
           </span>
         </label>
-
-        <!-- Fehlermeldung -->
         <small
           class="error-msg"
           *ngIf="
@@ -219,8 +195,6 @@
           >{{ "contact.form.error.privacyRequired" | translate }}
         </small>
       </div>
-
-      <!-- Submit Button -->
       <button
         type="submit"
         [disabled]="isSubmitting"
