@@ -1,12 +1,11 @@
 @use "./../../../styles.scss" as s;
 @use "./../../../mixins.scss" as mix;
 
-/* ---------- Platzhalter & Hilfen ---------- */
 %input-base {
   width: 100%;
   resize: none;
   padding: 0.75rem 1rem 0.75rem 1rem;
-  padding-right: 2.5rem; /* Platz für Icons */
+  padding-right: 2.5rem;
   background: #141d2f;
   color: #fff;
   border: 1.5px solid s.$deep-purple;
@@ -44,10 +43,8 @@
   }
 }
 
-/* ---------- Section/Layout ---------- */
 section {
   @include mix.content-container;
-  border: 1px solid s.$green;
   padding: 80px;
   z-index: 0;
 
@@ -100,7 +97,6 @@ section {
     }
   }
 
-  /* Links einheitlich */
   a {
     all: unset;
     color: s.$deep-purple;
@@ -110,7 +106,6 @@ section {
     }
   }
 
-  /* ---------- Formular ---------- */
   .contact-form {
     display: flex;
     flex-direction: column;
@@ -140,7 +135,6 @@ section {
     }
   }
 
-  /* Valid/Invalid Zustand (gemeinsam für input/textarea) */
   .valid {
     border-color: s.$green !important;
   }
@@ -148,7 +142,6 @@ section {
     border-color: #e61c40 !important;
   }
 
-  /* Icons & Fehlermeldungen */
   .icon {
     position: absolute;
     top: 0.75rem;
@@ -171,7 +164,6 @@ section {
     font-size: 0.8rem;
   }
 
-  /* ---------- Checkbox ---------- */
   .checkbox-wrapper {
     display: flex;
     flex-direction: column;
@@ -187,7 +179,7 @@ section {
 
     input[type="checkbox"] {
       position: absolute;
-      inset: 0 0 0 0; /* flacher Klickbereich über der Box/Text, wenn gewünscht anpassen */
+      inset: 0 0 0 0;
       opacity: 0;
       width: 22px;
       height: 22px;
@@ -234,9 +226,6 @@ section {
     }
   }
 
-  /* ---------- Submit Button (final) ---------- */
-
-  /* Reset nur falls gewünscht – bei dir schon vorhanden */
   button {
     all: unset;
   }
@@ -246,58 +235,49 @@ section {
     height: 70px;
     margin: 20px auto 60px;
     transform: translateX(20px);
-    padding: 0 30px; /* Höhe übernimmt vertikales Spacing */
+    padding: 0 30px;
     border: none;
     border-radius: 0.6rem;
-    font-size: 23px; /* Basisgröße für kurze Labels */
+    font-size: 23px;
     line-height: 1;
     color: #fff;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateX(20px) scale(1); /* <— Übersetzung & Skalierung zusammen */
-    transform-origin: top center; /* wächst nur nach unten/seitlich */
+    transform: translateX(20px) scale(1);
+    transform-origin: top center;
     transition: background-color 0.3s ease, transform 0.2s ease;
 
-    /* Falls irgendwo span die Größe überschreibt */
     span {
       font-size: inherit;
     }
   }
 
-  /* ---- States ---- */
-
-  /* Längere Meldungen kleiner */
   button[type="submit"].btn-sending,
   button[type="submit"].btn-success,
   button[type="submit"].btn-error {
     font-size: 16px;
   }
 
-  /* Ready to send */
   button[type="submit"].btn-valid {
     background: s.$green;
   }
 
-  /* Ungültig / deaktiviert (per Klasse) */
   button[type="submit"].btn-disabled {
     background: #b6b6b6;
   }
 
-  /* Erfolg */
   button[type="submit"].btn-success {
     background: s.$green !important;
     color: #fff !important;
   }
 
-  /* Fehler */
   button[type="submit"].btn-error {
     background: #e61c40 !important;
     color: #fff !important;
   }
 
-  /* Senden: Blinken */
   @keyframes blink {
     0%,
     100% {
@@ -311,9 +291,6 @@ section {
     animation: blink 1s infinite;
   }
 
-  /* ---- Hover-Logik ---- */
-
-  /* Hover NUR wenn valid, NICHT sending, NICHT error, NICHT disabled */
   button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
       :disabled
     ):hover {
@@ -322,7 +299,6 @@ section {
     cursor: pointer;
   }
 
-  /* Disabled & Sending: kein Hover/Scale */
   button[type="submit"]:disabled,
   button[type="submit"]:disabled:hover,
   button[type="submit"].btn-sending,
@@ -332,7 +308,6 @@ section {
     transform: translateX(20px) scale(1) !important;
   }
 
-  /* Success/Error: ebenfalls kein Scale bei Hover */
   button[type="submit"].btn-success,
   button[type="submit"].btn-success:hover,
   button[type="submit"].btn-error,
@@ -340,7 +315,6 @@ section {
     transform: translateX(20px) scale(1) !important;
   }
 
-  /* Cursor auch auf dem Text, aber nur wenn klickbar */
   button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
       :disabled
     ),
@@ -351,16 +325,15 @@ section {
     cursor: pointer;
   }
 
-  /* ---------- Back-to-top & Shadow ---------- */
   .back-to-top {
     position: absolute;
     right: 80px;
     bottom: 60px;
     background: #141d2f;
-    display: inline-flex; /* echte Box */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 8px; /* Hit-Area */
+    padding: 6px 8px;
     border-radius: 8px;
     img {
       cursor: pointer;

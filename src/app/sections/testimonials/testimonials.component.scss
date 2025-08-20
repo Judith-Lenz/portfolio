@@ -7,7 +7,6 @@ section {
   font-size: 16px;
   @include mix.flex(flex, center, space-between);
   flex-direction: column;
-  border: 1px solid s.$green;
 
   .quotesection {
     @include mix.flex(flex, center, space-between);

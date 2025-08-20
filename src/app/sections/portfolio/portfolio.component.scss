@@ -3,7 +3,6 @@
 
 section {
   @include mix.content-container;
-  border: 1px solid s.$green;
   padding: 80px;
   .subtitle {
     @include mix.flex(flex, center, center);

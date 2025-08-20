@@ -5,12 +5,11 @@ section {
   @include mix.content-container;
   margin-top: 128px;
   padding: 80px 80px;
-  border: 1px solid s.$green;
 }
 
 .curve-background {
   position: absolute;
-  top: 225px; // passe das an deine Section an
+  top: 225px;
   left: 0;
   width: 100vw;
   height: auto;

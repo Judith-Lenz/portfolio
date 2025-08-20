@@ -2,7 +2,6 @@
 @use "./../../../mixins.scss" as mix;
 
 section {
-  border: 1px solid s.$green;
   @include mix.content-container;
   padding: 80px 0 80px 80px;
   display: grid;
@@ -129,11 +128,6 @@ section {
   position: relative;
   display: inline-block;
   cursor: pointer;
-}
-
-.cl-img {
-  width: 60px;
-  height: 60px;
 }
 
 .tooltip-box {
@@ -413,6 +407,9 @@ section {
 }
 
 :host-context([lang="de"]) {
+  .btn {
+    width: 250px;
+  }
   .headline-de {
     font-size: 59px;
   }
@@ -434,6 +431,49 @@ section {
     .skill_group {
       gap: 20px;
       width: 500px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .skill_group {
+      padding-right: 0px;
+      gap: 20px;
+      width: 360px;
+    }
+    .headline_container {
+      .line {
+        left: 96%;
+      }
+    }
+    .headline-de {
+      text-align: end;
+      padding-right: 40px;
+    }
+    .indented {
+      padding-right: 40px;
+    }
+  }
+
+  @media (max-width: 505px) {
+    .headline-de {
+      font-size: 32px;
+      text-align: end;
+    }
+  }
+  @media (max-width: 480px) {
+    .skill_group {
+      width: 325px;
+    }
+  }
+  @media (max-width: 350px) {
+    .skill_group {
+      width: 252px;
+    }
+    .headline-de {
+      padding-right: 16px;
+    }
+    .indented {
+      padding-right: 16px;
     }
   }
 }
