@@ -3,7 +3,7 @@
 
 section {
   @include mix.content-container;
-  padding: 70px 40px 70px 80px;
+  padding: 0px 40px 70px 80px;
   font-size: 16px;
   @include mix.flex(flex, center, space-between);
   flex-direction: column;
@@ -132,7 +132,7 @@ section {
 
 @media (max-width: 1000px) {
   section {
-    padding: 70px 40px 70px 50px;
+    padding: 0px 40px 70px 50px;
 
     .quotesection {
       flex-direction: column;

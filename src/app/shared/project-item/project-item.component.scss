@@ -68,10 +68,11 @@
     .buttons {
       margin-top: 3rem;
       display: flex;
+      justify-content: center;
       gap: 60px;
 
       a {
-        padding: 14px 32px;
+        padding: 14px 22px;
         color: white;
         text-decoration: none;
         border-radius: 10px;
@@ -92,49 +93,11 @@
     border: 1px solid;
     border-color: s.$green;
   }
-
-  @media (max-width: 1100px) {
-    .image img {
-      max-width: 400px;
-    }
-  }
-
-  @media (max-width: 1000px) {
-    flex-direction: column !important;
-    align-items: center;
-    text-align: center;
-    gap: 0;
-
-    .image {
-      order: -1;
-    }
-    .image img {
-      max-width: 500px;
-    }
-
-    .text {
-      width: 100%;
-      margin-bottom: 65px;
-
-      .technologies,
-      .title,
-      .description {
-        text-align: center;
-      }
-
-      .buttons {
-        justify-content: space-around;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-    }
-  }
 }
 
 @media (max-width: 1280px) {
   .project-item {
-    gap: 8rem;
+    gap: 7rem;
     padding: 40px;
   }
 }
@@ -146,9 +109,59 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .image img {
+    max-width: 400px;
+  }
+}
+
 @media (max-width: 1080px) {
   .project-item {
     gap: 4rem;
     padding: 0px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .project-item {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  .image {
+    order: -1;
+  }
+  .image img {
+    max-width: 500px;
+  }
+
+  .text {
+    width: 100%;
+    margin-bottom: 65px;
+
+    .technologies,
+    .title,
+    .description {
+      text-align: center;
+    }
+
+    .buttons {
+      justify-content: space-around;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .project-item {
+    .text {
+      .buttons {
+        gap: 15px;
+      }
+    }
   }
 }
