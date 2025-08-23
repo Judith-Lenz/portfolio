@@ -27,13 +27,13 @@
     cursor: pointer;
   }
   &:focus {
-    border-color: #e61c40;
+    border-color: hsl(216, 80%, 51%); //hier die Farbe des Randes ändern
     outline: none;
     cursor: text;
   }
 
   &:-webkit-autofill {
-    box-shadow: 0 0 0 1000px #141d2f inset !important;
+    box-shadow: 0 0 0 1000px #1f53bd inset !important;
     -webkit-text-fill-color: #fff !important;
     transition: background-color 5000s ease-in-out 0s;
   }

@@ -38,25 +38,50 @@ export class ContactComponent {
     private navigation: NavigationService,
     public formCache: ContactFormCacheService
   ) {
-    this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/
-          ),
-        ],
-      ],
-      message: ['', Validators.required],
-      privacy: [false, Validators.requiredTrue],
-    });
+    // this.contactForm = this.fb.group({
+    //   name: ['', [Validators.required, Validators.minLength(2)]],
+    //   email: [
+    //     '',
+    //     [
+    //       Validators.required,
+    //       Validators.pattern(
+    //         /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/
+    //       ),
+    //     ],
+    //   ],
+    //   message: ['', Validators.required],
+    //   privacy: [false, Validators.requiredTrue],
+    // });
 
-    const cached = this.formCache.getForm();
-    if (cached) {
-      this.contactForm.patchValue(cached);
-    }
+    // const cached = this.formCache.getForm();
+    // if (cached) {
+    //   this.contactForm.patchValue(cached);
+    // }
+
+    this.contactForm = this.fb.group(
+      {
+        name: this.fb.control('', {
+          validators: [Validators.required, Validators.minLength(2)],
+        }),
+        email: this.fb.control('', {
+          validators: [
+            Validators.required,
+            Validators.pattern(
+              /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/
+            ),
+          ],
+        }),
+        message: this.fb.control('', {
+          validators: [Validators.required],
+        }),
+        // Checkbox soll beim Klicken validieren (blur ist hier unpraktisch)
+        privacy: this.fb.control(false, {
+          validators: [Validators.requiredTrue],
+          updateOn: 'change',
+        }),
+      },
+      { updateOn: 'blur' } // <— wichtig
+    );
   }
 
   isSubmitting = false;
@@ -134,26 +159,31 @@ export class ContactComponent {
   /**
    * Marks all controls as touched and dirty if the form is invalid.
    */
+  // private handleInvalidForm(): void {
+  //   console.log('❌ Formular ungültig');
+  //   Object.keys(this.contactForm.controls).forEach((controlName) => {
+  //     const control = this.contactForm.get(controlName);
+  //     control?.markAsTouched();
+  //     control?.markAsDirty();
+  //   });
+  // }
+
   private handleInvalidForm(): void {
     console.log('❌ Formular ungültig');
-    Object.keys(this.contactForm.controls).forEach((controlName) => {
-      const control = this.contactForm.get(controlName);
-      control?.markAsTouched();
-      control?.markAsDirty();
-    });
+    this.contactForm.markAllAsTouched();
   }
 
   /**
    * Marks a single form control as touched and dirty.
    * @param controlName The name of the control.
    */
-  markAsTouched(controlName: string) {
-    const control = this.contactForm.get(controlName);
-    if (control && !control.touched) {
-      control.markAsTouched();
-      control.markAsDirty();
-    }
-  }
+  // markAsTouched(controlName: string) {
+  //   const control = this.contactForm.get(controlName);
+  //   if (control && !control.touched) {
+  //     control.markAsTouched();
+  //     control.markAsDirty();
+  //   }
+  // }
 
   /**
    * Scrolls to the top of the page using the navigation service.

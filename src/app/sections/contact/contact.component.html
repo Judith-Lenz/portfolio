@@ -26,7 +26,6 @@
           formControlName="name"
           placeholder="{{ 'contact.form.name' | translate }}"
           id="name"
-          (focus)="markAsTouched('name')"
           [ngClass]="{
             valid:
               contactForm.get('name')?.valid &&
@@ -49,14 +48,14 @@
           alt="invalid"
           class="icon invalid-icon"
           *ngIf="
-            contactForm.get('name')?.invalid && contactForm.get('name')?.dirty
+            contactForm.get('name')?.invalid && contactForm.get('name')?.touched
           "
         />
         <small
           class="error-msg"
           *ngIf="
             contactForm.get('name')?.hasError('required') &&
-            contactForm.get('name')?.dirty
+            contactForm.get('name')?.touched
           "
         >
           {{ "contact.form.error.nameRequired" | translate }}
@@ -65,7 +64,7 @@
           class="error-msg"
           *ngIf="
             contactForm.get('name')?.hasError('minlength') &&
-            contactForm.get('name')?.dirty
+            contactForm.get('name')?.touched
           "
         >
           {{ "contact.form.error.nameMinLength" | translate }}
@@ -77,7 +76,6 @@
           formControlName="email"
           id="email"
           placeholder="{{ 'contact.form.email' | translate }}"
-          (focus)="markAsTouched('email')"
           [ngClass]="{
             valid:
               contactForm.get('email')?.valid &&
@@ -100,14 +98,15 @@
           alt="invalid"
           class="icon invalid-icon"
           *ngIf="
-            contactForm.get('email')?.invalid && contactForm.get('email')?.dirty
+            contactForm.get('email')?.invalid &&
+            contactForm.get('email')?.touched
           "
         />
         <small
           class="error-msg"
           *ngIf="
             contactForm.get('email')?.hasError('required') &&
-            contactForm.get('email')?.dirty
+            contactForm.get('email')?.touched
           "
         >
           {{ "contact.form.error.emailRequired" | translate }}
@@ -116,7 +115,7 @@
           class="error-msg"
           *ngIf="
             contactForm.get('email')?.hasError('pattern') &&
-            contactForm.get('email')?.dirty
+            contactForm.get('email')?.touched
           "
         >
           {{ "contact.form.error.emailInvalid" | translate }}
@@ -127,7 +126,6 @@
           formControlName="message"
           id="message"
           placeholder="{{ 'contact.form.message' | translate }}"
-          (focus)="markAsTouched('message')"
           [ngClass]="{
             valid:
               contactForm.get('message')?.valid &&
@@ -152,14 +150,14 @@
           class="icon invalid-icon"
           *ngIf="
             contactForm.get('message')?.invalid &&
-            contactForm.get('message')?.dirty
+            contactForm.get('message')?.touched
           "
         />
         <small
           class="error-msg"
           *ngIf="
             contactForm.get('message')?.hasError('required') &&
-            contactForm.get('message')?.dirty
+            contactForm.get('message')?.touched
           "
         >
           {{ "contact.form.error.messageRequired" | translate }}
@@ -168,12 +166,7 @@
 
       <div class="checkbox-wrapper">
         <label class="custom-checkbox">
-          <input
-            type="checkbox"
-            formControlName="privacy"
-            id="privacy"
-            (blur)="markAsTouched('privacy')"
-          />
+          <input type="checkbox" formControlName="privacy" id="privacy" />
           <span class="checkmark"></span>
           <span class="checkbox-text"
             >{{ "contact.form.privacy" | translate }}
@@ -190,7 +183,7 @@
           *ngIf="
             contactForm.get('privacy')?.invalid &&
             (contactForm.get('privacy')?.touched ||
-              contactForm.get('privacy')?.dirty)
+              contactForm.get('privacy')?.touched)
           "
           >{{ "contact.form.error.privacyRequired" | translate }}
         </small>
