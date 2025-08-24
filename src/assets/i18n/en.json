@@ -91,6 +91,11 @@
         "messageRequired": "Your message is empty",
         "privacyRequired": "Please accept the privacy policy."
       }
+    },
+    "overlay": {
+      "title": "Message sent",
+      "text": "Thanks! Your message was sent successfully. I’ll get back to you as soon as possible.",
+      "ariaLabel": "Confirmation: message sent"
     }
   },
 

@@ -51,25 +51,32 @@
             contactForm.get('name')?.invalid && contactForm.get('name')?.touched
           "
         />
-        <small
-          class="error-msg"
-          *ngIf="
-            contactForm.get('name')?.hasError('required') &&
-            contactForm.get('name')?.touched
-          "
-        >
-          {{ "contact.form.error.nameRequired" | translate }}
-        </small>
-        <small
-          class="error-msg"
-          *ngIf="
-            contactForm.get('name')?.hasError('minlength') &&
-            contactForm.get('name')?.touched
-          "
-        >
-          {{ "contact.form.error.nameMinLength" | translate }}
-        </small>
+
+        <div class="error-slot">
+          <small
+            class="error-msg"
+            *ngIf="
+              contactForm.get('name')?.hasError('required') &&
+                contactForm.get('name')?.touched;
+              else nameMinErr
+            "
+          >
+            {{ "contact.form.error.nameRequired" | translate }}
+          </small>
+          <ng-template #nameMinErr>
+            <small
+              class="error-msg"
+              *ngIf="
+                contactForm.get('name')?.hasError('minlength') &&
+                contactForm.get('name')?.touched
+              "
+            >
+              {{ "contact.form.error.nameMinLength" | translate }}
+            </small>
+          </ng-template>
+        </div>
       </div>
+
       <div class="input-wrapper">
         <input
           type="email"
@@ -102,25 +109,32 @@
             contactForm.get('email')?.touched
           "
         />
-        <small
-          class="error-msg"
-          *ngIf="
-            contactForm.get('email')?.hasError('required') &&
-            contactForm.get('email')?.touched
-          "
-        >
-          {{ "contact.form.error.emailRequired" | translate }}
-        </small>
-        <small
-          class="error-msg"
-          *ngIf="
-            contactForm.get('email')?.hasError('pattern') &&
-            contactForm.get('email')?.touched
-          "
-        >
-          {{ "contact.form.error.emailInvalid" | translate }}
-        </small>
+
+        <div class="error-slot">
+          <small
+            class="error-msg"
+            *ngIf="
+              contactForm.get('email')?.hasError('required') &&
+                contactForm.get('email')?.touched;
+              else emailPatternErr
+            "
+          >
+            {{ "contact.form.error.emailRequired" | translate }}
+          </small>
+          <ng-template #emailPatternErr>
+            <small
+              class="error-msg"
+              *ngIf="
+                contactForm.get('email')?.hasError('pattern') &&
+                contactForm.get('email')?.touched
+              "
+            >
+              {{ "contact.form.error.emailInvalid" | translate }}
+            </small>
+          </ng-template>
+        </div>
       </div>
+
       <div class="input-wrapper">
         <textarea
           formControlName="message"
@@ -153,41 +167,50 @@
             contactForm.get('message')?.touched
           "
         />
-        <small
-          class="error-msg"
-          *ngIf="
-            contactForm.get('message')?.hasError('required') &&
-            contactForm.get('message')?.touched
-          "
-        >
-          {{ "contact.form.error.messageRequired" | translate }}
-        </small>
+
+        <div class="error-slot">
+          <small
+            class="error-msg"
+            *ngIf="
+              contactForm.get('message')?.hasError('required') &&
+              contactForm.get('message')?.touched
+            "
+          >
+            {{ "contact.form.error.messageRequired" | translate }}
+          </small>
+        </div>
       </div>
 
       <div class="checkbox-wrapper">
         <label class="custom-checkbox">
           <input type="checkbox" formControlName="privacy" id="privacy" />
           <span class="checkmark"></span>
-          <span class="checkbox-text"
-            >{{ "contact.form.privacy" | translate }}
+          <span class="checkbox-text">
+            {{ "contact.form.privacy" | translate }}
             <a
               routerLink="/privacy-policy"
               (click)="formCache.setForm(contactForm.value)"
-              >{{ "contact.form.privacyLink" | translate }}</a
             >
+              {{ "contact.form.privacyLink" | translate }}
+            </a>
             {{ "contact.form.privacySuffix" | translate }}
           </span>
         </label>
-        <small
-          class="error-msg"
-          *ngIf="
-            contactForm.get('privacy')?.invalid &&
-            (contactForm.get('privacy')?.touched ||
-              contactForm.get('privacy')?.touched)
-          "
-          >{{ "contact.form.error.privacyRequired" | translate }}
-        </small>
+
+        <div class="error-slot">
+          <small
+            class="error-msg"
+            *ngIf="
+              contactForm.get('privacy')?.invalid &&
+              (contactForm.get('privacy')?.touched ||
+                contactForm.get('privacy')?.dirty)
+            "
+          >
+            {{ "contact.form.error.privacyRequired" | translate }}
+          </small>
+        </div>
       </div>
+
       <button
         type="submit"
         [disabled]="isSubmitting"
@@ -195,16 +218,12 @@
           'btn-valid': contactForm.valid,
           'btn-disabled': !contactForm.valid,
           'btn-sending': submissionStatus === 'sending',
-          'btn-success': submissionStatus === 'success',
           'btn-error': submissionStatus === 'error'
         }"
       >
         <ng-container [ngSwitch]="submissionStatus">
           <span *ngSwitchCase="'sending'">
             {{ "contact.form.submitSending" | translate }}
-          </span>
-          <span *ngSwitchCase="'success'">
-            {{ "contact.form.submitSuccess" | translate }}
           </span>
           <span *ngSwitchCase="'error'">
             {{ "contact.form.submitError" | translate }}
@@ -236,4 +255,18 @@
     src="assets/image/33. Purple shadow Footer.png"
     alt="shadow_about"
   />
+  <div
+    class="success-overlay"
+    *ngIf="showSuccessOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-live="polite"
+    [attr.aria-label]="'contact.overlay.ariaLabel' | translate"
+  >
+    <div class="success-card">
+      <img src="assets/icon/check.svg" alt="" class="success-icon" />
+      <h3>{{ "contact.overlay.title" | translate }}</h3>
+      <p class="success-text">{{ "contact.overlay.text" | translate }}</p>
+    </div>
+  </div>
 </section>

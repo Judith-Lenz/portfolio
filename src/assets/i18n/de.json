@@ -91,6 +91,12 @@
         "messageRequired": "Deine Nachricht fehlt",
         "privacyRequired": "Bitte akzeptiere die Datenschutzerklärung."
       }
+    },
+
+    "overlay": {
+      "title": "Nachricht gesendet",
+      "text": "Danke! Deine Nachricht wurde erfolgreich verschickt. Ich melde mich so bald wie möglich.",
+      "ariaLabel": "Bestätigung: Nachricht gesendet"
     }
   },
 
