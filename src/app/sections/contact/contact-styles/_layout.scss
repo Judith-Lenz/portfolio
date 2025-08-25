@@ -1,0 +1,94 @@
+@use "../../../../styles.scss" as s;
+@use "../../../../mixins.scss" as mix;
+
+section {
+  @include mix.content-container;
+  padding: 80px;
+  z-index: auto !important;
+
+  .subtitle {
+    @include mix.flex(flex, center, center);
+    padding-top: 45px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .content {
+    @include mix.flex(flex, start, space-between);
+    margin-top: 45px;
+    gap: 30px;
+  }
+
+  .headline-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .line {
+      position: absolute;
+      top: 50%;
+      right: 70%;
+      width: 100vw;
+      height: 4px;
+      background: s.$deep-purple;
+      border-width: 4px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  }
+
+  .info {
+    max-width: 475px;
+
+    .question {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .info-text,
+    .info-cta {
+      font-size: 16px;
+      line-height: 120%;
+    }
+    .info-text {
+      margin-bottom: 15px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    all: unset;
+    color: s.$deep-purple;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  .back-to-top {
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
+    background: #141d2f;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    border-radius: 8px;
+    img {
+      cursor: pointer;
+      display: block;
+    }
+  }
+
+  .shadow {
+    position: absolute;
+    left: -245px;
+    top: 95%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+  }
+}

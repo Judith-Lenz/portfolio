@@ -1,0 +1,93 @@
+@use "../../../../styles.scss" as s;
+
+section {
+  button {
+    all: unset;
+  }
+
+  button[type="submit"] {
+    width: 225px;
+    height: 70px;
+    margin: 20px auto 60px;
+    transform: translateX(20px);
+    padding: 0 30px;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 23px;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: top center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    span {
+      font-size: inherit;
+    }
+  }
+
+  button[type="submit"].btn-sending,
+  button[type="submit"].btn-success,
+  button[type="submit"].btn-error {
+    font-size: 16px;
+  }
+
+  button[type="submit"].btn-valid {
+    background: s.$green;
+  }
+  button[type="submit"].btn-disabled {
+    background: #b6b6b6;
+  }
+  button[type="submit"].btn-success {
+    background: s.$green !important;
+    color: #fff !important;
+  }
+  button[type="submit"].btn-error {
+    background: #e61c40 !important;
+    color: #fff !important;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  button[type="submit"].btn-sending {
+    animation: blink 1s infinite;
+  }
+
+  button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
+      :disabled
+    ):hover {
+    transform: translateX(20px) scale(1.1);
+    background: #9747ff;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:disabled,
+  button[type="submit"].btn-sending {
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: translateX(20px) scale(1) !important;
+  }
+
+  button[type="submit"].btn-success,
+  button[type="submit"].btn-error {
+    transform: translateX(20px) scale(1) !important;
+  }
+
+  button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
+      :disabled
+    ),
+  button[type="submit"].btn-valid:not(.btn-sending):not(.btn-error):not(
+      :disabled
+    )
+    span {
+    cursor: pointer;
+  }
+}

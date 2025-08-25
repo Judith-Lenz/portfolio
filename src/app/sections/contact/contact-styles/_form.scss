@@ -1,0 +1,148 @@
+@use "../../../../styles.scss" as s;
+@use "../../../../mixins.scss" as mix;
+@use "./tokens" as ct;
+
+section {
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    max-width: 600px;
+    margin: 0 80px 40px 0;
+  }
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  input,
+  textarea {
+    @include ct.input-base;
+  }
+
+  textarea {
+    min-height: 120px;
+    vertical-align: top;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .valid {
+    border-color: s.$green !important;
+  }
+  .invalid {
+    border-color: #e61c40 !important;
+  }
+
+  .icon {
+    position: absolute;
+    top: 0.75rem;
+    right: -2.75rem;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+  .valid-icon {
+    color: s.$green;
+  }
+  .invalid-icon {
+    color: #e61c40;
+  }
+
+  .error-slot {
+    min-height: 20px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .error-msg {
+    margin-top: 0.3rem;
+    color: #e61c40;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .custom-checkbox .checkbox-text a {
+    text-decoration: none;
+    display: inline-block;
+    color: s.$deep-purple;
+    border-bottom: 1px solid transparent;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.2s ease;
+  }
+  .custom-checkbox .checkbox-text a:hover {
+    cursor: pointer;
+    border-bottom-color: currentColor;
+    background-size: 100% 1px;
+  }
+
+  .custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    user-select: none;
+
+    input[type="checkbox"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      z-index: 2;
+    }
+
+    .checkmark {
+      width: 18px;
+      height: 18px;
+      border: 2px solid s.$green;
+      border-radius: 4px;
+      background: transparent;
+      position: relative;
+      flex-shrink: 0;
+      transition: box-shadow 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: none;
+        top: 39%;
+        left: 51%;
+        width: 5px;
+        height: 10px;
+        border: solid #70e61c;
+        border-width: 0 2px 2px 0;
+        border-radius: 1px;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    &:hover .checkmark {
+      box-shadow: 0 0 18px 3px rgba(0, 255, 0, 0.4);
+      cursor: pointer;
+    }
+    input:checked ~ .checkmark::after {
+      display: block;
+    }
+
+    .checkbox-text {
+      font-size: 14px;
+      line-height: 120%;
+    }
+  }
+}
