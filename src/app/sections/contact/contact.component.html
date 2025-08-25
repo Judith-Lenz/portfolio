@@ -26,6 +26,7 @@
           formControlName="name"
           placeholder="{{ 'contact.form.name' | translate }}"
           id="name"
+          (blur)="contactForm.get('name')?.markAsTouched()"
           [ngClass]="{
             valid:
               contactForm.get('name')?.valid &&
@@ -83,6 +84,7 @@
           formControlName="email"
           id="email"
           placeholder="{{ 'contact.form.email' | translate }}"
+          (blur)="contactForm.get('email')?.markAsTouched()"
           [ngClass]="{
             valid:
               contactForm.get('email')?.valid &&
@@ -140,6 +142,7 @@
           formControlName="message"
           id="message"
           placeholder="{{ 'contact.form.message' | translate }}"
+          (blur)="contactForm.get('message')?.markAsTouched()"
           [ngClass]="{
             valid:
               contactForm.get('message')?.valid &&
@@ -183,7 +186,13 @@
 
       <div class="checkbox-wrapper">
         <label class="custom-checkbox">
-          <input type="checkbox" formControlName="privacy" id="privacy" />
+          <input
+            type="checkbox"
+            formControlName="privacy"
+            id="privacy"
+            (blur)="contactForm.get('privacy')?.markAsTouched()"
+          />
+
           <span class="checkmark"></span>
           <span class="checkbox-text">
             {{ "contact.form.privacy" | translate }}

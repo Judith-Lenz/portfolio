@@ -29,6 +29,7 @@ export class ContactComponent {
   contactForm: FormGroup;
   showSuccessOverlay = false;
   successOverlayDuration = 3800;
+  submitted = false;
 
   /**
    * Initializes the contact form and loads cached values if available.
@@ -60,8 +61,8 @@ export class ContactComponent {
           validators: [Validators.requiredTrue],
           updateOn: 'change',
         }),
-      },
-      { updateOn: 'blur' }
+      }
+      // { updateOn: 'blur' }
     );
   }
 
@@ -76,11 +77,12 @@ export class ContactComponent {
    * Handles form submission; validates form and triggers sending.
    */
   onSubmit() {
-    if (this.contactForm.valid && !this.isSubmitting) {
-      this.startSubmission();
-    } else {
-      this.handleInvalidForm();
+    this.submitted = true; // NEU
+    if (this.contactForm.invalid || this.isSubmitting) {
+      this.handleInvalidForm(); // zeigt dann (über Template) Fehler an
+      return;
     }
+    this.startSubmission();
   }
 
   /**
@@ -120,11 +122,13 @@ export class ContactComponent {
     this.formCache.clearForm();
     this.isSubmitting = false;
     this.submissionStatus = 'idle';
+    this.submitted = false; // NEU
 
     this.showSuccessOverlay = true;
-    setTimeout(() => {
-      this.showSuccessOverlay = false;
-    }, this.successOverlayDuration);
+    setTimeout(
+      () => (this.showSuccessOverlay = false),
+      this.successOverlayDuration
+    );
   }
 
   /**
