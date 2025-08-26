@@ -2,6 +2,7 @@
 @use "./../../../mixins.scss" as mix;
 
 section {
+  height: 100vh;
   @include mix.content-container;
   margin-top: 128px;
   padding: 80px 80px;

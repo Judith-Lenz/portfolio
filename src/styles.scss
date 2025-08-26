@@ -1,3 +1,30 @@
+@import "aos/dist/aos.css";
+
+/* kräftig von links/rechts reinfliegen */
+.aos-slide-left[data-aos="fade-left"] {
+  transform: translate3d(50vw, 0, 0); /* weiter = stärkerer Slide */
+}
+
+.aos-slide-right[data-aos="fade-right"] {
+  transform: translate3d(-50vw, 0, 0);
+}
+
+/* optional: etwas snappiger machen */
+.aos-slide-left[data-aos],
+.aos-slide-right[data-aos] {
+  transition-duration: 400ms; /* schneller */
+  transition-timing-function: ease-out; /* knackiger */
+}
+
+/* Respect: reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+  .aos-slide-left[data-aos],
+  .aos-slide-right[data-aos] {
+    transform: none !important;
+    transition-duration: 0ms !important;
+  }
+}
+
 $green: #70e61c;
 $purple: #7c28bd;
 $deep-purple: #9747ff;

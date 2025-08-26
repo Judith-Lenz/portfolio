@@ -1,4 +1,10 @@
-<section *ngIf="currentReference" id="testimonials">
+<section
+  *ngIf="currentReference"
+  id="testimonials"
+  class="aos-slide-left"
+  data-aos="fade-left"
+  data-aos-once="true"
+>
   <div class="quotesection">
     <div class="portrait">
       <img [src]="currentReference.image" alt="portrait" />

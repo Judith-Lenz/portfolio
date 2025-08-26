@@ -31,7 +31,7 @@ interface ContactPayload {
   styleUrl: './contact.component.scss',
 })
 /**
- * Contact form component with validation, caching, and HTTP submission.
+ * Contact form component with validation, caching, and submission.
  */
 export class ContactComponent {
   hover = false;
@@ -53,7 +53,9 @@ export class ContactComponent {
     this.createForm();
   }
 
-  /** Build the form with validators. */
+  /**
+   * Create form with validators.
+   */
   private createForm(): void {
     this.contactForm = this.fb.group({
       name: this.fb.control('', [Validators.required, Validators.minLength(2)]),
@@ -69,38 +71,50 @@ export class ContactComponent {
     });
   }
 
-  /** @returns name form control */
+  /**
+   * @returns name control
+   */
   get nameCtrl(): AbstractControl | null {
     return this.contactForm.get('name');
   }
-  /** @returns email form control */
+  /**
+   * @returns email control
+   */
   get emailCtrl(): AbstractControl | null {
     return this.contactForm.get('email');
   }
-  /** @returns message form control */
+  /**
+   * @returns message control
+   */
   get messageCtrl(): AbstractControl | null {
     return this.contactForm.get('message');
   }
-  /** @returns privacy form control */
+  /**
+   * @returns privacy control
+   */
   get privacyCtrl(): AbstractControl | null {
     return this.contactForm.get('privacy');
   }
 
-  /** Marks all controls as touched. */
+  /**
+   * Mark all controls as touched.
+   */
   private touchAll(): void {
     this.contactForm.markAllAsTouched();
   }
 
   /**
-   * Shows success overlay.
-   * @param durationMs Duration in milliseconds
+   * Show success overlay.
+   * @param durationMs Duration in ms
    */
   private showOverlayFor(durationMs: number): void {
     this.showSuccessOverlay = true;
     setTimeout(() => (this.showSuccessOverlay = false), durationMs);
   }
 
-  /** Validate form and start submission. */
+  /**
+   * Validate form and submit.
+   */
   onSubmit(): void {
     this.submitted = true;
 
@@ -111,7 +125,9 @@ export class ContactComponent {
     this.startSubmission();
   }
 
-  /** Start submission and build payload. */
+  /**
+   * Start submission process.
+   */
   private startSubmission(): void {
     this.isSubmitting = true;
     this.submissionStatus = 'sending';
@@ -120,7 +136,10 @@ export class ContactComponent {
     this.sendForm(payload);
   }
 
-  /** @returns typed payload from form */
+  /**
+   * Build payload from form values.
+   * @returns ContactPayload
+   */
   private buildPayload(): ContactPayload {
     const v = this.contactForm.value as ContactPayload;
     return {
@@ -132,8 +151,8 @@ export class ContactComponent {
   }
 
   /**
-   * Send form data to backend.
-   * @param formData ContactPayload
+   * Send form data.
+   * @param formData Payload
    */
   private sendForm(formData: ContactPayload): void {
     this.http
@@ -148,7 +167,7 @@ export class ContactComponent {
   }
 
   /**
-   * Handle success response.
+   * Handle success.
    * @param response Server response
    */
   private handleSuccess(_: any): void {
@@ -163,7 +182,7 @@ export class ContactComponent {
   }
 
   /**
-   * Handle submission error.
+   * Handle error.
    * @param error Error object
    */
   private handleError(error: any): void {
@@ -172,13 +191,17 @@ export class ContactComponent {
     setTimeout(() => (this.submissionStatus = 'idle'), 3000);
   }
 
-  /** Log invalid form and mark touched. */
+  /**
+   * Handle invalid form.
+   */
   private handleInvalidForm(): void {
     console.log('❌ Invalid form');
     this.touchAll();
   }
 
-  /** Reset form and clear cache. */
+  /**
+   * Reset form and clear cache.
+   */
   private resetFormAndCache(): void {
     this.contactForm.reset({
       name: '',
@@ -189,7 +212,9 @@ export class ContactComponent {
     this.formCache.clearForm();
   }
 
-  /** Scroll to top of page. */
+  /**
+   * Scroll to top.
+   */
   goToTop(): void {
     this.navigation.scrollToTop();
   }

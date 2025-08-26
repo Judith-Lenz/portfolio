@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from '../about/about.component';
 import { SkillsComponent } from '../skills/skills.component';
@@ -8,10 +8,8 @@ import { ContactComponent } from '../contact/contact.component';
 import { RouterModule } from '@angular/router';
 import { LandingHeroComponent } from '../landing-hero/landing-hero.component';
 import { ScrollTrackingService } from '../../shared/services/scroll-tracking.service';
+import AOS from 'aos';
 
-/**
- * Main component that includes all homepage sections and handles scroll tracking.
- */
 @Component({
   selector: 'app-main',
   standalone: true,
@@ -26,38 +24,37 @@ import { ScrollTrackingService } from '../../shared/services/scroll-tracking.ser
     RouterModule,
   ],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.scss',
+  styleUrls: ['./main.component.scss'], // <-- plural
 })
-export class MainComponent {
-  /**
-   * Default contact email address shown in the footer.
-   */
-
+export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   email: string = 'kontakt@judithlenz.de';
 
-  /**
-   * Injects the scroll tracking service.
-   * @param scrollService Service for tracking the active section on scroll.
-   */
   constructor(private scrollService: ScrollTrackingService) {}
 
-  /**
-   * Registers the scroll event listener on component init.
-   */
+  // AOS: bei Resize neu messen
+  private onResize = () => AOS.refresh();
+
+  // Scroll-Tracking registrieren
   ngOnInit(): void {
     window.addEventListener('scroll', this.onScroll, true);
   }
 
-  /**
-   * Removes the scroll event listener on component destroy.
-   */
-  ngOnDestroy(): void {
-    window.removeEventListener('scroll', this.onScroll, true);
+  // AOS initialisieren
+  ngAfterViewInit(): void {
+    AOS.init({ duration: 400, once: true, easing: 'ease-out' });
+    window.addEventListener('resize', this.onResize);
+
+    // wichtig bei Angular: nach einem Tick hart refreshen
+    setTimeout(() => AOS.refreshHard(), 0);
   }
 
-  /**
-   * Handles the scroll event, detects the active section, and updates the URL.
-   */
+  // Beide Listener sauber entfernen (nur EINE ngOnDestroy!)
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.onScroll, true);
+    window.removeEventListener('resize', this.onResize);
+  }
+
+  // ---- Dein bestehendes Scroll-Tracking ----
   onScroll = (): void => {
     if (this.scrollService.isTrackingPaused()) return;
 
@@ -68,43 +65,23 @@ export class MainComponent {
     this.updateUrlFragment(activeId);
   };
 
-  /**
-   * Finds the first visible section from a list of section IDs.
-   * @param sectionIds Array of section IDs to check.
-   * @returns The ID of the active section or an empty string.
-   */
   private findActiveSection(sectionIds: string[]): string {
     for (const id of sectionIds) {
       const el = document.getElementById(id);
-      if (el && this.isElementInView(el)) {
-        return id;
-      }
+      if (el && this.isElementInView(el)) return id;
     }
     return '';
   }
 
-  /**
-   * Checks if the given element is currently in view (within vertical range).
-   * @param el The HTML element to check.
-   * @returns True if the element is in view.
-   */
   private isElementInView(el: HTMLElement): boolean {
     const rect = el.getBoundingClientRect();
     return rect.top <= 130 && rect.bottom > 130;
   }
 
-  /**
-   * Updates the active section in the scroll tracking service.
-   * @param id The ID of the active section.
-   */
   private updateActiveSection(id: string): void {
     this.scrollService.setActiveSection(id);
   }
 
-  /**
-   * Updates the URL fragment to match the active section.
-   * @param id The ID of the active section.
-   */
   private updateUrlFragment(id: string): void {
     const url = id ? `#${id}` : `/`;
     history.replaceState(null, '', url);
