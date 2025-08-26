@@ -228,8 +228,13 @@
         type="submit"
         [disabled]="isSubmitting"
         [ngClass]="{
-          'btn-valid': contactForm.valid,
-          'btn-disabled': !contactForm.valid,
+          'btn-valid':
+            contactForm.valid &&
+            !isSubmitting &&
+            submissionStatus === 'idle' &&
+            !showSuccessOverlay,
+          'btn-disabled':
+            !contactForm.valid || isSubmitting || showSuccessOverlay,
           'btn-sending': submissionStatus === 'sending',
           'btn-error': submissionStatus === 'error'
         }"

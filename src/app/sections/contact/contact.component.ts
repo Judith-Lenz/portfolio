@@ -15,7 +15,7 @@ import {
 } from '@angular/forms';
 import { finalize } from 'rxjs';
 
-type SubmissionStatus = 'idle' | 'sending' | 'success' | 'error';
+type SubmissionStatus = 'idle' | 'sending' | 'error';
 interface ContactPayload {
   name: string;
   email: string;
@@ -151,11 +151,15 @@ export class ContactComponent {
    * Handle success response.
    * @param response Server response
    */
-  private handleSuccess(_response: any): void {
+  private handleSuccess(_: any): void {
+    this.showSuccessOverlay = true;
     this.resetFormAndCache();
     this.submissionStatus = 'idle';
     this.submitted = false;
-    this.showOverlayFor(this.successOverlayDuration);
+    setTimeout(
+      () => (this.showSuccessOverlay = false),
+      this.successOverlayDuration
+    );
   }
 
   /**

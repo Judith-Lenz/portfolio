@@ -28,7 +28,6 @@ section {
   }
 
   button[type="submit"].btn-sending,
-  button[type="submit"].btn-success,
   button[type="submit"].btn-error {
     font-size: 16px;
   }
@@ -38,10 +37,6 @@ section {
   }
   button[type="submit"].btn-disabled {
     background: #b6b6b6;
-  }
-  button[type="submit"].btn-success {
-    background: s.$green !important;
-    color: #fff !important;
   }
   button[type="submit"].btn-error {
     background: #e61c40 !important;
@@ -76,7 +71,6 @@ section {
     transform: translateX(20px) scale(1) !important;
   }
 
-  button[type="submit"].btn-success,
   button[type="submit"].btn-error {
     transform: translateX(20px) scale(1) !important;
   }
