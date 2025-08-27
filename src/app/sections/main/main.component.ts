@@ -24,37 +24,50 @@ import AOS from 'aos';
     RouterModule,
   ],
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'], // <-- plural
+  styleUrls: ['./main.component.scss'],
 })
+
+/**
+ * Main component containing all sections and handling scroll tracking + AOS animations.
+ */
 export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   email: string = 'kontakt@judithlenz.de';
 
   constructor(private scrollService: ScrollTrackingService) {}
 
-  // AOS: bei Resize neu messen
+  /**
+   * Refresh AOS animations on window resize.
+   */
   private onResize = () => AOS.refresh();
 
-  // Scroll-Tracking registrieren
+  /**
+   * Register scroll tracking listener.
+   */
   ngOnInit(): void {
     window.addEventListener('scroll', this.onScroll, true);
   }
 
-  // AOS initialisieren
+  /**
+   * Initialize AOS animations after view init.
+   */
   ngAfterViewInit(): void {
     AOS.init({ duration: 400, once: true, easing: 'ease-out' });
     window.addEventListener('resize', this.onResize);
 
-    // wichtig bei Angular: nach einem Tick hart refreshen
     setTimeout(() => AOS.refreshHard(), 0);
   }
 
-  // Beide Listener sauber entfernen (nur EINE ngOnDestroy!)
+  /**
+   * Clean up all event listeners on destroy.
+   */
   ngOnDestroy(): void {
     window.removeEventListener('scroll', this.onScroll, true);
     window.removeEventListener('resize', this.onResize);
   }
 
-  // ---- Dein bestehendes Scroll-Tracking ----
+  /**
+   * Handle scroll events and update active section + URL.
+   */
   onScroll = (): void => {
     if (this.scrollService.isTrackingPaused()) return;
 
@@ -65,6 +78,11 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
     this.updateUrlFragment(activeId);
   };
 
+  /**
+   * Find currently visible section by ID.
+   * @param sectionIds List of section IDs
+   * @returns Active section ID or empty string
+   */
   private findActiveSection(sectionIds: string[]): string {
     for (const id of sectionIds) {
       const el = document.getElementById(id);
@@ -73,15 +91,28 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
     return '';
   }
 
+  /**
+   * Check if element is currently in view.
+   * @param el HTMLElement to check
+   * @returns True if in view, otherwise false
+   */
   private isElementInView(el: HTMLElement): boolean {
     const rect = el.getBoundingClientRect();
     return rect.top <= 130 && rect.bottom > 130;
   }
 
+  /**
+   * Update the active section in the scroll service.
+   * @param id Section ID
+   */
   private updateActiveSection(id: string): void {
     this.scrollService.setActiveSection(id);
   }
 
+  /**
+   * Update the URL fragment without reloading.
+   * @param id Section ID
+   */
   private updateUrlFragment(id: string): void {
     const url = id ? `#${id}` : `/`;
     history.replaceState(null, '', url);
