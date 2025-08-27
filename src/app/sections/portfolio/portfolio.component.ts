@@ -52,8 +52,7 @@ export class PortfolioComponent implements OnInit {
             description: translation['portfolio.join.description'],
             technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
             imageUrl: 'assets/image/Laptop_join2.png',
-            liveUrl:
-              'https://judith-lenz.developerakademie.net/join/index.html',
+            liveUrl: 'https://join-337.developerakademie.net/Join/index.html',
             githubUrl: 'https://github.com/Judith-Lenz/Judiths-Join',
             align: 'left',
           },
