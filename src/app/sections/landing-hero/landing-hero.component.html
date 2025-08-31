@@ -2,6 +2,11 @@
   <div class="container">
     <div class="image-container">
       <img class="profile" src="assets/image/profile2.webp" alt="Judith Lenz" />
+      <img
+        class="shadow"
+        src="assets/image/29. photo shadows.png"
+        alt="shadow"
+      />
     </div>
 
     <div class="text-container">
@@ -35,8 +40,8 @@
       ><img src="assets/image/linkedin_default.svg" alt="LinkedIn"
     /></a>
     <a class="mail" [attr.href]="'mailto:' + email">{{ email }}</a>
+    <div class="scroll-down">{{ "HERO.SCROLL" | translate }} &#10140;</div>
   </div>
-  <img class="shadow" src="assets/image/29. photo shadows.png" alt="shadow" />
+  <!-- <img class="shadow" src="assets/image/29. photo shadows.png" alt="shadow" /> -->
   <div class="curve-background"></div>
-  <div class="scroll-down">{{ "HERO.SCROLL" | translate }} &#10140;</div>
 </section>

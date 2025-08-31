@@ -1,4 +1,7 @@
 @import "aos/dist/aos.css";
+:root {
+  --header-h: 110px;
+}
 
 /* kräftig von links/rechts reinfliegen */
 .aos-slide-left[data-aos="fade-left"] {
@@ -36,6 +39,7 @@ $deep-purple: #9747ff;
 }
 
 body {
+  padding-top: var(--header-h);
   font-family: "Poppins", sans-serif;
   font-size: 24px;
   background-color: #141d2f;
@@ -126,6 +130,32 @@ textarea:-moz-autofill:focus,
 select:-moz-autofill:focus {
   border-color: $green !important;
   outline: none;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141d2f; /* Hintergrund der Leiste */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-image: #70e61c;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #58b415; /* dunkleres Grün beim Hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #70e61c #141d2f;
 }
 
 /* poppins-100 - latin */
