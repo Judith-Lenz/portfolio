@@ -12,7 +12,7 @@ section {
 
 .curve-background {
   position: absolute;
-  bottom: clamp(-820px, -41vw, -180px);
+  bottom: clamp(-1125px, -41vw, -180px);
   left: 0;
   width: 100vw;
   height: auto;
@@ -93,30 +93,27 @@ section {
   z-index: -2;
   position: relative;
   aspect-ratio: 1/1;
-  img {
-    top: -100px;
-    left: 36px;
-    object-fit: cover;
-  }
   .profile {
     width: 595px;
     z-index: 1;
     height: 709px;
+    object-fit: cover;
   }
 }
 
 .shadow {
   position: absolute;
-  top: 398px;
-  left: 346px;
-  width: 893px;
+  top: clamp(100px, 15vh, 310px);
+  left: clamp(80px, 10vw, 260px);
+  width: clamp(350px, 50vw, 1000px);
   transform: translate(-50%, -50%) rotate(199deg);
   z-index: -3;
 }
 
 .contact {
+  margin-bottom: 50px;
   position: relative;
-  top: auto;
+  top: clamp(0px, 2vw, 56px);
   left: 0;
   right: auto;
   z-index: 1;

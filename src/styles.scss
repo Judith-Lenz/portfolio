@@ -132,13 +132,12 @@ select:-moz-autofill:focus {
   outline: none;
 }
 
-/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #141d2f; /* Hintergrund der Leiste */
+  background: #141d2f;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -149,10 +148,9 @@ select:-moz-autofill:focus {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #58b415; /* dunkleres Grün beim Hover */
+  background-color: #58b415;
 }
 
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #70e61c #141d2f;
