@@ -45,7 +45,7 @@ export class NavigationService {
   scrollToSection(fragment: string): void {
     const el = document.getElementById(fragment);
     if (el) {
-      const headerOffset = 128;
+      const headerOffset = 70;
       const elementPosition = el.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 

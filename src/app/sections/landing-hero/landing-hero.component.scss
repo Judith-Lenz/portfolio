@@ -6,7 +6,7 @@ section {
   padding: 80px 80px 0px 80px;
   display: flex;
   flex-direction: column;
-  min-height: calc(100svh - var(--header-h));
+  height: 100vh;
 }
 
 .curve-background {
@@ -14,7 +14,7 @@ section {
   top: 205px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100vw;
+  width: 101vw;
   height: auto;
   aspect-ratio: 1 / 1;
   background-image: url("../../../assets/image/curve.svg");
@@ -101,13 +101,38 @@ section {
   }
 }
 
+$shadow-breakpoints: (
+  320px: (
+    top: 35%,
+    left: 50%,
+    height: 100%,
+  ),
+  440px: (
+    top: 50%,
+    left: 40%,
+    height: 118%,
+  ),
+
+  470px: (
+    top: 53%,
+    left: 50%,
+  ),
+);
+
 .shadow {
   position: absolute;
-  top: clamp(100px, 15vh, 310px);
-  left: clamp(80px, 10vw, 260px);
-  width: clamp(350px, 50vw, 1000px);
-  transform: translate(-50%, -50%) rotate(199deg);
   z-index: -3;
+  transform: translate(-50%, -50%) rotate(199deg);
+  top: 35%;
+  left: 50%;
+  height: 100%;
+  @each $bp, $props in $shadow-breakpoints {
+    @media (min-width: #{$bp}) {
+      top: map-get($props, top);
+      left: map-get($props, left);
+      height: map-get($props, height);
+    }
+  }
 }
 
 .contact {
@@ -213,10 +238,6 @@ $curve-breakpoints: (
   section {
     padding: 20px 65px;
   }
-
-  .shadow {
-    left: 440px;
-  }
   .text-container {
     padding-bottom: 40px;
   }
@@ -226,15 +247,6 @@ $curve-breakpoints: (
   }
   .image-container {
     width: 60%;
-    img {
-      top: 15px;
-      left: -5px;
-    }
-    .shadow {
-      left: 48%;
-      top: 82%;
-      width: 216%;
-    }
     .profile {
       width: 505px;
       height: 600px;
@@ -270,24 +282,11 @@ $curve-breakpoints: (
   .scroll-down {
     display: none;
   }
-
-  @media (max-width: 900px) {
-    .image-container {
-      .shadow {
-        left: 54%;
-        top: 77%;
-      }
-    }
-  }
 }
+
 @media (max-width: 800px) {
   .scroll-down {
     display: none;
-  }
-
-  .shadow {
-    left: 348px;
-    width: 820px;
   }
   .image-container {
     width: 83%;
@@ -319,14 +318,6 @@ $curve-breakpoints: (
       width: 386px;
       height: 456px;
     }
-    img {
-      left: -90px;
-    }
-  }
-  .shadow {
-    left: 255px;
-    width: 662px;
-    top: 249px;
   }
 }
 
@@ -338,9 +329,6 @@ $curve-breakpoints: (
     .profile {
       width: 308px;
       height: 364px;
-    }
-    img {
-      left: -67px;
     }
   }
   .text-container {
@@ -365,11 +353,6 @@ $curve-breakpoints: (
     .line {
       right: 110%;
     }
-  }
-  .shadow {
-    left: 183px;
-    width: 565px;
-    top: 202px;
   }
 }
 

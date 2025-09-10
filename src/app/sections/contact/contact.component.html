@@ -273,18 +273,19 @@
     src="assets/image/33. Purple shadow Footer.png"
     alt="shadow_about"
   />
-  <div
-    class="success-overlay"
-    *ngIf="showSuccessOverlay"
-    role="dialog"
-    aria-modal="true"
-    aria-live="polite"
-    [attr.aria-label]="'contact.overlay.ariaLabel' | translate"
-  >
-    <div class="success-card">
-      <img src="assets/icon/check.svg" alt="" class="success-icon" />
-      <h3>{{ "contact.overlay.title" | translate }}</h3>
-      <p class="success-text">{{ "contact.overlay.text" | translate }}</p>
-    </div>
-  </div>
 </section>
+
+<div
+  class="success-overlay"
+  *ngIf="showSuccessOverlay"
+  role="dialog"
+  aria-modal="true"
+  aria-live="polite"
+  [attr.aria-label]="'contact.overlay.ariaLabel' | translate"
+>
+  <div class="success-card">
+    <img src="assets/icon/check.svg" alt="" class="success-icon" />
+    <h3>{{ "contact.overlay.title" | translate }}</h3>
+    <p class="success-text">{{ "contact.overlay.text" | translate }}</p>
+  </div>
+</div>

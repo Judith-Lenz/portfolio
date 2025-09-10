@@ -3,8 +3,8 @@
 
 section {
   @include mix.content-container;
-  min-height: calc(100vh - 370px);
-  padding: 180px 80px;
+  min-height: calc(100vh - 110px);
+  padding: 60px 80px;
   text-align: start;
   font-size: 14px;
   a {
@@ -22,7 +22,7 @@ section {
 
 @media (max-width: 480px) {
   section {
-    padding: 150px 30px;
+    padding: 50px 30px;
     font-size: 12px;
   }
 }

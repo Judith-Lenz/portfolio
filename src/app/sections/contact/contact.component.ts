@@ -52,6 +52,12 @@ export class ContactComponent {
   ) {
     this.createForm();
   }
+  ngOnInit(): void {
+    const cached = this.formCache.getForm();
+    if (cached) {
+      this.contactForm.patchValue(cached);
+    }
+  }
 
   /**
    * Create form with validators.
