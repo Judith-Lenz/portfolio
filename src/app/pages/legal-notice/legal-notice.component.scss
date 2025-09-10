@@ -4,7 +4,9 @@
 section {
   @include mix.content-container;
   flex: 1;
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 410px);
+  display: flex;
+  flex-direction: column;
   padding: 60px 80px;
   text-align: start;
   font-size: 24px;
@@ -24,8 +26,9 @@ section {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 800px) {
   section {
+    min-height: calc(100vh - 510px);
     padding: 50px 30px;
     font-size: 12px;
   }
