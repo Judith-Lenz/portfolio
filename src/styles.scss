@@ -137,7 +137,7 @@ select:-moz-autofill:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background: #141d2f;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -153,7 +153,7 @@ select:-moz-autofill:focus {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #70e61c #141d2f;
+  scrollbar-color: #70e61c transparent;
 }
 
 /* poppins-100 - latin */

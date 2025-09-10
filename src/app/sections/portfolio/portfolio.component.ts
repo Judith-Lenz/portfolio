@@ -53,6 +53,7 @@ export class PortfolioComponent implements OnInit {
             technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
             imageUrl: 'assets/image/Laptop_join2.png',
             liveUrl: 'https://join-337.developerakademie.net/Join/index.html',
+            // liveUrl: 'https://judithlenz.de/join/',
             githubUrl: 'https://github.com/Judith-Lenz/Join',
             align: 'left',
           },

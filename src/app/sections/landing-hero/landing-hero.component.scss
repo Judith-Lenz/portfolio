@@ -6,18 +6,17 @@ section {
   padding: 80px 80px 0px 80px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   min-height: calc(100svh - var(--header-h));
 }
 
 .curve-background {
   position: absolute;
-  bottom: clamp(-1125px, -41vw, -180px);
-  left: 0;
+  top: 205px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100vw;
   height: auto;
-  aspect-ratio: 4 / 3;
-  margin-left: calc(-50vw + 50%);
+  aspect-ratio: 1 / 1;
   background-image: url("../../../assets/image/curve.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -94,6 +93,7 @@ section {
   position: relative;
   aspect-ratio: 1/1;
   .profile {
+    height: auto;
     width: 595px;
     z-index: 1;
     height: 709px;
@@ -156,28 +156,35 @@ section {
   font-size: 23px;
 }
 
-@media (min-width: 1945px) {
-  .curve-background {
-    // top: 140px;
-  }
-}
+$curve-breakpoints: (
+  450px: 198px,
+  601px: 298px,
+  800px: 250px,
+  940px: 190px,
+  1024px: 90px,
+  1275px: 25px,
+  1350px: 125px,
+  1625px: 36px,
+  1835px: -45px,
+  2000px: -100px,
+  2230px: -180px,
+  2450px: -280px,
+  2700px: -380px,
+  2935px: -480px,
+  3230px: -580px,
+  3495px: -700px,
+  3840px: -713px,
+);
 
-@media (max-width: 1944px) {
-  .curve-background {
-    // top: 200px;
-  }
-}
-
-@media (max-width: 1604px) {
-  .curve-background {
-    // top: 310px;
+@each $width, $top in $curve-breakpoints {
+  @media (min-width: #{$width}) {
+    .curve-background {
+      top: $top;
+    }
   }
 }
 
 @media (max-width: 1350px) {
-  .curve-background {
-    // top: 199px;
-  }
   .text-content {
     h2 {
       font-size: 60px;
@@ -206,10 +213,7 @@ section {
   section {
     padding: 20px 65px;
   }
-  .curve-background {
-    transform: rotate(6deg);
-    // top: 341px;
-  }
+
   .shadow {
     left: 440px;
   }
@@ -280,10 +284,7 @@ section {
   .scroll-down {
     display: none;
   }
-  .curve-background {
-    transform: rotate(6deg);
-    // top: 406px;
-  }
+
   .shadow {
     left: 348px;
     width: 820px;
@@ -294,10 +295,6 @@ section {
 }
 
 @media (max-width: 600px) {
-  .curve-background {
-    transform: rotate(7deg);
-    // top: 318px;
-  }
   .text-container {
     padding-bottom: 50px;
   }
@@ -334,16 +331,13 @@ section {
 }
 
 @media (max-width: 470px) {
-  .curve-background {
-    // top: 258px;
-  }
   .btn {
     font-size: 18px;
   }
   .image-container {
     .profile {
       width: 308px;
-      height: 365px;
+      height: 364px;
     }
     img {
       left: -67px;
@@ -381,10 +375,7 @@ section {
 
 @media (max-width: 380px) {
   .image-container {
-    width: 296px;
-  }
-  .curve-background {
-    // top: 284px;
+    width: 308px;
   }
   .contact {
     left: 0px;
@@ -470,111 +461,3 @@ section {
     }
   }
 }
-
-// /* === 4K/Very Large Screens: mittig + 100vh, ohne Layout zu brechen === */
-// @media (min-width: 1800px) {
-//   section {
-//     /* Vorgabe: 100vh */
-//     height: 100vh;
-//     position: relative;
-//     display: flex;
-//     flex-direction: column;
-//     /* deinen Header-Abstand beibehalten, nicht ändern: */
-//     /* margin-top: 128px; */
-//     /* padding kann so bleiben; wenn oben zu viel Luft, ggf. etwas reduzieren */
-//   }
-
-//   /* Inhalt füllt den freien Raum in der Section und wird mittig ausgerichtet */
-//   .container {
-//     flex: 1;
-//     display: flex;
-//     align-items: center; /* vertikal mittig */
-//     justify-content: center; /* horizontal mittig (Bild + Text in der Mitte) */
-//     gap: clamp(24px, 4vw, 80px);
-//     position: relative;
-//     z-index: 2; /* über Bogen/Schatten */
-//   }
-
-//   .text-container {
-//     padding-bottom: 0; /* alte Verschiebung nach oben raus */
-//     align-items: center; /* zentriert */
-//     gap: clamp(16px, 2vw, 28px);
-//   }
-
-//   .text-content {
-//     gap: clamp(16px, 3vw, 40px);
-
-//     .vertical {
-//       font-size: clamp(24px, 3vw, 40px);
-//       height: auto;
-//     }
-//     h2 {
-//       font-size: clamp(36px, 6vw, 90px);
-//       line-height: 1.2;
-//     }
-//     .subtitle {
-//       font-size: clamp(18px, 3vw, 50px);
-//       width: auto;
-//       max-width: 38ch;
-//     }
-//   }
-
-//   .btn {
-//     font-size: clamp(16px, 1.6vw, 23px);
-//   }
-
-//   /* Bild nicht mehr per top/left „schieben“, sondern natürlich skalieren */
-//   .image-container {
-//     z-index: 1; /* über Bogen, unter Text ok */
-//     .profile {
-//       width: clamp(380px, 28vw, 700px);
-//       height: auto;
-//     }
-//     img {
-//       top: auto;
-//       left: auto;
-//     } /* alte Offsets neutralisieren */
-//   }
-
-//   /* Schatten etwas lockerer koppeln */
-//   .shadow {
-//     position: absolute;
-//     left: 50%;
-//     top: 58%;
-//     transform: translate(-50%, -50%) rotate(199deg);
-//     width: clamp(520px, 48vw, 1100px);
-//     z-index: 1; /* unter .container, über Bogen */
-//   }
-
-//   /* Bogen am unteren Rand verankern – kein top-Raten mehr */
-//   .curve-background {
-//     position: absolute;
-//     inset: auto 0 0 0; /* bottom: 0; left/right: 0 */
-//     height: clamp(320px, 45vh, 820px); /* skaliert mit Höhe */
-//     background-position: bottom center;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     z-index: 0; /* unter Schatten/Content */
-//   }
-
-//   /* Kontaktleiste & Scroll-Hinweis „füllen“ die leere Ecke unten */
-//   .contact {
-//     position: absolute;
-//     left: clamp(16px, 5vw, 80px);
-//     bottom: clamp(16px, 3vh, 40px);
-//     z-index: 2;
-
-//     .line {
-//       display: none;
-//     } /* optional: Linie auf großen Screens ausblenden */
-//   }
-
-//   .scroll-down {
-//     position: absolute;
-//     right: clamp(16px, 5vw, 80px);
-//     bottom: clamp(16px, 3vh, 40px);
-//     transform: rotate(90deg);
-//     z-index: 2;
-//     font-size: clamp(14px, 1.4vw, 23px);
-//   }
-// }
